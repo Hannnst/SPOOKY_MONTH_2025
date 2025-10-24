@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daigwacw7pf0v"
-path="res://.godot/imported/p_right.png-b90dac8e71f5b1a67036b2e0e917121c.ctex"
+uid="uid://ca716rw6o02kw"
+path="res://.godot/imported/icon4.svg-a854d7b2cc647070a4b4532d33a43d1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/p_right.png"
-dest_files=["res://.godot/imported/p_right.png-b90dac8e71f5b1a67036b2e0e917121c.ctex"]
+source_file="res://enemies/icon4.svg"
+dest_files=["res://.godot/imported/icon4.svg-a854d7b2cc647070a4b4532d33a43d1b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
