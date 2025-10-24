@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-var speed = 200  # pixels per second
+var speed = 200 # pixels per second
+
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
