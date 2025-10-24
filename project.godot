@@ -14,6 +14,10 @@ config/name="SPOOKYMONTH_2025"
 run/main_scene="uid://dl3cm8tp0gdqh"
 config/features=PackedStringArray("4.5", "Mobile")
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="mobile"
