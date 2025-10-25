@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://blyr4hpm4rkw8"]
+
+[ext_resource type="Script" uid="uid://w6tkts8f4noq" path="res://autoloads/InteractionManager.gd" id="1_h5wjs"]
+[ext_resource type="Texture2D" uid="uid://dbdw2leqw2ijy" path="res://interaction/placeholderE.webp" id="2_p7rmf"]
+
+[node name="InteractionManager" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_h5wjs")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.134766, 0.134766)
+texture = ExtResource("2_p7rmf")

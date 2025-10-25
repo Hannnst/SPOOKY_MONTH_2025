@@ -17,10 +17,16 @@ config/features=PackedStringArray("4.4", "Mobile")
 [autoload]
 
 Globals="*res://autoloads/Globals.gd"
+InteractionManager="*res://autoloads/InteractionManager.tscn"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_8="interaction"
 
 [rendering]
 
