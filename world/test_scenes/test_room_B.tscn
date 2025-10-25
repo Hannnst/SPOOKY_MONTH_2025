@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bamw8vfi1alo2"]
+
+[ext_resource type="Texture2D" uid="uid://csl2bawby4emo" path="res://assets/placeholder/EIVXvPaW4AExn-p.png" id="1_0ifyk"]
+[ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="1_6strp"]
+[ext_resource type="Script" uid="uid://qdsytpvkd4j0" path="res://world/test_scenes/test_room_b.gd" id="1_u6b6k"]
+
+[node name="TestRoomB" type="Node2D"]
+script = ExtResource("1_u6b6k")
+
+[node name="EivXvPaW4aExn-p" type="Sprite2D" parent="."]
+position = Vector2(567, 305)
+scale = Vector2(1.37963, 1)
+texture = ExtResource("1_0ifyk")
+
+[node name="Player" parent="." instance=ExtResource("1_6strp")]
+position = Vector2(493, 317)
