@@ -59,6 +59,8 @@ func _on_cooldown_timer_timeout():
 
 func _chase_player():
 	var direction_to_player = (player.global_position - global_position).normalized()
+	# TODO: Make and change sprite to agitated animation during chase
+	animated_sprite.play("down")
 	velocity = direction_to_player * chase_speed
 
 
