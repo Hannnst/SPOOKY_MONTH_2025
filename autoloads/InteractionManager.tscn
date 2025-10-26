@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://blyr4hpm4rkw8"]
+[gd_scene load_steps=5 format=3 uid="uid://blyr4hpm4rkw8"]
 
-[ext_resource type="Script" uid="uid://w6tkts8f4noq" path="res://autoloads/InteractionManager.gd" id="1_h5wjs"]
-[ext_resource type="Texture2D" uid="uid://dbdw2leqw2ijy" path="res://interaction/placeholderE.webp" id="2_p7rmf"]
+[ext_resource type="Script" path="res://autoloads/InteractionManager.gd" id="1_h5wjs"]
+[ext_resource type="Texture2D" uid="uid://6cmf4cj4i51i" path="res://assets/buttons/e1.png" id="2_yvpnx"]
+[ext_resource type="Texture2D" uid="uid://cp110hg043wkp" path="res://assets/buttons/e2.png" id="3_itcqi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctibk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yvpnx")
+}],
+"loop": true,
+"name": &"e1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_itcqi")
+}],
+"loop": true,
+"name": &"e2",
+"speed": 5.0
+}]
 
 [node name="InteractionManager" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_h5wjs")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -4)
 scale = Vector2(0.134766, 0.134766)
-texture = ExtResource("2_p7rmf")
+sprite_frames = SubResource("SpriteFrames_ctibk")
+animation = &"e1"
