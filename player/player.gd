@@ -20,16 +20,16 @@ func _physics_process(delta):
 	#kalkulerer sterkeste retning, prioriterer første bruker-input:
 	if direction.x > 0 and direction.y == 0:
 		animated_sprite.play("right")
-		interaction_box.position = Vector2(175, -60)
+		interaction_box.position = Vector2(150, -90)
 	elif direction.x < 0 and direction.y == 0:
 		animated_sprite.play("left")
-		interaction_box.position = Vector2(-175, -60)
+		interaction_box.position = Vector2(-150, -90)
 	elif direction.y > 0 and direction.x == 0:
 		animated_sprite.play("down")
-		interaction_box.position = Vector2(0, 30)
+		interaction_box.position = Vector2(0, 20)
 	elif direction.y < 0 and direction.x == 0:
 		animated_sprite.play("up")
-		interaction_box.position = Vector2(0, -120)
+		interaction_box.position = Vector2(0, -150)
 	direction = direction.normalized()
 	velocity = direction * speed
 	move_and_slide()

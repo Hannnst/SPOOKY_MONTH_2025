@@ -9,7 +9,6 @@ size = Vector2(149, 86)
 script = ExtResource("1_wp0io")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -11)
 shape = SubResource("RectangleShape2D_wp0io")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

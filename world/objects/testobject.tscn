@@ -21,3 +21,4 @@ scale = Vector2(0.340102, 0.340102)
 shape = SubResource("RectangleShape2D_jysx3")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_jaxk6")]
+position = Vector2(2, -37)
