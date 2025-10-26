@@ -81,6 +81,10 @@ metadata/_custom_type_script = "uid://o7vvw8imkk6g"
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_qvpcs")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 150)
+[node name="Node2DFlashlight" type="Node2D" parent="."]
+unique_name_in_owner = true
+rotation = 2.9286625
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]
+position = Vector2(0, 250)
 texture = SubResource("GradientTexture2D_tr6w4")

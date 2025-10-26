@@ -30,6 +30,14 @@ func _physics_process(delta):
 	elif direction.y < 0 and direction.x == 0:
 		animated_sprite.play("up")
 		interaction_box.position = Vector2(0, -150)
+
 	direction = direction.normalized()
 	velocity = direction * speed
+
 	move_and_slide()
+	rotate_flashlight()
+
+
+func rotate_flashlight():
+	if velocity != Vector2.ZERO:
+		%Node2DFlashlight.rotation = velocity.angle() - PI/2
