@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cth2sfbseupxd"]
+[gd_scene load_steps=6 format=3 uid="uid://cth2sfbseupxd"]
 
 [ext_resource type="Script" uid="uid://bmm8kw270juk5" path="res://world/test_scenes/test_room_a.gd" id="1_nocjj"]
 [ext_resource type="Texture2D" uid="uid://bv7mil5yaukbd" path="res://assets/placeholder/Q3vn0Qz.png" id="1_qya5r"]
 [ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="2_nocjj"]
 [ext_resource type="PackedScene" uid="uid://2a8ev33xw553" path="res://world/objects/testobject.tscn" id="4_y7j4n"]
+[ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="5_ywubb"]
 
 [node name="TestRoomA" type="Node2D"]
 script = ExtResource("1_nocjj")
@@ -18,3 +19,17 @@ position = Vector2(549, 285)
 
 [node name="Testobject" parent="." instance=ExtResource("4_y7j4n")]
 position = Vector2(842, 499)
+
+[node name="Enemy" parent="." instance=ExtResource("5_ywubb")]
+position = Vector2(170, 283)
+speed = 80.0
+change_dir_time = 1.5
+trigger_time = 1.0
+cooldown_time = 3.0
+
+[node name="Enemy2" parent="." instance=ExtResource("5_ywubb")]
+position = Vector2(946, 202)
+speed = 80.0
+change_dir_time = 1.5
+trigger_time = 1.0
+cooldown_time = 3.0
