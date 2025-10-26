@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.4", "Mobile")
 Globals="*res://autoloads/Globals.gd"
 TransitionScreen="*res://autoloads/transition_screen.tscn"
 SceneManager="*res://autoloads/SceneManager.gd"
+InteractionManager="*res://autoloads/InteractionManager.tscn"
 
 [editor_plugins]
 
