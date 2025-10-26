@@ -12,5 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_toggled(_toggled_on: bool) -> void:
-	print("TODO")
-	pass # Replace with function body.
+	SceneManager.change_scene("testB")
