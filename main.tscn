@@ -7,7 +7,17 @@
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(89, 29)
+position = Vector2(653, 106)
 
 [node name="Enemy" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(436, 91)
+speed = 20.0
+change_dir_time = 3.0
+
+[node name="Enemy2" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(528, 294)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(833, 264)
+speed = 10.0
+change_dir_time = 10.0

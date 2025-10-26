@@ -2,29 +2,69 @@ extends CharacterBody2D
 
 @export var speed: float = 80.0
 @export var change_dir_time: float = 1.5
+@export var trigger_time: float = 1.0
+@export var cooldown_time: float = 3.0
+@export var chase_speed: float = speed + (speed * 0.5)
 
 var direction := Vector2.ZERO
-var timer := 0.0
+var direction_timer := 0.0
+var triggered := false
 
-# TODO: timer for how long enemy has been in contact with interaction box for light from player, initiating and deactivating seeking state
+@onready var exposure_timer := $ExposureTimer
+@onready var cooldown_timer: Timer = $CooldownTimer
+@onready var player: CharacterBody2D = get_tree().get_root().get_node("Main/Player")
 
 
 func _ready():
 	randomize()
 	_pick_new_direction()
 
+	# Reset timers
+	exposure_timer.wait_time = trigger_time
+	cooldown_timer.wait_time = cooldown_time
+
 
 func _physics_process(delta):
-	timer -= delta
-	if timer <= 0.0:
-		_pick_new_direction()
-
-	velocity = direction * speed
+	if triggered:
+		_chase_player()
+	else:
+		direction_timer -= delta
+		if direction_timer <= 0.0:
+			_pick_new_direction()
+		velocity = direction * speed
 	move_and_slide()
 
 
 func _pick_new_direction():
-	timer = change_dir_time
-
+	direction_timer = change_dir_time
 	var angle = randf() * TAU
 	direction = Vector2(cos(angle), sin(angle)).normalized()
+
+
+#  --------------- Functionality for exposure and triggering ------------
+func _on_exposure_timer_timeout():
+	cooldown_timer.wait_time = cooldown_time # reset timer
+	triggered = true
+
+
+func _on_cooldown_timer_timeout():
+	exposure_timer.wait_time = trigger_time # reset timer
+	triggered = false
+
+
+func _chase_player():
+	var direction_to_player = (player.global_position - global_position).normalized()
+	velocity = direction_to_player * chase_speed
+
+
+func _on_trigger_area_area_entered(area: Area2D) -> void:
+	print("area entered")
+	if area.name == "InteractionSensor":
+		exposure_timer.start()
+
+
+func _on_trigger_area_area_exited(area: Area2D) -> void:
+	print("area exited")
+	if area.name == "InteractionSensor":
+		exposure_timer.stop()
+		cooldown_timer.start()
