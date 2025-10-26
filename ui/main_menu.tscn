@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ct8ccvkll2ce3"]
+[gd_scene load_steps=2 format=3 uid="uid://ct8ccvkll2ce3"]
+
+[ext_resource type="Script" uid="uid://c5trj317d8bao" path="res://ui/check_box_start_game.gd" id="1_t7e0r"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -8,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="LabelLookAtMyGame" type="Label" parent="."]
 layout_mode = 0
 offset_left = 321.0
 offset_top = 103.0
@@ -16,10 +18,13 @@ offset_right = 458.0
 offset_bottom = 126.0
 text = "Look at my game."
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="CheckBoxStartGame" type="CheckBox" parent="."]
 layout_mode = 0
 offset_left = 304.0
 offset_top = 222.0
 offset_right = 328.0
 offset_bottom = 246.0
 text = "Start Game"
+script = ExtResource("1_t7e0r")
+
+[connection signal="toggled" from="CheckBoxStartGame" to="CheckBoxStartGame" method="_on_toggled"]
