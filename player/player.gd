@@ -16,8 +16,6 @@ func _physics_process(delta):
 		)
 
 	if direction != Vector2.ZERO:
-		var angle = direction.angle()
-
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				animated_sprite.play("right")
@@ -31,7 +29,7 @@ func _physics_process(delta):
 				interaction_box.position = Vector2(0, 20)
 			else:
 				animated_sprite.play("up")
-				interaction_box.position = Vector2(0, -300)
+				interaction_box.position = Vector2(0, -250)
 
 	velocity = direction.normalized() * speed
 	move_and_slide()
@@ -54,5 +52,5 @@ func die():
 
 
 func _on_hurt_box_body_entered(body: Node2D):
-	if body.is_in_group("enemies") && body.triggered:
+	if body.is_in_group("enemies") and body.triggered:
 		die()

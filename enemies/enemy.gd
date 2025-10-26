@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var change_dir_time: float = 1.5
 @export var trigger_time: float = 1.0
 @export var cooldown_time: float = 3.0
-@export var chase_speed: float = speed + (speed * 0.5)
 
+var chase_speed: float = 100
 var direction := Vector2.ZERO
 var direction_timer := 0.0
 var triggered := false
@@ -13,14 +13,13 @@ var triggered := false
 @onready var exposure_timer := $ExposureTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var animated_sprite = $AnimatedSprite2D
-# TODO: get node from (here/player)
-@onready var player: CharacterBody2D = get_tree().get_root().get_node("TestRoomA/Player")
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 
 func _ready():
 	randomize()
 	_pick_new_direction()
-
+	chase_speed = speed + (speed * 0.5)
 	# Reset timers
 	exposure_timer.wait_time = trigger_time
 	cooldown_timer.wait_time = cooldown_time
