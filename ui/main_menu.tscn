@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct8ccvkll2ce3"]
+
+[ext_resource type="Script" uid="uid://d17kq2heuu6do" path="res://ui/main_menu.gd" id="1_wk0pr"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk0pr")
+
+[node name="LabelLookAtMyGame" type="Label" parent="."]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 103.0
+offset_right = 458.0
+offset_bottom = 126.0
+text = "Look at my game."
+
+[node name="CheckBoxStartGame" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 222.0
+offset_right = 328.0
+offset_bottom = 246.0
+text = "Start Game"
+
+[node name="CheckButtonExitGame" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 330.0
+offset_right = 356.0
+offset_bottom = 354.0
+text = "Quit Game"
+
+[connection signal="pressed" from="CheckBoxStartGame" to="." method="_on_check_box_start_game_pressed"]
+[connection signal="pressed" from="CheckButtonExitGame" to="." method="_on_check_button_exit_game_pressed"]

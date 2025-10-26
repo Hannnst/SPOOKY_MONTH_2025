@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://2a8ev33xw553" path="res://world/objects/testobject.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -18,6 +19,9 @@ change_dir_time = 3.0
 position = Vector2(528, 294)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(833, 264)
 speed = 10.0
 change_dir_time = 10.0
+position = Vector2(89, 29)
+
+[node name="Testobject" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(733, 266)
