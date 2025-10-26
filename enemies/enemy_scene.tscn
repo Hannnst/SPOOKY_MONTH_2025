@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dujn2srpc7go4"]
+
+[ext_resource type="Script" uid="uid://cq3ybdecf0lec" path="res://enemies/enemy.gd" id="1_h7cod"]
+[ext_resource type="Texture2D" uid="uid://dpg6lhquv3dow" path="res://enemies/nakedratto2.png" id="1_hs1ht"]
+[ext_resource type="Texture2D" uid="uid://bbjpo3hr6weay" path="res://enemies/nakedratto2behind.png" id="2_h7cod"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dtsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hs1ht")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h7cod")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7cod"]
+radius = 64.00781
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo6ua"]
+radius = 36.45
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_h7cod")
+speed = null
+change_dir_time = null
+trigger_time = null
+cooldown_time = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -29)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_4dtsg")
+animation = &"down"
+
+[node name="TriggerArea" type="Area2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="TriggerShape" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_h7cod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_oo6ua")
+
+[node name="ExposureTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
+[connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
+[connection signal="timeout" from="ExposureTimer" to="." method="_on_exposure_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dex32wmhj6jqg"]
+[gd_scene load_steps=13 format=3 uid="uid://dex32wmhj6jqg"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_0b6jt"]
 [ext_resource type="Texture2D" uid="uid://e4ma8wl3u4wm" path="res://player/p_down.png" id="2_qvpcs"]
@@ -60,11 +60,15 @@ height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvpcs"]
+radius = 75.95
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_0b6jt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -88)
+position = Vector2(2, -79)
+scale = Vector2(0.7733333, 0.7033333)
 sprite_frames = SubResource("SpriteFrames_3jmlc")
 animation = &"down"
 
@@ -88,3 +92,11 @@ rotation = 2.9286625
 [node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]
 position = Vector2(0, 250)
 texture = SubResource("GradientTexture2D_tr6w4")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(2, -79)
+shape = SubResource("CircleShape2D_qvpcs")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
