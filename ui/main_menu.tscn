@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct8ccvkll2ce3"]
+[gd_scene load_steps=3 format=3 uid="uid://ct8ccvkll2ce3"]
 
 [ext_resource type="Script" uid="uid://c5trj317d8bao" path="res://ui/check_box_start_game.gd" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://b6xf2on560i06" path="res://ui/check_button_exit_game.gd" id="2_0dkrt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -27,4 +28,14 @@ offset_bottom = 246.0
 text = "Start Game"
 script = ExtResource("1_t7e0r")
 
+[node name="CheckButtonExitGame" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 330.0
+offset_right = 356.0
+offset_bottom = 354.0
+text = "Quit Game"
+script = ExtResource("2_0dkrt")
+
 [connection signal="toggled" from="CheckBoxStartGame" to="CheckBoxStartGame" method="_on_toggled"]
+[connection signal="pressed" from="CheckButtonExitGame" to="CheckButtonExitGame" method="_on_pressed"]
