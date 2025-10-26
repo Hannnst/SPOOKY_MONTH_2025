@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var icon = $Icon
+var icon_offset = Vector2(80, -90)
 
 var active_areas = []
 var can_interact = true
@@ -22,8 +23,7 @@ func _process(delta):
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		icon.global_position = active_areas[0].global_position
-		icon.global_position.y -= 80
-		icon.global_position.x += 36
+		icon.global_position += icon_offset
 		icon.show()
 	else:
 		icon.hide()
