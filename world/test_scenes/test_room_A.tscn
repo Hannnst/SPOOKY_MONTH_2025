@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cth2sfbseupxd"]
+
+[ext_resource type="Script" uid="uid://bmm8kw270juk5" path="res://world/test_scenes/test_room_a.gd" id="1_nocjj"]
+[ext_resource type="Texture2D" uid="uid://bv7mil5yaukbd" path="res://assets/placeholder/Q3vn0Qz.png" id="1_qya5r"]
+[ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="2_nocjj"]
+
+[node name="TestRoomA" type="Node2D"]
+script = ExtResource("1_nocjj")
+
+[node name="Q3Vn0Qz" type="Sprite2D" parent="."]
+position = Vector2(568, 313)
+scale = Vector2(1.36977, 1.33135)
+texture = ExtResource("1_qya5r")
+
+[node name="Player" parent="." instance=ExtResource("2_nocjj")]
+position = Vector2(549, 285)

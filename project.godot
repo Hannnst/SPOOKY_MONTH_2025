@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.5", "Mobile")
 [autoload]
 
 Globals="*res://autoloads/Globals.gd"
+TransitionScreen="*res://autoloads/transition_screen.tscn"
+SceneManager="*res://autoloads/SceneManager.gd"
 
 [editor_plugins]
 
