@@ -1,39 +1,54 @@
-[gd_scene format=3 uid="uid://bvnvwpr81xkbb"]
+[gd_scene load_steps=3 format=3 uid="uid://bvnvwpr81xkbb"]
+
+[ext_resource type="Script" uid="uid://cpq0q47whysj6" path="res://inventory/inventory.gd" id="1_62wf1"]
+[ext_resource type="PackedScene" uid="uid://br8mquhhciege" path="res://inventory/inventory_slot.tscn" id="2_qse2j"]
 
 [node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_62wf1")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -685.0
+offset_top = -179.0
+offset_right = 635.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 625.0
+offset_bottom = 104.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot8" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot2" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel3" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot3" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel4" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot4" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel5" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot5" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel6" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot6" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Panel7" type="Panel" parent="Panel/MarginContainer/HBoxContainer"]
+[node name="InventorySlot7" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
