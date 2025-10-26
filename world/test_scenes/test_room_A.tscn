@@ -22,6 +22,14 @@ position = Vector2(842, 499)
 
 [node name="Enemy" parent="." instance=ExtResource("5_ywubb")]
 position = Vector2(170, 283)
+speed = 80.0
+change_dir_time = 1.5
+trigger_time = 1.0
+cooldown_time = 3.0
 
 [node name="Enemy2" parent="." instance=ExtResource("5_ywubb")]
 position = Vector2(946, 202)
+speed = 80.0
+change_dir_time = 1.5
+trigger_time = 1.0
+cooldown_time = 3.0

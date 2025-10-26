@@ -12,6 +12,7 @@ var triggered := false
 
 @onready var exposure_timer := $ExposureTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var animated_sprite = $AnimatedSprite2D
 # TODO: get node from (here/player)
 @onready var player: CharacterBody2D = get_tree().get_root().get_node("TestRoomA/Player")
 
@@ -40,6 +41,10 @@ func _pick_new_direction():
 	direction_timer = change_dir_time
 	var angle = randf() * TAU
 	direction = Vector2(cos(angle), sin(angle)).normalized()
+	if direction.y < 0:
+		animated_sprite.play("up")
+	else:
+		animated_sprite.play("down")
 
 
 #  --------------- Functionality for exposure and triggering ------------

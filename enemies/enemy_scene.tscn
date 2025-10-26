@@ -31,6 +31,10 @@ radius = 36.45
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_h7cod")
+speed = null
+change_dir_time = null
+trigger_time = null
+cooldown_time = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -29)
