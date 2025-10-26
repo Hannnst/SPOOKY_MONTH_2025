@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dujn2srpc7go4"]
+
+[ext_resource type="Script" uid="uid://cq3ybdecf0lec" path="res://enemies/enemy.gd" id="1_h7cod"]
+[ext_resource type="Texture2D" uid="uid://dpg6lhquv3dow" path="res://enemies/nakedratto2.png" id="1_hs1ht"]
+[ext_resource type="Texture2D" uid="uid://bbjpo3hr6weay" path="res://enemies/nakedratto2behind.png" id="2_h7cod"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dtsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hs1ht")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h7cod")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo6ua"]
+radius = 36.45
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_h7cod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -29)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_4dtsg")
+animation = &"down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_oo6ua")
