@@ -20,6 +20,8 @@ position = Vector2(549, 285)
 [node name="Testobject" parent="." instance=ExtResource("4_y7j4n")]
 position = Vector2(842, 499)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 [node name="Enemy" parent="." instance=ExtResource("5_ywubb")]
 position = Vector2(170, 283)
 speed = 80.0

@@ -17,3 +17,6 @@ mono_crash.*.json
 
 # addons
 .addons
+
+# Mac-thing
+.DS_Store

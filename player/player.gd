@@ -33,6 +33,12 @@ func _physics_process(delta):
 
 	velocity = direction.normalized() * speed
 	move_and_slide()
+	rotate_flashlight()
+
+
+func rotate_flashlight():
+	if velocity != Vector2.ZERO:
+		%Node2DFlashlight.rotation = velocity.angle() - PI/2
 
 
 func die():
