@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl3cm8tp0gdqh"]
+[gd_scene load_steps=3 format=3 uid="uid://dl3cm8tp0gdqh"]
 
 [ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(89, 29)
+
+[node name="Inventory" parent="." instance=ExtResource("2_0xm2m")]

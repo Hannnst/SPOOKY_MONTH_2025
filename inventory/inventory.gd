@@ -16,7 +16,7 @@ func _ready():
 
 func _load_inventory():
 	#Fetches the inventory from the Global script
-	inventory = Globals.player_inventory.duplicate(true)
+	inventory = InventoryManager.player_inventory.duplicate(true)
 	var slots = slot_container.get_children()
 	if inventory.size() > slots.size():
 		print("Warning: Not enough inventory slots for all inventory items :s")

@@ -4,7 +4,6 @@
 custom_minimum_size = Vector2(160, 160)
 offset_right = 160.0
 offset_bottom = 160.0
-stretch_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
