@@ -1,12 +1,15 @@
 extends Area2D
-class_name InteractionArea
-#Vet ikke om vi trenger klassenavn egt :s
 
-
+@export var area_size : Vector2 = Vector2(150,85)
+@onready var collision_shape = $CollisionShape2D
 #Denne kan overskrives av objectet vi putter InteractionArea inn i - men er i utgangspunktet tom.
 var interact: Callable = func():
 	pass
 
+func _ready():
+	pass
+	#collision_shape.disabled = true
+	
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "InteractionSensor":
 		InteractionManager.register_area(self)

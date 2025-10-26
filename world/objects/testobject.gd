@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 
 #Dette må legges til på alle interactable objekter:
-@onready var interaction_area: InteractionArea = $InteractionArea
+@onready var interaction_area = $InteractionArea
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")

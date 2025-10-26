@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var icon = $Icon
@@ -9,11 +9,11 @@ var can_interact = true
 func _ready():
 	icon.hide()
 
-func register_area(area: InteractionArea):
+func register_area(area: Area2D):
 	print("registered area: ", area)
 	active_areas.push_back(area)
 
-func unregister_area(area: InteractionArea):
+func unregister_area(area: Area2D):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
