@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ct8ccvkll2ce3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 103.0
+offset_right = 458.0
+offset_bottom = 126.0
+text = "Look at my game."
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 222.0
+offset_right = 328.0
+offset_bottom = 246.0
+text = "Start Game"
