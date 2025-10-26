@@ -12,7 +12,8 @@ var triggered := false
 
 @onready var exposure_timer := $ExposureTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
-@onready var player: CharacterBody2D = get_tree().get_root().get_node("Main/Player")
+# TODO: get node from (here/player)
+@onready var player: CharacterBody2D = get_tree().get_root().get_node("TestRoomA/Player")
 
 
 func _ready():

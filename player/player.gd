@@ -7,35 +7,34 @@ var speed = 200 # pixels per second
 
 
 func _physics_process(delta):
-	var direction = Vector2.ZERO
-	if Globals.move_enabled:
-		if Input.is_action_pressed("ui_right"):
-			direction.x += 1
-		if Input.is_action_pressed("ui_left"):
-			direction.x -= 1
-		if Input.is_action_pressed("ui_down"):
-			direction.y += 1
-		if Input.is_action_pressed("ui_up"):
-			direction.y -= 1
-	#kalkulerer sterkeste retning, prioriterer første bruker-input:
-	# TODO: ikke hardkodede tallverdier
-	if direction.x > 0 and direction.y == 0:
-		animated_sprite.play("right")
-		interaction_box.position = Vector2(150, -90)
-	elif direction.x < 0 and direction.y == 0:
-		animated_sprite.play("left")
-		interaction_box.position = Vector2(-150, -90)
-	elif direction.y > 0 and direction.x == 0:
-		animated_sprite.play("down")
-		interaction_box.position = Vector2(0, 20)
-	elif direction.y < 0 and direction.x == 0:
-		animated_sprite.play("up")
-		interaction_box.position = Vector2(0, -300)
-	direction = direction.normalized()
-	velocity = direction * speed
-	move_and_slide()
+	var direction := Vector2.ZERO
 
-	# TODO: hurtbox
+	if Globals.move_enabled:
+		direction = Vector2(
+			Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+			Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"),
+		)
+
+	if direction != Vector2.ZERO:
+		var angle = direction.angle()
+
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				animated_sprite.play("right")
+				interaction_box.position = Vector2(150, -90)
+			else:
+				animated_sprite.play("left")
+				interaction_box.position = Vector2(-150, -90)
+		else:
+			if direction.y > 0:
+				animated_sprite.play("down")
+				interaction_box.position = Vector2(0, 20)
+			else:
+				animated_sprite.play("up")
+				interaction_box.position = Vector2(0, -300)
+
+	velocity = direction.normalized() * speed
+	move_and_slide()
 
 
 func die():
@@ -55,5 +54,5 @@ func die():
 
 
 func _on_hurt_box_body_entered(body: Node2D):
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") && body.triggered:
 		die()
