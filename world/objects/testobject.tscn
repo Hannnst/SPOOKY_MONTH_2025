@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2a8ev33xw553"]
+[gd_scene load_steps=6 format=3 uid="uid://2a8ev33xw553"]
 
 [ext_resource type="Script" uid="uid://bjfel2t4qdo5u" path="res://world/objects/testobject.gd" id="1_jysx3"]
 [ext_resource type="Texture2D" uid="uid://2ucxpw2kbtov" path="res://world/objects/testpiano.PNG" id="1_k73mr"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jysx3"]
 size = Vector2(532.194, 252.866)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g41e0"]
+size = Vector2(164, 70)
 
 [node name="Testobject" type="StaticBody2D"]
 script = ExtResource("1_jysx3")
@@ -21,4 +24,10 @@ scale = Vector2(0.340102, 0.340102)
 shape = SubResource("RectangleShape2D_jysx3")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_jaxk6")]
-position = Vector2(2, -37)
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_g41e0")
+
+[editable path="InteractionArea"]

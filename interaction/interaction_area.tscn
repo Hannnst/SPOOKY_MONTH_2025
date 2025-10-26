@@ -1,15 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkqrkbhd5x7s0"]
+[gd_scene load_steps=2 format=3 uid="uid://bkqrkbhd5x7s0"]
 
 [ext_resource type="Script" uid="uid://o7vvw8imkk6g" path="res://interaction/interaction_area.gd" id="1_wp0io"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0io"]
-size = Vector2(149, 86)
-
 [node name="InteractionArea" type="Area2D"]
 script = ExtResource("1_wp0io")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_wp0io")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
