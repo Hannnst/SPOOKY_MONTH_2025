@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://jukbib7hwdoa"
+path="res://.godot/imported/funny_test.dialogue-89544bfff8e08a2fa73f5b191a5edb63.tres"
+
+[deps]
+
+source_file="res://dialogues/funny_test.dialogue"
+dest_files=["res://.godot/imported/funny_test.dialogue-89544bfff8e08a2fa73f5b191a5edb63.tres"]
+
+[params]
+
+defaults=true

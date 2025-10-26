@@ -14,3 +14,6 @@ func _on_interact():
 	print("Interacting with:", self)
 	print("Sprite is:", sprite)
 	sprite.flip_v = !sprite.flip_v
+	
+	var dialogue = load("res://dialogues/funny_test.dialogue")
+	DialogueManager.show_dialogue_balloon(dialogue, "start")
