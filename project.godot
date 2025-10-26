@@ -12,12 +12,11 @@ config_version=5
 
 config/name="SPOOKYMONTH_2025"
 run/main_scene="uid://dl3cm8tp0gdqh"
-config/features=PackedStringArray("4.5", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 
 [autoload]
 
 Globals="*res://autoloads/Globals.gd"
-InteractionManager="*res://autoloads/InteractionManager.tscn"
 
 [editor_plugins]
 
