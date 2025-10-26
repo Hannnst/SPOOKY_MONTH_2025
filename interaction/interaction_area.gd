@@ -7,9 +7,6 @@ class_name InteractionArea
 var interact: Callable = func():
 	pass
 
-
-
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "InteractionSensor":
 		InteractionManager.register_area(self)

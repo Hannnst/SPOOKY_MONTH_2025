@@ -6,13 +6,11 @@
 size = Vector2(149, 86)
 
 [node name="InteractionArea" type="Area2D"]
-collision_layer = 128
-collision_mask = 3
 script = ExtResource("1_wp0io")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -11)
 shape = SubResource("RectangleShape2D_wp0io")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
