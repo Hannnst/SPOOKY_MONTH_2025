@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dex32wmhj6jqg"]
+[gd_scene load_steps=12 format=3 uid="uid://dex32wmhj6jqg"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_0b6jt"]
 [ext_resource type="Texture2D" uid="uid://e4ma8wl3u4wm" path="res://player/p_down.png" id="2_qvpcs"]
@@ -49,6 +49,17 @@ height = 126.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpcs"]
 size = Vector2(142.75, 118)
 
+[sub_resource type="Gradient" id="Gradient_qvpcs"]
+offsets = PackedFloat32Array(0, 0.63666666)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tr6w4"]
+gradient = SubResource("Gradient_qvpcs")
+width = 500
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_0b6jt")
 
@@ -69,3 +80,7 @@ metadata/_custom_type_script = "uid://o7vvw8imkk6g"
 [node name="InteractionBox" type="CollisionShape2D" parent="InteractionSensor"]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_qvpcs")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 150)
+texture = SubResource("GradientTexture2D_tr6w4")
