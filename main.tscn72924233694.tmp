@@ -58,8 +58,14 @@ rotation = -2.3932147
 position = Vector2(276, 257)
 scale = Vector2(0.32857144, 0.31428573)
 script = ExtResource("2_0xm2m")
-nickname = null
-enemy_speed = null
+enemy_name = null
+health = null
+max_health = null
+damage = null
+speed = null
+detection_range = null
+attack_range = null
+experience_reward = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_7mycd")
