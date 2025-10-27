@@ -18,3 +18,4 @@ func change_scene(scene_name: String):
 		await TransitionScreen.transition_finished
 		get_tree().change_scene_to_file(scene_path)
 		Globals.move_enabled = true
+		DialogueManager.can_show_dialogue = true
