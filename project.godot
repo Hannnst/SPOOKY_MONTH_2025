@@ -21,6 +21,7 @@ TransitionScreen="*res://autoloads/transition_screen.tscn"
 SceneManager="*res://autoloads/SceneManager.gd"
 InteractionManager="*res://autoloads/InteractionManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SoundManager="*res://autoloads/SoundManager.gd"
 
 [editor_plugins]
 

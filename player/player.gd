@@ -42,6 +42,7 @@ func rotate_flashlight():
 
 
 func die():
+	SoundManager.play_random_pitch("explosion")
 	# TODO: randomly show one of many end-screen strings
 	print("You'll never get your happy ending")
 
