@@ -1,18 +1,32 @@
 extends Node
+#This script holds the 'truth' of which items are in the players inventory.
 
-##---Player Inventory---##
-var collectible_items = [] #List of strings: All collectible items in game
-var player_inventory = ["carrot", "godot_guy"] #List of strings: Collected items
+signal inventory_updated 	#Used to alert the UI that the inventory changed
 
-signal inventory_updated
+var inventory = [
+	{"name": "carrot", "is_owned": false, 		"texture" : preload("res://assets/placeholder/placeholder_carrot.png")},
+	{"name": "spooky_guy", "is_owned": true, 	"texture" : preload("res://player/p_down.png")},
+	{"name": "godot_guy", "is_owned": true, 	"texture" : preload("res://icon.svg")},
+	{"name": "placeholder", "is_owned": false, 	"texture" : preload("res://icon.svg")},
+	{"name": "placeholder2", "is_owned": false, 	"texture" : preload("res://icon.svg")},
+	{"name": "placeholder3", "is_owned": true, 	"texture" : preload("res://icon.svg")},
+	{"name": "placeholder4", "is_owned": false, 	"texture" : preload("res://icon.svg")},
+	{"name": "placeholder5", "is_owned": true, 	"texture" : preload("res://icon.svg")},
+]
+var current_slot_index: int = 0 	#Keeps track of which item the player last selected, across scene change.
 
-func collect_inventory_item(item_name : String):
-	if item_name in collectible_items:
-		if item_name not in player_inventory:
-			player_inventory.append(item_name)
+func collect_item(item_name: String):
+	for i in range(len(inventory)):
+		if item_name == inventory[i]["name"]:
+			inventory[i]["is_owned"] = true
 			inventory_updated.emit()
-		else:
-			print("Warning: Player collected this twice", item_name)
-	else: 
-		print("Warning: Attempted to collect non-existant item, ", item_name)	
-	pass
+			return
+	print("Warning: Couldn't add item: ", item_name)
+
+func remove_item(item_name: String):
+	for i in range(len(inventory)):
+		if item_name == inventory[i]["name"]:
+			inventory[i]["is_owned"] = false
+			inventory_updated.emit()
+			return
+	print("Warning: Couldn't remove item: ", item_name)
