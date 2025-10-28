@@ -4,11 +4,6 @@ extends CanvasLayer
 var slots = []
 var current_index = 0
 
-var textures = {
-	"carrot" : "res://assets/placeholder/placeholder_carrot.png",
-	"godot_guy" : "res://icon.svg",
-	#TODO: Add more item textures :)
-}
 
 func _ready():
 	slots = slot_container.get_children()
