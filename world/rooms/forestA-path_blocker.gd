@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var collision_top = $CollisionShapeTop
 @onready var collision_bottom = $CollisionShapeBottom
 
-var original_position_top
-var original_position_bottom
+var original_position_top: Vector2
+var original_position_bottom: Vector2
 
 var move_distance = 30
 var move_time = 0.5
