@@ -47,3 +47,9 @@ func _input(event):
 			icon.hide()
 			await active_areas[0].interact.call()
 			can_interact = true
+
+
+func _get_closest_object():
+	if active_areas.size() < 1:
+		return null
+	return active_areas[0].get_parent()
