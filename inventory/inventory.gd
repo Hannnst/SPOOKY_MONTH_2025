@@ -11,8 +11,6 @@ func _ready():
 	_load_inventory()
 	
 	_setup_focus()
-	#_update_focus()
-
 #Update UI to match reality: Fetches the inventory and relevant data from global InventoryManager
 func _load_inventory():
 	slots = slot_container.get_children()
