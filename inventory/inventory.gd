@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var slot_container = $PanelContainer/MarginContainer/HBoxContainer
 var slots = []
 var current_index = 0
+@onready var use_item_icon = $UseItemIcon
 
 
 func _ready():
@@ -50,6 +51,11 @@ func _setup_focus():
 
 func _on_slot_focus(i: int):
 	InventoryManager.current_slot_index = i
+	var selected = InventoryManager.inventory[i]
+	if selected.is_owned:
+		use_item_icon.show()
+	else:
+		use_item_icon.hide()
 
 
 func _unhandled_input(event):

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvnvwpr81xkbb"]
 
 [ext_resource type="Script" uid="uid://cpq0q47whysj6" path="res://inventory/inventory.gd" id="1_62wf1"]
+[ext_resource type="Texture2D" uid="uid://cp110hg043wkp" path="res://assets/buttons/e2.png" id="2_f8i2h"]
 [ext_resource type="PackedScene" uid="uid://br8mquhhciege" path="res://inventory/inventory_slot.tscn" id="2_qse2j"]
-[ext_resource type="Texture2D" uid="uid://dbdw2leqw2ijy" path="res://interaction/placeholderE.webp" id="3_f8i2h"]
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_62wf1")
@@ -13,14 +13,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = -114.99994
-offset_right = 295.0
-offset_bottom = 397.0
+offset_left = -296.0
+offset_top = -100.0
+offset_right = 216.0
+offset_bottom = 412.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_f8i2h")
+texture = ExtResource("2_f8i2h")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 7

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="2_nocjj"]
 [ext_resource type="PackedScene" uid="uid://2a8ev33xw553" path="res://world/objects/testobject.tscn" id="4_y7j4n"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="5_ywubb"]
-[ext_resource type="PackedScene" path="res://inventory/inventory.tscn" id="6_vxgak"]
+[ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="6_vxgak"]
 
 [node name="TestRoomA" type="Node2D"]
 script = ExtResource("1_nocjj")
