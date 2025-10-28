@@ -6,8 +6,8 @@ extends CharacterBody2D
 var original_position_top: Vector2
 var original_position_bottom: Vector2
 
-var move_distance = 30
-var move_time = 0.5
+@export var move_distance: float = 30.0
+@export var move_time: float = 0.5
 
 func _ready():
 	original_position_top = collision_top.position
