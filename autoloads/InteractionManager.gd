@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var icon = $Icon
-var icon_offset = Vector2(80, -90)
+var icon_offset = Vector2(-100, -100)
 
 var active_areas = []
 var can_interact = true
@@ -10,6 +10,7 @@ var can_interact = true
 
 func _ready():
 	icon.hide()
+	$AnimationPlayer.play("bobbing")
 
 
 func register_area(area: Area2D):
@@ -46,3 +47,9 @@ func _input(event):
 			icon.hide()
 			await active_areas[0].interact.call()
 			can_interact = true
+
+
+func _get_closest_object():
+	if active_areas.size() < 1:
+		return null
+	return active_areas[0].get_parent()

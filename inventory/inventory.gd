@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var slot_container = $PanelContainer/MarginContainer/HBoxContainer
 var slots = []
 var current_index = 0
+@onready var use_item_icon = $UseItemIcon
 
 
 func _ready():
@@ -49,7 +50,12 @@ func _setup_focus():
 
 
 func _on_slot_focus(i: int):
-	InventoryManager.current_slot_index = i
+	InventoryManager.update_current_slot_index(i)
+	var selected = InventoryManager.get_held_item()
+	if selected.is_owned:
+		use_item_icon.show()
+	else:
+		use_item_icon.hide()
 
 
 func _unhandled_input(event):
@@ -63,18 +69,24 @@ func _unhandled_input(event):
 
 
 func _try_use_item():
-	var index = InventoryManager.current_slot_index
-	if index < 0 or index >= InventoryManager.inventory.size():
+	var inventory_item = InventoryManager.get_held_item()
+	if not inventory_item:
 		print("Tried to use item, but no slot selected.")
 		return
 
-	var selected = InventoryManager.inventory[index]
-	if not selected["is_owned"]:
+	if not inventory_item.is_owned:
 		print("Player tried to use item, but wasn't holding anything")
 		return
-	# TODO: create script(s) for using items, either by adding a script to each Item of by switch statement here
-	# IDEA: use area.get_parent().name og trigger funksjon for interaktivitet
-	print("Player used item:", selected.name)
 
-	#TODO: Handle logic for using the selected item. Many ways to solve this so we can decide later
-	#When we know what the game is all about!
+	if not inventory_item.has("target_name"):
+		print("item has no target_name")
+		# TODO: func for flavour text popup based on item (inventory manager)
+		return
+
+	var target_object = InteractionManager._get_closest_object()
+	if (target_object and inventory_item):
+		if inventory_item.target_name == target_object.name:
+			target_object._activate() # activates a node's attached script
+	else:
+		print("Player tried to use item, but wasn't near any related target items")
+		return
