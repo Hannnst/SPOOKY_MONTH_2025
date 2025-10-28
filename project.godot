@@ -27,7 +27,6 @@ InventoryManager="*res://autoloads/InventoryManager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/window_width_override=720
 
 [editor_plugins]
 
