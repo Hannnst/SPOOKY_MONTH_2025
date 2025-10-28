@@ -5,7 +5,6 @@ extends CharacterBody2D
 
 var speed = 200 # pixels per second
 
-
 func _physics_process(delta):
 	var direction := Vector2.ZERO
 
@@ -16,6 +15,7 @@ func _physics_process(delta):
 		)
 
 	if direction != Vector2.ZERO:
+		$AnimationPlayer.play("walk_left")
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				animated_sprite.play("right")
@@ -30,7 +30,8 @@ func _physics_process(delta):
 			else:
 				animated_sprite.play("up")
 				interaction_box.position = Vector2(0, -250)
-
+	else:
+		$AnimationPlayer.stop()
 	velocity = direction.normalized() * speed
 	move_and_slide()
 	rotate_flashlight()
