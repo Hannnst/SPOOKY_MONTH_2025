@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://br8mquhhciege"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e80m"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_refl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsnbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22dgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjky6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_refl1"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="InventorySlot" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 130.0
+offset_bottom = 130.0
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5e80m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_refl1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nsnbm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_22dgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gjky6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_refl1")
