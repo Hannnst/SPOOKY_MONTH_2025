@@ -7,10 +7,9 @@ var current_index = 0
 
 func _ready():
 	slots = slot_container.get_children()
-
 	_load_inventory()
-
 	_setup_focus()
+	InventoryManager.inventory_updated.connect(_load_inventory)
 
 
 #Update UI to match reality: Fetches the inventory and relevant data from global InventoryManager
@@ -73,8 +72,9 @@ func _try_use_item():
 	if not selected["is_owned"]:
 		print("Player tried to use item, but wasn't holding anything")
 		return
-
-	print("Player used item:", selected["name"])
+	# TODO: create script(s) for using items, either by adding a script to each Item of by switch statement here
+	# IDEA: use area.get_parent().name og trigger funksjon for interaktivitet
+	print("Player used item:", selected.name)
 
 	#TODO: Handle logic for using the selected item. Many ways to solve this so we can decide later
 	#When we know what the game is all about!
