@@ -9,6 +9,7 @@ var original_position_bottom: Vector2
 @export var move_distance: float = 30.0
 @export var move_time: float = 0.5
 
+@onready var dialogue = preload("res://dialogues/messages.dialogue")
 func _ready():
 	original_position_top = collision_top.position
 	original_position_bottom = collision_bottom.position
@@ -18,7 +19,6 @@ func _ready():
 
 func _on_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		var dialogue = load("res://dialogues/messages.dialogue")
 		DialogueManager.show_dialogue_balloon(dialogue, "stay_on_the_path")
 
 func _on_dialogue_manager_dialogue_ended(resource: DialogueResource):
