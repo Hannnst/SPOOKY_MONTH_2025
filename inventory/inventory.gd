@@ -89,7 +89,6 @@ func _try_use_item():
 		if inventory_item.target_name == target_object.name:
 			target_object.activate() # activates a node's attached script
 	else:
-		#TODO: inventory_item.activate()
 		print("Player tried to use item, but wasn't near any related target items")
 
 		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
