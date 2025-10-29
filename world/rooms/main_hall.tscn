@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1awoub33tqwk"]
+
+[ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_62s85"]
+[ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_bsegt"]
+
+[node name="MainHall" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_llw6l")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(652, 122)
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_62s85")]
+position = Vector2(286, 658)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+position = Vector2(6, 226)
