@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7mil5yaukbd" path="res://assets/placeholder/Q3vn0Qz.png" id="1_qya5r"]
 [ext_resource type="PackedScene" uid="uid://2a8ev33xw553" path="res://world/objects/testobject.tscn" id="4_y7j4n"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="5_ywubb"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="6_ec1ex"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="6_vxgak"]
 
 [node name="TestRoomA" type="Node2D"]
@@ -35,3 +36,6 @@ trigger_time = 1.0
 cooldown_time = 3.0
 
 [node name="Inventory" parent="." instance=ExtResource("6_vxgak")]
+
+[node name="Player" parent="." instance=ExtResource("6_ec1ex")]
+position = Vector2(306, 447)

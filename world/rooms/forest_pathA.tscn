@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbepuxwhuhp5v"]
+[gd_scene load_steps=14 format=3 uid="uid://bbepuxwhuhp5v"]
 
 [ext_resource type="Texture2D" uid="uid://mhfrns2ffguh" path="res://assets/placeholder/forest_pathA.png" id="1_3m1v5"]
+[ext_resource type="Script" uid="uid://b4bjfc3eeos3m" path="res://world/rooms/forest_path_a.gd" id="1_jkyyv"]
 [ext_resource type="Texture2D" uid="uid://ca5two6xcd6j" path="res://assets/placeholder/forest_pathA-trees.png" id="2_wfbcr"]
-[ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/forestA-path_blocker.gd" id="3_wfbcr"]
+[ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/utilities/forestA-path_blocker.gd" id="3_wfbcr"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="4_ser2u"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="7_jkyyv"]
@@ -20,14 +22,21 @@ size = Vector2(2508.5, 109)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkyyv"]
 size = Vector2(2474.25, 244)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt0ne"]
+size = Vector2(203, 314)
+
 [node name="ForestPathA" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_jkyyv")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
-[node name="ForestPathA" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
 z_index = -1
+
+[node name="ForestPathA" type="Sprite2D" parent="Background"]
 position = Vector2(1161.0001, 610)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_3m1v5")
@@ -76,6 +85,25 @@ shape = SubResource("RectangleShape2D_jkyyv")
 position = Vector2(1271, 868)
 shape = SubResource("RectangleShape2D_jkyyv")
 
+[node name="Exit-pathB" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit-pathB"]
+position = Vector2(2295, 618)
+shape = SubResource("RectangleShape2D_wt0ne")
+debug_color = Color(0.741041, 0.4495741, 0.24138841, 0.41960785)
+
+[node name="Player" parent="." instance=ExtResource("4_ser2u")]
+position = Vector2(439, 637)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(166, 26)
+scale = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = 0
+limit_right = 2200
+limit_bottom = 1200
+position_smoothing_enabled = true
+
 [node name="Grave" parent="." instance=ExtResource("5_qax4a")]
 position = Vector2(683, 636)
 
@@ -88,3 +116,4 @@ position = Vector2(271, 466)
 position = Vector2(415, 606)
 
 [connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]
+[connection signal="body_entered" from="Exit-pathB" to="." method="_on_exitpath_b_body_entered"]

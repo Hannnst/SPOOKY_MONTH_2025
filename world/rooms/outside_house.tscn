@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ypj5m2642br1"]
+
+[ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
+[ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_a2gve"]
+[ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_h8x43"]
+
+[node name="Outside" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_n8cr0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(652, 122)
+scale = Vector2(2, 2)
+texture = ExtResource("2_n8cr0")
+
+[node name="Player" parent="." instance=ExtResource("3_a2gve")]
+position = Vector2(286, 658)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Inventory" parent="." instance=ExtResource("4_h8x43")]
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+position = Vector2(6, 226)

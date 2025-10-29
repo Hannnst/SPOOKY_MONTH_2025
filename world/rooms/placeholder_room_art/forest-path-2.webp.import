@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://icxgfib8q60y"
-path="res://.godot/imported/forest-path-1.webp-77278b304aa8a29e727adbd08c21ef74.ctex"
+uid="uid://c7mo3t0j5wnym"
+path="res://.godot/imported/forest-path-2.webp-6a34f02cc06092d7dbbb033ca9e2fdb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/rooms/forest-path-1.webp"
-dest_files=["res://.godot/imported/forest-path-1.webp-77278b304aa8a29e727adbd08c21ef74.ctex"]
+source_file="res://world/rooms/placeholder_room_art/forest-path-2.webp"
+dest_files=["res://.godot/imported/forest-path-2.webp-6a34f02cc06092d7dbbb033ca9e2fdb0.ctex"]
 
 [params]
 

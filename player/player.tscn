@@ -1,10 +1,6 @@
-[gd_scene load_steps=60 format=3 uid="uid://bmlck841yqy1p"]
+[gd_scene load_steps=55 format=3 uid="uid://bmlck841yqy1p"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_w6dt1"]
-[ext_resource type="Texture2D" uid="uid://e4ma8wl3u4wm" path="res://player/p_down.png" id="2_uy4l1"]
-[ext_resource type="Texture2D" uid="uid://cgny53yp8b56l" path="res://player/p_left.png" id="3_p36uj"]
-[ext_resource type="Texture2D" uid="uid://daigwacw7pf0v" path="res://player/p_right.png" id="4_cowfw"]
-[ext_resource type="Texture2D" uid="uid://cn6ed2bsf7rrg" path="res://player/p_up.png" id="5_qtqv8"]
 [ext_resource type="Script" uid="uid://o7vvw8imkk6g" path="res://interaction/interaction_area.gd" id="6_u1o3n"]
 [ext_resource type="Texture2D" uid="uid://1jvrecsjoxfm" path="res://assets/player/puppet/leg1.png" id="7_201cp"]
 [ext_resource type="Texture2D" uid="uid://bm3v1ji38e7rd" path="res://assets/player/puppet/leg2.png" id="8_uh7q8"]
@@ -39,41 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://iqwcnw2ce4f0" path="res://assets/player/puppet/head-up1.png" id="31_04h0s"]
 [ext_resource type="Texture2D" uid="uid://cp8yr31r5ubgx" path="res://assets/player/puppet/head-up2.png" id="32_woncc"]
 [ext_resource type="Texture2D" uid="uid://xpvwrnjf7yeh" path="res://assets/player/puppet/head-up3.png" id="33_3d4p1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3jmlc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_uy4l1")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_p36uj")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_cowfw")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_qtqv8")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b6jt"]
 radius = 63.0
@@ -2358,15 +2319,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w6dt1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(2, -79)
-scale = Vector2(0.7733333, 0.7033333)
-sprite_frames = SubResource("SpriteFrames_3jmlc")
-animation = &"down"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(2, -79)
 shape = SubResource("CapsuleShape2D_0b6jt")
 
@@ -2378,10 +2331,10 @@ metadata/_custom_type_script = "uid://o7vvw8imkk6g"
 [node name="InteractionBox" type="CollisionShape2D" parent="InteractionSensor"]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_qvpcs")
+debug_color = Color(3.898591e-06, 0.7908046, 0.38159195, 0.41960785)
 
 [node name="Node2DFlashlight" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 rotation = 2.9286625
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]

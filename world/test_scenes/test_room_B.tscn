@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csl2bawby4emo" path="res://assets/placeholder/EIVXvPaW4AExn-p.png" id="1_0ifyk"]
 [ext_resource type="Script" uid="uid://qdsytpvkd4j0" path="res://world/test_scenes/test_room_b.gd" id="1_u6b6k"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="4_m6u05"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_u6b6k"]
 
 [node name="TestRoomB" type="Node2D"]
@@ -13,3 +14,6 @@ scale = Vector2(1.37963, 1)
 texture = ExtResource("1_0ifyk")
 
 [node name="Inventory" parent="." instance=ExtResource("4_u6b6k")]
+
+[node name="Player" parent="." instance=ExtResource("4_m6u05")]
+position = Vector2(520, 465)
