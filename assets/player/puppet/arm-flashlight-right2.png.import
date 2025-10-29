@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p2nwkjpdfk22"
-path="res://.godot/imported/arm-flashlight-side2.png-199a4e0839bd1167ed766640130432e8.ctex"
+uid="uid://cnqos5r11ah5v"
+path="res://.godot/imported/arm-flashlight-right2.png-ac75d4a94e1038f143b8db041a12350c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/puppet/arm-flashlight-side2.png"
-dest_files=["res://.godot/imported/arm-flashlight-side2.png-199a4e0839bd1167ed766640130432e8.ctex"]
+source_file="res://assets/player/puppet/arm-flashlight-right2.png"
+dest_files=["res://.godot/imported/arm-flashlight-right2.png-ac75d4a94e1038f143b8db041a12350c.ctex"]
 
 [params]
 
