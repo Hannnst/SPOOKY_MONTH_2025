@@ -37,25 +37,25 @@
 [ext_resource type="Texture2D" uid="uid://xpvwrnjf7yeh" path="res://assets/player/puppet/head-up3.png" id="33_3d4p1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b6jt"]
-radius = 24.0
-height = 48.0
+radius = 63.0
+height = 126.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpcs"]
-size = Vector2(76, 63)
+size = Vector2(142.75, 118)
 
-[sub_resource type="Gradient" id="Gradient_q28gw"]
+[sub_resource type="Gradient" id="Gradient_qvpcs"]
 offsets = PackedFloat32Array(0, 0.63666666)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tr6w4"]
-gradient = SubResource("Gradient_q28gw")
+gradient = SubResource("Gradient_qvpcs")
 width = 500
 height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvpcs"]
-radius = 54.0
+radius = 75.95
 
 [sub_resource type="Animation" id="Animation_stwjg"]
 length = 0.001
@@ -2320,7 +2320,7 @@ animations = [{
 script = ExtResource("1_w6dt1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -10)
+position = Vector2(2, -79)
 shape = SubResource("CapsuleShape2D_0b6jt")
 
 [node name="InteractionSensor" type="Area2D" parent="."]
@@ -2330,7 +2330,6 @@ metadata/_custom_type_script = "uid://o7vvw8imkk6g"
 
 [node name="InteractionBox" type="CollisionShape2D" parent="InteractionSensor"]
 unique_name_in_owner = true
-position = Vector2(-1, -27.5)
 shape = SubResource("RectangleShape2D_qvpcs")
 debug_color = Color(3.898591e-06, 0.7908046, 0.38159195, 0.41960785)
 
@@ -2345,9 +2344,8 @@ texture = SubResource("GradientTexture2D_tr6w4")
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(4, -39)
+position = Vector2(2, -79)
 shape = SubResource("CircleShape2D_qvpcs")
-debug_color = Color(0.8937728, 0.29489303, 0.33396876, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Puppet")
@@ -2356,7 +2354,7 @@ libraries = {
 }
 
 [node name="Puppet" type="Node2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 
 [node name="BackLeg" type="Node2D" parent="Puppet"]
 position = Vector2(-22, -99)
