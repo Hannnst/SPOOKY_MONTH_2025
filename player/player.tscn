@@ -341,7 +341,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("%AnimatedArm_back-dup:animation")
+tracks/20/path = NodePath("BackArm-duplicate/AnimatedArm_back_dup:animation")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -1807,7 +1807,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-0.20943951023931956, -0.24434609527920614, -0.20943951023931956, -0.19198621771937624]
+"values": [-0.20943951023931956, -0.24434609527920617, -0.20943951023931956, -0.19198621771937624]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -2142,7 +2142,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("%AnimatedArm_back-dup:animation")
+tracks/18/path = NodePath("BackArm-duplicate/AnimatedArm_back_dup:animation")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -2436,7 +2436,7 @@ visible = false
 position = Vector2(21.150002, -207.795)
 rotation = -0.3403392
 
-[node name="AnimatedArm_back-dup" type="AnimatedSprite2D" parent="Puppet/BackArm-duplicate"]
+[node name="AnimatedArm_back_dup" type="AnimatedSprite2D" parent="Puppet/BackArm-duplicate"]
 unique_name_in_owner = true
 position = Vector2(-1, 60)
 sprite_frames = SubResource("SpriteFrames_pwd18")

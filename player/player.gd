@@ -12,7 +12,7 @@ func _ready():
 	%AnimatedLeg_back.play()
 	%AnimatedLeg_front.play()
 	%AnimatedArm_back.play()
-	%"AnimatedArm_back-dup".play()
+	%AnimatedArm_back_dup.play()
 	%AnimatedBody.play()
 	%AnimatedArm_front.play()
 	%AnimatedHead.play()
@@ -29,22 +29,19 @@ func _physics_process(delta):
 	if direction != Vector2.ZERO:
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
-				animation_player.play("walk_right")
 				last_direction = "right"
 				interaction_box.position = Vector2(150, -90)
 			else:
-				animation_player.play("walk_left")
 				last_direction = "left"
 				interaction_box.position = Vector2(-150, -90)
 		else:
 			if direction.y > 0:
-				animation_player.play("walk_down")
 				last_direction = "down"
 				interaction_box.position = Vector2(0, 20)
 			else:
-				animation_player.play("walk_up")
 				last_direction = "up"
 				interaction_box.position = Vector2(0, -250)
+		animation_player.play("walk_" + last_direction)
 	else:
 		animation_player.play("idle_" + last_direction)
 	velocity = direction.normalized() * speed
