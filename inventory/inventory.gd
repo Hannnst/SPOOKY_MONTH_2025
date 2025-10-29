@@ -81,9 +81,8 @@ func _try_use_item():
 
 	if not inventory_item.has("target_name"):
 		print("item has no target_name, therefore should print flavortext")
-		# TODO: null point excepting handling
-		var key = inventory_item.name + "_use"
-		DialogueManager.show_dialogue_balloon(dialogue, key)
+		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
+		return
 
 	var target_object = InteractionManager._get_closest_object()
 	if (target_object and inventory_item):
