@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://q1sfnajdrjjs"]
+
+[ext_resource type="Script" uid="uid://3qj1l4jhj8im" path="res://world/objects/skull.gd" id="1_1ek8r"]
+[ext_resource type="Texture2D" uid="uid://cs2ov0qle0pr6" path="res://assets/items/skull_front.webp" id="2_1ek8r"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="3_qdnil"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ek8r"]
+radius = 88.64878
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1mxp"]
+radius = 52.0
+
+[node name="Skull" type="StaticBody2D"]
+script = ExtResource("1_1ek8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.20002548, 0.20002548)
+texture = ExtResource("2_1ek8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.6293945e-06, -13.999996)
+scale = Vector2(0.340102, 0.340102)
+shape = SubResource("CircleShape2D_1ek8r")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_qdnil")]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_d1mxp")
+
+[editable path="InteractionArea"]

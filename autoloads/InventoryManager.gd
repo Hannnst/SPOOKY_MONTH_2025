@@ -8,7 +8,7 @@ var inventory = [
 	{ "name": "carrot", "is_owned": true, "texture": preload("res://assets/placeholder/placeholder_carrot.png"), "target_name": "Testobject" },
 	{ "name": "spooky_guy", "is_owned": true, "texture": preload("res://player/p_down.png") },
 	{ "name": "godot_guy", "is_owned": true, "texture": preload("res://icon.svg") },
-	{ "name": "placeholder", "is_owned": false, "texture": preload("res://icon.svg") },
+	{ "name": "skull", "is_owned": false, "texture": preload("res://assets/items/skull_front.webp"), "target_name": "Grave" },
 	{ "name": "placeholder2", "is_owned": false, "texture": preload("res://icon.svg") },
 	{ "name": "placeholder3", "is_owned": true, "texture": preload("res://icon.svg") },
 	{ "name": "placeholder4", "is_owned": false, "texture": preload("res://icon.svg") },

@@ -4,6 +4,7 @@ extends CanvasLayer
 var slots = []
 var current_index = 0
 @onready var use_item_icon = $UseItemIcon
+@onready var dialogue = load("res://dialogues/items.dialogue")
 
 
 func _ready():
@@ -79,14 +80,18 @@ func _try_use_item():
 		return
 
 	if not inventory_item.has("target_name"):
-		print("item has no target_name")
-		# TODO: func for flavour text popup based on item (inventory manager)
+		print("item has no target_name, therefore should print flavortext")
+		# TODO: null point excepting handling
+		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
 		return
 
 	var target_object = InteractionManager._get_closest_object()
 	if (target_object and inventory_item):
 		if inventory_item.target_name == target_object.name:
-			target_object._activate() # activates a node's attached script
+			target_object.activate() # activates a node's attached script
 	else:
+		#TODO: inventory_item.activate()
 		print("Player tried to use item, but wasn't near any related target items")
+
+		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
 		return

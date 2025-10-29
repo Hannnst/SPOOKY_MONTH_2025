@@ -1,0 +1,20 @@
+~ skull_collect
+A long lost friend reappears in your embrace. It's been so long, what to even talk about? 
+=> END
+
+~ skull_use
+It's looking at you with loving eyes.
+=> END
+
+~ grave_interact
+It appears to be a hole big enough to fit a good friend.
+=> END
+
+~ grave_activate
+After all, there's no place like home.
+=> END
+
+~ grave_fall_into
+After all, there's no place like home.
+=> END
+
