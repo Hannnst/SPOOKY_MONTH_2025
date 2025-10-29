@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://mhfrns2ffguh" path="res://assets/placeholder/forest_pathA.png" id="1_3m1v5"]
 [ext_resource type="Texture2D" uid="uid://ca5two6xcd6j" path="res://assets/placeholder/forest_pathA-trees.png" id="2_wfbcr"]
-[ext_resource type="PackedScene" uid="uid://dex32wmhj6jqg" path="res://player/player_scene.tscn" id="3_bradt"]
 [ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/forestA-path_blocker.gd" id="3_wfbcr"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax4a"]
@@ -76,17 +76,6 @@ shape = SubResource("RectangleShape2D_jkyyv")
 position = Vector2(1271, 868)
 shape = SubResource("RectangleShape2D_jkyyv")
 
-[node name="Player" parent="." instance=ExtResource("3_bradt")]
-position = Vector2(328, 664)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_top = 0
-limit_right = 2200
-limit_bottom = 1200
-position_smoothing_enabled = true
-
 [node name="Grave" parent="." instance=ExtResource("5_qax4a")]
 position = Vector2(683, 636)
 
@@ -94,5 +83,8 @@ position = Vector2(683, 636)
 position = Vector2(271, 466)
 
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
+
+[node name="Player" parent="." instance=ExtResource("7_jkyyv")]
+position = Vector2(415, 606)
 
 [connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]

@@ -170,7 +170,8 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 		passed_title.emit(resource.titles.find_key(key))
 
 	if not resource.lines.has(key):
-		assert(false, DMConstants.translate(&"errors.key_not_found").format({ key = key }))
+		print("No dialogue with name ", key)
+		return # do default dialogue
 
 	var data: Dictionary = resource.lines.get(key)
 
