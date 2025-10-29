@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1lc5imntif53"]
+
+[ext_resource type="Texture2D" uid="uid://dlttdgf3dwjjg" path="res://world/rooms/placeholder_room_art/house-bedroom-siblings.webp" id="1_djdes"]
+[ext_resource type="Script" uid="uid://cqmhowow4pfkt" path="res://world/rooms/master_bedroom.gd" id="1_qga1o"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="2_qga1o"]
+[ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="3_qduph"]
+
+[node name="MasterBedroom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qga1o")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(648, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("1_djdes")
+
+[node name="Player" parent="." instance=ExtResource("2_qga1o")]
+position = Vector2(286, 658)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Inventory" parent="." instance=ExtResource("3_qduph")]
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+position = Vector2(6, 226)

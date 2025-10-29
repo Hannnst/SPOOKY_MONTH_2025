@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwtgt0qcyfuo8"
-path="res://.godot/imported/house-bathroom.webp-6e167bf827ffc316486d2ad61fbbf5d2.ctex"
+uid="uid://dlttdgf3dwjjg"
+path="res://.godot/imported/house-bedroom-siblings.webp-e94ddf1eef2dde8e417d05c45576f2df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/rooms/house-bathroom.webp"
-dest_files=["res://.godot/imported/house-bathroom.webp-6e167bf827ffc316486d2ad61fbbf5d2.ctex"]
+source_file="res://world/rooms/placeholder_room_art/house-bedroom-siblings.webp"
+dest_files=["res://.godot/imported/house-bedroom-siblings.webp-e94ddf1eef2dde8e417d05c45576f2df.ctex"]
 
 [params]
 

@@ -448,7 +448,7 @@ func show_example_dialogue_balloon(resource: DialogueResource, title: String = "
 func show_dialogue_balloon(resource: DialogueResource, title: String = "", extra_game_states: Array = []) -> Node:
 	if can_show_dialogue:
 		Globals.move_enabled = false
-		InteractionManager.enable_icon = false
+		InteractionManager.icon_enabled = false
 		can_show_dialogue = false
 		var balloon_path: String = DMSettings.get_setting(DMSettings.BALLOON_PATH, _get_example_balloon_path())
 		if not ResourceLoader.exists(balloon_path):
@@ -1523,7 +1523,7 @@ func _resolve_thing_method(thing, method: String, args: Array):
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	can_show_dialogue = true
 	Globals.move_enabled = true
-	InteractionManager.enable_icon = true
+	InteractionManager.icon_enabled = true
 
 
 func cancel_dialogue() -> void:
