@@ -22,6 +22,7 @@ SceneManager="*res://autoloads/SceneManager.gd"
 InteractionManager="*res://autoloads/InteractionManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 InventoryManager="*res://autoloads/InventoryManager.gd"
+SoundManager="*res://autoloads/SoundManager.gd"
 
 [display]
 
