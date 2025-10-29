@@ -17,7 +17,7 @@ func _on_interact():
 	print("Interacting with:", self)
 	print("Sprite is:", sprite)
 	sprite.flip_v = !sprite.flip_v
-	DialogueManager.show_dialogue_balloon(dialogue, "skull_interact")
+	DialogueManager.show_dialogue_balloon(dialogue, "skull_collect")
 	InventoryManager.collect_item("skull")
 
 
