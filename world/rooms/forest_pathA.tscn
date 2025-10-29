@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="4_ser2u"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax4a"]
@@ -110,6 +111,9 @@ position = Vector2(683, 636)
 position = Vector2(271, 466)
 
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
+
+[node name="Player" parent="." instance=ExtResource("7_jkyyv")]
+position = Vector2(415, 606)
 
 [connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]
 [connection signal="body_entered" from="Exit-pathB" to="." method="_on_exitpath_b_body_entered"]
