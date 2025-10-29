@@ -5,6 +5,7 @@ extends StaticBody2D
 
 #Dette må legges til på alle interactable objekter:
 @onready var interaction_area = $InteractionArea
+@onready var dialogue = load("res://dialogues/items.dialogue")
 
 
 func _ready():
@@ -16,11 +17,9 @@ func _on_interact():
 	print("Interacting with:", self)
 	print("Sprite is:", sprite)
 	sprite.flip_v = !sprite.flip_v
-
-	var dialogue = load("res://dialogues/funny_test.dialogue")
-	DialogueManager.show_dialogue_balloon(dialogue, "start")
+	DialogueManager.show_dialogue_balloon(dialogue, "skull_interact")
+	InventoryManager.collect_item("skull")
 
 
 func activate():
-	# TODO: piano test activate function
-	print(self.name, " says pling plong :-)")
+	DialogueManager.show_dialogue_balloon(dialogue, "skull_activate")
