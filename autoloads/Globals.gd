@@ -4,3 +4,26 @@ extends Node
 #These variables can go here.
 
 var move_enabled = true
+
+#Global tracker for events you want to only occour a limited amount of times.
+#First two entries are just examples.
+var finite_events = {
+	"twig_breaking": 5,
+	"spooky_ghost_girl": 1,
+}
+
+#This function checks if the event exists in the finite_events dictionary:
+#If the event exists, reduce the event by 1 and return true.
+#Else: print a warning and return false
+func trigger_finite_event(event_name) -> bool:
+	if event_name in finite_events.keys():
+		if finite_events[event_name] < 1:
+			print("Event '", event_name, " has been exhausted. Nothing should happen" )
+			return false
+		else:
+			print("Event ", event_name, " reduced by 1")
+			finite_events[event_name] -= 1
+		return true
+	else:
+		print("Warning: Tried to trigger unknown event in Globale: ", event_name)
+		return false

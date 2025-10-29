@@ -5,15 +5,24 @@ var scenes = {
 	"testB": "res://world/test_scenes/test_room_B.tscn"
 }
 
+#Variables used for finding initial player position certain scenes
+var current_scene = ""
+var prev_scene = ""
+
 func get_scene_path(scene_name):
 	if scene_name in scenes:
 		return scenes[scene_name]
 	else:
-		print("SceneManager: Scene not present in action level list:" % scene_name)
+		print("SceneManager: Scene not present in action level list: ", scene_name)
 
 func change_scene(scene_name: String):
 	var scene_path = get_scene_path(scene_name)
 	if scene_path:
+		#Update records:
+		prev_scene = current_scene
+		current_scene = scene_name
+		
+		#transition:
 		TransitionScreen.transition()
 		await TransitionScreen.transition_finished
 		get_tree().change_scene_to_file(scene_path)
