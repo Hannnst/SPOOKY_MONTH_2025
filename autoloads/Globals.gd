@@ -16,7 +16,7 @@ var finite_events = {
 #If the event exists, reduce the event by 1 and return true.
 #Else: print a warning and return false
 func trigger_finite_event(event_name) -> bool:
-	if event_name in finite_events.keys():
+	if event_name in finite_events:
 		if finite_events[event_name] < 1:
 			print("Event '", event_name, " has been exhausted. Nothing should happen" )
 			return false
