@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bmlck841yqy1p"]
+[gd_scene load_steps=60 format=3 uid="uid://dgy3g5s610ess"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_w6dt1"]
 [ext_resource type="Texture2D" uid="uid://e4ma8wl3u4wm" path="res://player/p_down.png" id="2_uy4l1"]
@@ -2381,7 +2381,6 @@ shape = SubResource("RectangleShape2D_qvpcs")
 
 [node name="Node2DFlashlight" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 rotation = 2.9286625
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/forestA-path_blocker.gd" id="3_wfbcr"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="7_jkyyv"]
+[ext_resource type="PackedScene" uid="uid://dgy3g5s610ess" path="res://player/player.tscn" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax4a"]
