@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://fqo23kpu8ow3"]
+
+[ext_resource type="Script" uid="uid://c75s72kq7o181" path="res://world/objects/grave.gd" id="1_epipt"]
+[ext_resource type="Texture2D" uid="uid://bsbjhh348e4u5" path="res://assets/placeholder/grave_sprite.PNG" id="2_epipt"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="3_p5eot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jysx3"]
+size = Vector2(288.14883, 241.10422)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g41e0"]
+size = Vector2(165, 146.25)
+
+[node name="Grave" type="StaticBody2D"]
+script = ExtResource("1_epipt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -46)
+scale = Vector2(0.5872289, 0.5686524)
+texture = ExtResource("2_epipt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.9999988, -45.99998)
+scale = Vector2(0.340102, 0.340102)
+shape = SubResource("RectangleShape2D_jysx3")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_p5eot")]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_g41e0")
+
+[editable path="InteractionArea"]

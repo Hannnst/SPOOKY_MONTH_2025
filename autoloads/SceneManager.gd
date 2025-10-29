@@ -2,7 +2,7 @@ extends Node
 
 var scenes = {
 	"testA": "res://world/test_scenes/test_room_A.tscn",
-	"testB": "res://world/test_scenes/test_room_B.tscn"
+	"testB": "res://world/test_scenes/test_room_B.tscn",
 }
 
 #Variables used for finding initial player position certain scenes
@@ -14,6 +14,7 @@ func get_scene_path(scene_name):
 		return scenes[scene_name]
 	else:
 		print("SceneManager: Scene not present in action level list: ", scene_name)
+
 
 func change_scene(scene_name: String):
 	var scene_path = get_scene_path(scene_name)
@@ -28,3 +29,4 @@ func change_scene(scene_name: String):
 		get_tree().change_scene_to_file(scene_path)
 		Globals.move_enabled = true
 		DialogueManager.can_show_dialogue = true
+		InteractionManager.icon_enabled = true

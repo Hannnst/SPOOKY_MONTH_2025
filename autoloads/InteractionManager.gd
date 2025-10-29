@@ -6,6 +6,7 @@ var icon_offset = Vector2(-100, -100)
 
 var active_areas = []
 var can_interact = true
+var enable_icon = true
 
 
 func _ready():
@@ -29,7 +30,8 @@ func _process(delta):
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		icon.global_position = active_areas[0].global_position
 		icon.global_position += icon_offset
-		icon.show()
+		if enable_icon:
+			icon.show()
 	else:
 		icon.hide()
 
