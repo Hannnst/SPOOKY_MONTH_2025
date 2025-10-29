@@ -2,9 +2,20 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_box = %InteractionBox
+@onready var animation_player = $AnimationPlayer
 
 var speed = 200 # pixels per second
+var last_direction = "down"
 
+func _ready():
+	animation_player.play("idle_down")
+	%AnimatedLeg_back.play()
+	%AnimatedLeg_front.play()
+	%AnimatedArm_back.play()
+	%"AnimatedArm_back-dup".play()
+	%AnimatedBody.play()
+	%AnimatedArm_front.play()
+	%AnimatedHead.play()
 
 func _physics_process(delta):
 	var direction := Vector2.ZERO
@@ -18,19 +29,24 @@ func _physics_process(delta):
 	if direction != Vector2.ZERO:
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
-				animated_sprite.play("right")
+				animation_player.play("walk_right")
+				last_direction = "right"
 				interaction_box.position = Vector2(150, -90)
 			else:
-				animated_sprite.play("left")
+				animation_player.play("walk_left")
+				last_direction = "left"
 				interaction_box.position = Vector2(-150, -90)
 		else:
 			if direction.y > 0:
-				animated_sprite.play("down")
+				animation_player.play("walk_down")
+				last_direction = "down"
 				interaction_box.position = Vector2(0, 20)
 			else:
-				animated_sprite.play("up")
+				animation_player.play("walk_up")
+				last_direction = "up"
 				interaction_box.position = Vector2(0, -250)
-
+	else:
+		animation_player.play("idle_" + last_direction)
 	velocity = direction.normalized() * speed
 	move_and_slide()
 	rotate_flashlight()
