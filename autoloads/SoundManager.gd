@@ -77,7 +77,7 @@ func playSFX(sound_effect : String, volume_db := 0.0, pitch_scale := 1.0,) -> vo
 
 func play_random_pitch(sound_effect : String, volume_db := 0.0, pitch_spread := 0.04) -> void:
 	var pitch = 1.0 + randf_range(-pitch_spread, pitch_spread)
-	playSFX(sound_effect, pitch, volume_db)
+	playSFX(sound_effect, volume_db, pitch)
 
 func stop_all_sfx() -> void:
 	for sfx_player in sfx_players: sfx_player.stop()
