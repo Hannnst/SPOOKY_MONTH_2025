@@ -68,5 +68,5 @@ shape = SubResource("RectangleShape2D_hlsja")
 
 [node name="Skull" parent="." instance=ExtResource("5_8odcw")]
 position = Vector2(829.00006, 510)
-rotation = -6.2831855
+rotation = 0
 scale = Vector2(0.9999998, 0.9999998)
