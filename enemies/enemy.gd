@@ -64,7 +64,7 @@ func _chase_player():
 	var direction_to_player = (player.global_position - global_position).normalized()
 	var shake_strength := 4.0 # pixels
 	# TODO: check if it has animation called chase, play it, if not play "down"
-	if "chase" in animated_sprite.sprite_frames.get_animation_names():
+	if animated_sprite.sprite_frames and "chase" in animated_sprite.sprite_frames.get_animation_names():
 		animated_sprite.play("chase")
 	else:
 		animated_sprite.play("down")
