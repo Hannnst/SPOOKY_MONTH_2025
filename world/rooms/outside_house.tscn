@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=13 format=3 uid="uid://gfnekvg1s77h"]
 
-[ext_resource type="Script" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
+[ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_a2gve"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_h8x43"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="6_vl5rv"]
 [ext_resource type="Script" uid="uid://m5m217d121vk" path="res://world/objects/outside/gate.gd" id="7_ry108"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="8_k3ycv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8pc"]
+size = Vector2(28.5, 1.4099998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl5rv"]
+size = Vector2(6.8799996, 1.6500002)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_if25p"]
 animations = [{
@@ -56,6 +62,33 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(716, 912)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_xr8pc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(720, -776)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_xr8pc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(-382.99994, 0)
+rotation = 1.5707964
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_xr8pc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1591, -126.99994)
+rotation = 1.5707964
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_xr8pc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(694, -683)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_vl5rv")
 
 [node name="Gate" type="Node2D" parent="."]
 position = Vector2(96, 504.895)

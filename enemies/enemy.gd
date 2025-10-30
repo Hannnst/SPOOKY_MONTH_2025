@@ -63,7 +63,12 @@ func _on_cooldown_timer_timeout():
 func _chase_player():
 	var direction_to_player = (player.global_position - global_position).normalized()
 	var shake_strength := 4.0 # pixels
-	animated_sprite.play("down")
+	# TODO: check if it has animation called chase, play it, if not play "down"
+	if animated_sprite.sprite_frames and "chase" in animated_sprite.sprite_frames.get_animation_names():
+		animated_sprite.play("chase")
+	else:
+		animated_sprite.play("down")
+
 	velocity = direction_to_player * chase_speed
 	animated_sprite.position = base_sprite_position + Vector2(
 		randf_range(-shake_strength, shake_strength),
