@@ -1,3 +1,24 @@
 ~ vindu
 Your friends are probably outside playing without you. But you have more important things to do.
 => END
+
+~ piano
+Close the piano?
+- Yes
+	do Globals.piano_closed = true
+- No
+	do Globals.piano_closed = false
+=> END
+
+~ piano_closed
+All better.
+=> END
+
+
+~ tacky_lamp
+You never really liked this lamp, but seeing it brings back memories.
+=> END
+
+~ bookshelf
+A familiar bookshelf.
+=> END

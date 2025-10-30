@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bk6sa4lucpd2g"]
+[gd_scene load_steps=36 format=3 uid="uid://bk6sa4lucpd2g"]
 
 [ext_resource type="Script" uid="uid://bjlk6nyyd44r8" path="res://world/rooms/music_room.gd" id="1_dioti"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="2_dioti"]
@@ -8,13 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://sbfdkgeb7vvq" path="res://assets/textures/veggtekstur_vib.webp" id="4_jon1b"]
 [ext_resource type="AudioStream" uid="uid://bsmipljcv3oy2" path="res://sounds/music/lighthouse3.mp3" id="5_kfo5h"]
 [ext_resource type="Texture2D" uid="uid://bhvuv2jde4733" path="res://assets/textures/list.webp" id="5_xv37x"]
-[ext_resource type="PackedScene" uid="uid://c26i1f7aoe6v2" path="res://world/objects/music_room/piano.tscn" id="8_jon1b"]
-[ext_resource type="PackedScene" uid="uid://dnhejvliq1wrq" path="res://world/objects/music_room/bookshelf.tscn" id="9_tu6hh"]
-[ext_resource type="PackedScene" uid="uid://c6aofj5ccr4v4" path="res://world/objects/music_room/tacky_lamp.tscn" id="11_yj0rr"]
+[ext_resource type="Script" uid="uid://d30yewp27g8i5" path="res://world/objects/music_room/bookshelf.gd" id="9_2jyv4"]
+[ext_resource type="Texture2D" uid="uid://d4e2f13goskth" path="res://assets/furniture/bookshelf_vib.webp" id="9_u7w64"]
+[ext_resource type="Texture2D" uid="uid://4qsthde76wwt" path="res://assets/sprites/pianogirl1.PNG" id="12_iyx8o"]
+[ext_resource type="Texture2D" uid="uid://qq7mkwu34q1i" path="res://assets/furniture/piano.webp" id="12_mkvfs"]
 [ext_resource type="Texture2D" uid="uid://dpnkvx3hy1l3l" path="res://assets/furniture/vindu_vibA.webp" id="12_mry3s"]
+[ext_resource type="Texture2D" uid="uid://detpimhncchsa" path="res://assets/furniture/piano_closed.png" id="12_u7w64"]
 [ext_resource type="Texture2D" uid="uid://b2g85mb0062ji" path="res://assets/furniture/vindu_vibB.webp" id="13_jxd1m"]
-[ext_resource type="Script" uid="uid://bj1dk238woskr" path="res://world/rooms/utilities/vindu.gd" id="13_ws51x"]
+[ext_resource type="Texture2D" uid="uid://bdu0k3gd2w0cv" path="res://assets/sprites/pianogirl2.PNG" id="13_wflst"]
+[ext_resource type="Script" uid="uid://bj1dk238woskr" path="res://world/objects/music_room/vindu.gd" id="13_ws51x"]
+[ext_resource type="Script" uid="uid://dyvopchsbabi6" path="res://world/objects/music_room/tacky_lamp.gd" id="14_2jyv4"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="14_a5atw"]
+[ext_resource type="Texture2D" uid="uid://dtkur8cghk6j" path="res://assets/sprites/pianogirl3.PNG" id="14_mkvfs"]
+[ext_resource type="Texture2D" uid="uid://bbyoqp1wwqsvm" path="res://assets/furniture/tacky_lamp.webp" id="15_31idr"]
+[ext_resource type="Script" uid="uid://cnukciqyq7na3" path="res://world/objects/music_room/piano.gd" id="15_wflst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jon1b"]
 size = Vector2(1511.25, 116)
@@ -32,6 +39,46 @@ width = 1000
 height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q48sb"]
+size = Vector2(400, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jyv4"]
+size = Vector2(196.07848, 115.686325)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6ulu"]
+radius = 39.0
+height = 146.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6ulu"]
+size = Vector2(376, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkvfs"]
+size = Vector2(132, 54)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rhcc"]
+radius = 24.0
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7w64"]
+size = Vector2(74.10257, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7w64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_iyx8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wflst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mkvfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asa16"]
 size = Vector2(257.5003, 217.50006)
@@ -81,7 +128,7 @@ scale = Vector2(0.56128633, 0.5612864)
 texture = ExtResource("3_74xam")
 
 [node name="Player" parent="." instance=ExtResource("2_dioti")]
-position = Vector2(1356, 729)
+position = Vector2(1307, 682)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -311
@@ -109,27 +156,99 @@ shape = SubResource("RectangleShape2D_hitsm")
 
 [node name="Inventory" parent="." instance=ExtResource("3_kfo5h")]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="LampLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(70.000015, 244)
 scale = Vector2(0.89000005, 0.93999994)
+color = Color(0.9832582, 0.90295994, 0.6946018, 1)
+energy = 0.6
 texture = SubResource("GradientTexture2D_tu6hh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(2.075, 129.22)
 stream = ExtResource("5_kfo5h")
 autoplay = true
 
-[node name="Bookshelf" parent="." instance=ExtResource("9_tu6hh")]
+[node name="Bookshelf" type="StaticBody2D" parent="."]
 position = Vector2(492, 354)
 scale = Vector2(0.51, 0.51)
+script = ExtResource("9_2jyv4")
 
-[node name="Piano" parent="." instance=ExtResource("8_jon1b")]
+[node name="Sprite2D" type="Sprite2D" parent="Bookshelf"]
+position = Vector2(-2, -317)
+scale = Vector2(0.9059197, 1)
+texture = ExtResource("9_u7w64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf"]
+position = Vector2(-3, -78)
+shape = SubResource("RectangleShape2D_q48sb")
+
+[node name="InteractionArea" parent="Bookshelf" instance=ExtResource("14_a5atw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/InteractionArea"]
+position = Vector2(-50.980408, -151.96075)
+shape = SubResource("RectangleShape2D_2jyv4")
+debug_color = Color(0.59038526, 0.37406772, 3.85046e-07, 0.41960785)
+
+[node name="Piano" type="StaticBody2D" parent="."]
 position = Vector2(239, 349.99997)
-scale = Vector2(0.675, 0.675)
+scale = Vector2(0.61, 0.61)
+script = ExtResource("15_wflst")
 
-[node name="TackyLamp" parent="." instance=ExtResource("11_yj0rr")]
-position = Vector2(54, 337)
+[node name="Piano" type="Sprite2D" parent="Piano"]
+position = Vector2(-1, -46)
+texture = ExtResource("12_mkvfs")
+
+[node name="PianoClosed" type="Sprite2D" parent="Piano/Piano"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("12_u7w64")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Piano"]
+position = Vector2(-11, 156)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_o6ulu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piano"]
+position = Vector2(-5, 21.5)
+shape = SubResource("RectangleShape2D_o6ulu")
+
+[node name="InteractionArea" parent="Piano" instance=ExtResource("14_a5atw")]
+scale = Vector2(1.6393442, 1.6393442)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piano/InteractionArea"]
+position = Vector2(-7, 48)
+shape = SubResource("RectangleShape2D_mkvfs")
+debug_color = Color(0.69860953, 0.4934768, 0, 0.41960785)
+
+[node name="TackyLamp" type="StaticBody2D" parent="."]
+position = Vector2(74, 339)
 scale = Vector2(0.78, 0.78)
+script = ExtResource("14_2jyv4")
+
+[node name="TackyLamp" type="Sprite2D" parent="TackyLamp"]
+position = Vector2(9.536743e-07, -79)
+scale = Vector2(0.45172414, 0.45172414)
+texture = ExtResource("15_31idr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TackyLamp"]
+position = Vector2(1, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3rhcc")
+
+[node name="InteractionArea" parent="TackyLamp" instance=ExtResource("14_a5atw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TackyLamp/InteractionArea"]
+position = Vector2(-3.8461533, -47.43589)
+shape = SubResource("RectangleShape2D_u7w64")
+debug_color = Color(0.7621254, 0.45137608, 0, 0.41960785)
+
+[node name="PianoGirl" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(232, 367)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u7w64")
 
 [node name="Vindu" type="Sprite2D" parent="."]
 position = Vector2(832.99994, 153.99998)
