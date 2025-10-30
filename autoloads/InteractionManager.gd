@@ -31,8 +31,17 @@ func unregister_area(area: Area2D):
 func _process(delta):
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		icon.global_position = active_areas[0].global_position
-		icon.global_position += icon_offset
+		
+		# World position of the area
+		var world_pos = active_areas[0].global_position + icon_offset
+
+		# Convert world -> screen
+		var cam = get_viewport().get_camera_2d()
+		var screen_pos = world_pos
+		if cam:
+			screen_pos = cam.get_canvas_transform() * world_pos
+
+		icon.position = screen_pos
 		if icon_enabled:
 			icon.show()
 	else:
