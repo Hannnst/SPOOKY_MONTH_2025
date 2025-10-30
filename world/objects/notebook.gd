@@ -1,6 +1,6 @@
 extends Node2D
 
-# This is an informal interfrace for objects. Consider using classes in the future but avoiding complexity for now
+# This is an informal interface for objects. Consider using classes in the future but avoiding complexity for now
 @onready var sprite = $Sprite2D
 
 #Dette må legges til på alle interactable objekter:
