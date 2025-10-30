@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=12 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
+[ext_resource type="StyleBox" uid="uid://d32vjapmld7fh" path="res://fonts&styles/dialogue_panel.tres" id="2_1337t"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://bgriorxst4m6r" path="res://fonts&styles/SpecialElite-Regular.ttf" id="2_nlsx6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -63,6 +65,23 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1337t"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.17641908, 0.17641911, 0.17641902, 0.94509804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7038081, 0.70380783, 0.70380783, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -91,18 +110,26 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_1337t")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 13
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_nlsx6")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -112,6 +139,12 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_nlsx6")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
 text = "Dialogue..."
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
@@ -122,20 +155,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
+offset_left = -258.0
 offset_top = -35.0
-offset_right = 290.5
+offset_right = 264.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 2
+theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_nlsx6")
+theme_override_styles/normal = ExtResource("2_1337t")
+theme_override_styles/pressed = ExtResource("2_1337t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1337t")
+theme_override_styles/disabled = ExtResource("2_1337t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1337t")
 text = "Response example"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
