@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtooumktfu58"]
+
+[ext_resource type="Script" uid="uid://ckhd2d1k7bghq" path="res://assets/furniture/framedArt/framed_art.gd" id="1_whyk8"]
+[ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="2_gm42o"]
+[ext_resource type="Texture2D" uid="uid://bpww6kdhpum6x" path="res://assets/furniture/framedArt/looking.webp" id="3_53dpw"]
+
+[node name="FramedArt" type="Node2D"]
+script = ExtResource("1_whyk8")
+
+[node name="FrameSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -257)
+texture = ExtResource("2_gm42o")
+
+[node name="PictureSprite" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, -258)
+scale = Vector2(1.3611112, 1.1734418)
+texture = ExtResource("3_53dpw")

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb8myy4jukgpp"]
+[gd_scene load_steps=10 format=3 uid="uid://cb8myy4jukgpp"]
 
 [ext_resource type="Texture2D" uid="uid://dlttdgf3dwjjg" path="res://world/rooms/placeholder_room_art/house-bedroom-siblings.webp" id="1_itgtb"]
 [ext_resource type="Script" uid="uid://djk77es3nbxy2" path="res://world/rooms/bedroom.gd" id="1_pb2ka"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_to4bo"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_itgtb"]
+[ext_resource type="Texture2D" uid="uid://wkluv5ck6fph" path="res://assets/furniture/framedArt/castle.webp" id="4_kth6x"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="5_8odcw"]
+[ext_resource type="PackedScene" uid="uid://dtooumktfu58" path="res://assets/furniture/framedArt/framed_art.tscn" id="6_hlsja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kth6x"]
 size = Vector2(2063.0625, 280.5)
@@ -26,6 +28,10 @@ z_index = -1
 position = Vector2(562.3941, 311.94995)
 scale = Vector2(2.3872354, 2.4654686)
 texture = ExtResource("1_itgtb")
+
+[node name="FramedArt" parent="Background" instance=ExtResource("6_hlsja")]
+position = Vector2(829, 172)
+picture_texture = ExtResource("4_kth6x")
 
 [node name="Player" parent="." instance=ExtResource("1_to4bo")]
 position = Vector2(286, 658)
@@ -68,5 +74,9 @@ shape = SubResource("RectangleShape2D_hlsja")
 
 [node name="Skull" parent="." instance=ExtResource("5_8odcw")]
 position = Vector2(829.00006, 510)
-rotation = 0
 scale = Vector2(0.9999998, 0.9999998)
+
+[node name="FramedArt" parent="." instance=ExtResource("6_hlsja")]
+position = Vector2(268, 147)
+scale = Vector2(0.7, 0.7)
+size = Vector2(0, 100)
