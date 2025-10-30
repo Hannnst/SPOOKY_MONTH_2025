@@ -3,9 +3,10 @@ extends Node
 #This script holds the 'truth' of which items are in the players inventory.
 
 signal inventory_updated #Used to alert the UI that the inventory changed
+signal focus_returned
 
 var inventory = [
-	{ "name": "carrot", "is_owned": true, "texture": preload("res://assets/placeholder/placeholder_carrot.png"), "target_name": "Testobject" },
+	{ "name": "notebook", "is_owned": true, "texture": preload("res://assets/items/lapp-icon.png")},
 	{ "name": "spooky_guy", "is_owned": true, "texture": preload("res://player/p_down.png") },
 	{ "name": "godot_guy", "is_owned": true, "texture": preload("res://icon.svg") },
 	{ "name": "skull", "is_owned": false, "texture": preload("res://assets/items/skull_front.webp"), "target_name": "Grave" },
@@ -44,3 +45,6 @@ func get_held_item():
 
 func update_current_slot_index(i: int):
 	current_slot_index = i
+
+func toggle_notebook():
+	pass

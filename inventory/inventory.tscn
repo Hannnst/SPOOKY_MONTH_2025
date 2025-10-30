@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvnvwpr81xkbb"]
+[gd_scene load_steps=5 format=3 uid="uid://bvnvwpr81xkbb"]
 
 [ext_resource type="Script" uid="uid://cpq0q47whysj6" path="res://inventory/inventory.gd" id="1_62wf1"]
 [ext_resource type="Texture2D" uid="uid://cp110hg043wkp" path="res://assets/buttons/e2.png" id="2_f8i2h"]
 [ext_resource type="PackedScene" uid="uid://br8mquhhciege" path="res://inventory/inventory_slot.tscn" id="2_qse2j"]
+[ext_resource type="Texture2D" uid="uid://vlcitcl24cpb" path="res://assets/items/lapp.webp" id="4_lhcfm"]
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_62wf1")
@@ -23,6 +24,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_f8i2h")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -71,3 +73,9 @@ layout_mode = 2
 
 [node name="InventorySlot8" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
+
+[node name="Note" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(623.00006, 368.00003)
+scale = Vector2(0.5418006, 0.5418006)
+texture = ExtResource("4_lhcfm")
