@@ -32,6 +32,7 @@ func _on_resume_pressed() -> void:
 	toggle_pause()
 
 func _on_exit_pressed() -> void:
+	get_tree().paused = false
 	SceneManager.change_scene("main_menu")
 
 
