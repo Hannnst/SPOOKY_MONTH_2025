@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbepuxwhuhp5v"]
+[gd_scene load_steps=11 format=3 uid="uid://bbepuxwhuhp5v"]
 
 [ext_resource type="Texture2D" uid="uid://mhfrns2ffguh" path="res://assets/placeholder/forest_pathA.png" id="1_3m1v5"]
 [ext_resource type="Texture2D" uid="uid://ca5two6xcd6j" path="res://assets/placeholder/forest_pathA-trees.png" id="2_wfbcr"]
-[ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/utilities/forestA-path_blocker.gd" id="3_wfbcr"]
+[ext_resource type="Script" path="res://world/rooms/forestA-path_blocker.gd" id="3_wfbcr"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
-[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax4a"]
@@ -83,8 +82,5 @@ position = Vector2(683, 636)
 position = Vector2(271, 466)
 
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
-
-[node name="Player" parent="." instance=ExtResource("7_jkyyv")]
-position = Vector2(223, 614)
 
 [connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]
