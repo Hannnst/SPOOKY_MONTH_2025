@@ -21,6 +21,7 @@ func _on_interact():
 		InteractionManager.can_interact = false
 		DialogueManager.show_dialogue_balloon(dialogue, "piano")
 		await DialogueManager.dialogue_ended
+		InteractionManager.can_interact = true
 		if Globals.piano_closed == true:
 			Globals.trigger_finite_event("close_piano")
 			%PianoClosed.show()
