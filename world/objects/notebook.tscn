@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbb1bxhnsg5q1"]
+
+[ext_resource type="Script" uid="uid://bi7x7kqj51jgi" path="res://world/objects/notebook.gd" id="1_8kky7"]
+[ext_resource type="Texture2D" uid="uid://d33unppy3oeco" path="res://assets/items/lapp-icon2.png" id="1_qtup7"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="2_cwtdn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kky7"]
+size = Vector2(54.5, 55.5)
+
+[node name="Notebook" type="Node2D"]
+script = ExtResource("1_8kky7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.9999924, -48.999992)
+scale = Vector2(0.3119266, 0.3119266)
+texture = ExtResource("1_qtup7")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_cwtdn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(3.75, -43.25)
+shape = SubResource("RectangleShape2D_8kky7")
+debug_color = Color(0.7182344, 0.3965155, 0, 0.41960785)

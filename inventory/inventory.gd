@@ -12,7 +12,8 @@ func _ready():
 	_load_inventory()
 	_setup_focus()
 	InventoryManager.inventory_updated.connect(_load_inventory)
-
+	InventoryManager.focus_returned.connect(_grab_current_focus)
+	%Note.hide()
 
 #Update UI to match reality: Fetches the inventory and relevant data from global InventoryManager
 func _load_inventory():
@@ -31,6 +32,12 @@ func _load_inventory():
 		else:
 			texture_rect.texture = null
 
+	#Update the E, if the inventory has changed.
+	var selected = InventoryManager.get_held_item()
+	if selected.is_owned:
+		use_item_icon.show()
+	else:
+		use_item_icon.hide()
 
 func _setup_focus():
 	for i in range(slots.size()):
@@ -58,7 +65,12 @@ func _on_slot_focus(i: int):
 	else:
 		use_item_icon.hide()
 
-
+func _input(event):
+	if event.is_action_pressed("ui_cancel"): #esc
+		if %Note.visible:
+			toggle_notebook()
+			get_viewport().set_input_as_handled()
+		
 func _unhandled_input(event):
 	if event.is_action_pressed("use_item"):
 		_try_use_item()
@@ -79,6 +91,10 @@ func _try_use_item():
 		print("Player tried to use item, but wasn't holding anything")
 		return
 
+	#Notebook is special unique item, and always belongs in inventory slot 0.
+	if inventory_item.name == "notebook":
+		toggle_notebook()
+		return
 	if not inventory_item.has("target_name"):
 		print("item has no target_name, therefore should print flavortext")
 		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
@@ -93,3 +109,21 @@ func _try_use_item():
 
 		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
 		return
+
+func toggle_notebook():
+	if %Note.visible:
+		%Note.hide()
+		%PanelContainer.show()
+		_grab_current_focus()
+		Globals.can_pause = true
+	else:
+		%Note.show()
+		%PanelContainer.hide()
+		Globals.can_pause = false
+		
+
+func _grab_current_focus():
+	current_index = InventoryManager.current_slot_index
+	if current_index >= 0 and current_index < slots.size():
+		var button = slots[current_index].get_node("Button")
+		button.grab_focus()

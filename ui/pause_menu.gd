@@ -14,14 +14,15 @@ func _ready():
 	icon.play()
 	visible = false
 
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
 		toggle_pause()
 
 func toggle_pause():
 	if get_tree().paused:
 		get_tree().paused = false
 		visible = false
+		InventoryManager.emit_signal("focus_returned")
 	else:
 		if Globals.can_pause:
 			get_tree().paused = true
@@ -38,6 +39,7 @@ func _on_exit_pressed() -> void:
 
 
 func focus_button(button):
+	SoundManager.playSFX("menu_select")
 	button.add_theme_font_size_override("font_size", 60)
 
 func unfocus_button(button):
