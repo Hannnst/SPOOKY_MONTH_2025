@@ -9,7 +9,6 @@ var icon_offset = Vector2(300, 0)
 var icon_offset_short = Vector2(250, 0)
 
 func _ready():
-	SoundManager.playSFX("menu_select")
 	play_button.grab_focus()
 	icon.play()
 
