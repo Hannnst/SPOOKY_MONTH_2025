@@ -9,6 +9,7 @@ var icon_offset = Vector2(300, 0)
 var icon_offset_short = Vector2(250, 0)
 
 func _ready():
+	SoundManager.playSFX("menu_select")
 	play_button.grab_focus()
 	icon.play()
 
@@ -57,6 +58,7 @@ func _on_quit_focus_exited() -> void:
 	unfocus_button(quit_button)
 
 func focus_button(button):
+	SoundManager.playSFX("menu_select")
 	button.add_theme_font_size_override("font_size", 64)
 	# Defer icon positioning to ensure button size has been updated after font size change
 	await get_tree().process_frame
