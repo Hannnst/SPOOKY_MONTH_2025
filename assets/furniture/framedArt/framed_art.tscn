@@ -1,17 +1,47 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtooumktfu58"]
 
-[ext_resource type="Script" uid="uid://ckhd2d1k7bghq" path="res://assets/furniture/framedArt/framed_art.gd" id="1_whyk8"]
 [ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="2_gm42o"]
 [ext_resource type="Texture2D" uid="uid://bpww6kdhpum6x" path="res://assets/furniture/framedArt/looking.webp" id="3_53dpw"]
 
-[node name="FramedArt" type="Node2D"]
-script = ExtResource("1_whyk8")
+[sub_resource type="GDScript" id="GDScript_ue8ll"]
+script/source = "extends Node2D
 
-[node name="FrameSprite" type="Sprite2D" parent="."]
+@export var frame_texture: Texture2D:
+	set(value):
+		frame_texture = value
+		if $Frame:
+			$Frame.texture = value
+
+@export var picture_texture: Texture2D:
+	set(value):
+		picture_texture = value
+		if $Picture:
+			$Picture.texture = value
+
+@export var picture_scale: float = 1.0:
+	set(value):
+		picture_scale = value
+		if $Picture:
+			$Picture.scale = Vector2(value, value)
+
+
+func _ready():
+	# Ensure default values are applied at runtime
+	if frame_texture:
+		$Frame.texture = frame_texture
+	if picture_texture:
+		$Picture.texture = picture_texture
+	$Picture.scale = Vector2(picture_scale, picture_scale)
+"
+
+[node name="FramedArt" type="Node2D"]
+script = SubResource("GDScript_ue8ll")
+
+[node name="Frame" type="Sprite2D" parent="."]
 position = Vector2(0, -257)
 texture = ExtResource("2_gm42o")
 
-[node name="PictureSprite" type="Sprite2D" parent="."]
+[node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(4.7683716e-07, -258)
 scale = Vector2(1.3611112, 1.1734418)
 texture = ExtResource("3_53dpw")
