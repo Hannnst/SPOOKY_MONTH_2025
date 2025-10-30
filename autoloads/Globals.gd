@@ -4,6 +4,7 @@ extends Node
 #These variables can go here.
 
 var move_enabled = true
+var can_pause = true
 
 #Global tracker for events you want to only occur a limited amount of times.
 #First two entries are just examples.
