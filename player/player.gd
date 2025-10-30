@@ -30,17 +30,17 @@ func _physics_process(delta):
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				last_direction = "right"
-				interaction_box.position = Vector2(150, -90)
+				interaction_box.position = Vector2(60, -40)
 			else:
 				last_direction = "left"
-				interaction_box.position = Vector2(-150, -90)
+				interaction_box.position = Vector2(-60, -40)
 		else:
 			if direction.y > 0:
 				last_direction = "down"
 				interaction_box.position = Vector2(0, 20)
 			else:
 				last_direction = "up"
-				interaction_box.position = Vector2(0, -250)
+				interaction_box.position = Vector2(0, -90)
 		animation_player.play("walk_" + last_direction)
 	else:
 		animation_player.play("idle_" + last_direction)

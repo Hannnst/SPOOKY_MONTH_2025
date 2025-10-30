@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnhejvliq1wrq"]
+
+[ext_resource type="Texture2D" uid="uid://d4e2f13goskth" path="res://assets/furniture/bookshelf_vib.webp" id="1_q48sb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q48sb"]
+size = Vector2(400, 136)
+
+[node name="Bookshelf" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -317)
+scale = Vector2(0.9059197, 1)
+texture = ExtResource("1_q48sb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -78)
+shape = SubResource("RectangleShape2D_q48sb")

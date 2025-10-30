@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cwkaociidiblt"
+path="res://.godot/imported/music_room.dialogue-29493d03e29477d767d1e7a1cf055026.tres"
+
+[deps]
+
+source_file="res://dialogues/music_room.dialogue"
+dest_files=["res://.godot/imported/music_room.dialogue-29493d03e29477d767d1e7a1cf055026.tres"]
+
+[params]
+
+defaults=true
