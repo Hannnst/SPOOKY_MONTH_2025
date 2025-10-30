@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbepuxwhuhp5v"]
+[gd_scene load_steps=14 format=3 uid="uid://bbepuxwhuhp5v"]
 
 [ext_resource type="Texture2D" uid="uid://mhfrns2ffguh" path="res://assets/placeholder/forest_pathA.png" id="1_3m1v5"]
+[ext_resource type="Script" uid="uid://b4bjfc3eeos3m" path="res://world/rooms/forest_path_a.gd" id="1_wt0ne"]
 [ext_resource type="Texture2D" uid="uid://ca5two6xcd6j" path="res://assets/placeholder/forest_pathA-trees.png" id="2_wfbcr"]
-[ext_resource type="Script" path="res://world/rooms/forestA-path_blocker.gd" id="3_wfbcr"]
-[ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="5_qax4a"]
-[ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="6_ser2u"]
+[ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/utilities/forestA-path_blocker.gd" id="3_wfbcr"]
+[ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
+[ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="8_jkyyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax4a"]
 size = Vector2(65, 1208)
@@ -19,8 +20,15 @@ size = Vector2(2508.5, 109)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkyyv"]
 size = Vector2(2474.25, 244)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt0ne"]
+size = Vector2(152, 174.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34whu"]
+size = Vector2(156.5, 238.5)
+
 [node name="ForestPathA" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_wt0ne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
@@ -40,7 +48,7 @@ texture = ExtResource("2_wfbcr")
 position = Vector2(6, 226)
 
 [node name="WorldCollision" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(49, 410)
+position = Vector2(-45, 410)
 shape = SubResource("RectangleShape2D_qax4a")
 
 [node name="WorldCollision2" type="CollisionShape2D" parent="WorldBorders"]
@@ -51,36 +59,60 @@ shape = SubResource("RectangleShape2D_ser2u")
 position = Vector2(1227.625, 972.5)
 shape = SubResource("RectangleShape2D_ser2u")
 
-[node name="PathBlocker" type="CharacterBody2D" parent="."]
+[node name="SlidingPathBlocker" type="CharacterBody2D" parent="."]
 script = ExtResource("3_wfbcr")
 
-[node name="Detector" type="Area2D" parent="PathBlocker"]
+[node name="Detector" type="Area2D" parent="SlidingPathBlocker"]
 position = Vector2(1680, 376)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlocker/Detector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
 position = Vector2(-430.25, 81.5)
 shape = SubResource("RectangleShape2D_bradt")
 debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathBlocker/Detector"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
 position = Vector2(-410, 413)
 shape = SubResource("RectangleShape2D_bradt")
 debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
 
-[node name="CollisionShapeTop" type="CollisionShape2D" parent="PathBlocker"]
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="SlidingPathBlocker"]
 position = Vector2(1246, 379)
 shape = SubResource("RectangleShape2D_jkyyv")
 
-[node name="CollisionShapeBottom" type="CollisionShape2D" parent="PathBlocker"]
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="SlidingPathBlocker"]
 position = Vector2(1271, 868)
 shape = SubResource("RectangleShape2D_jkyyv")
 
-[node name="Grave" parent="." instance=ExtResource("5_qax4a")]
-position = Vector2(683, 636)
-
-[node name="Skull" parent="." instance=ExtResource("6_ser2u")]
-position = Vector2(271, 466)
-
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
 
-[connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]
+[node name="ExitToPathB" type="Area2D" parent="."]
+position = Vector2(4000, 0)
+script = ExtResource("7_jkyyv")
+target_scene_name = "forest_pathB"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPathB"]
+position = Vector2(-1625, 623)
+shape = SubResource("RectangleShape2D_wt0ne")
+debug_color = Color(0.8023216, 0.41933587, 0, 0.41960785)
+
+[node name="IfGameComplete" type="Area2D" parent="."]
+position = Vector2(2788, 1485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IfGameComplete"]
+position = Vector2(-2849.25, -878.25)
+shape = SubResource("RectangleShape2D_34whu")
+debug_color = Color(0.6548421, 0.4414268, 3.85046e-07, 0.41960785)
+
+[node name="Player" parent="." instance=ExtResource("8_jkyyv")]
+position = Vector2(174, 640)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 2300
+limit_bottom = 1200
+position_smoothing_enabled = true
+
+[connection signal="body_entered" from="SlidingPathBlocker/Detector" to="SlidingPathBlocker" method="_on_detector_body_entered"]
+[connection signal="body_entered" from="ExitToPathB" to="ExitToPathB" method="_on_body_entered"]
+[connection signal="body_entered" from="IfGameComplete" to="." method="_on_if_game_complete_body_entered"]

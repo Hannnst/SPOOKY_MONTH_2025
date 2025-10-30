@@ -44,3 +44,9 @@ func get_held_item():
 
 func update_current_slot_index(i: int):
 	current_slot_index = i
+
+func is_item_owned(item_name):
+	for item in inventory:
+		if item["name"] == item_name:
+			return item["is_owned"]
+	return false
