@@ -46,6 +46,7 @@ script = ExtResource("1_llw6l")
 [node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
