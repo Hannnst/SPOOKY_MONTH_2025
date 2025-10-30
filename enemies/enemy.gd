@@ -18,7 +18,8 @@ var triggered := false
 
 
 func _ready():
-	animated_sprite.sprite_frames = animation_frames
+	if animation_frames:
+		animated_sprite.sprite_frames = animation_frames
 	randomize()
 	_pick_new_direction()
 	chase_speed = speed + (speed * 0.5)
