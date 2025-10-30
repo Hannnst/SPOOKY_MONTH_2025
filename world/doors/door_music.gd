@@ -2,7 +2,7 @@ extends Node2D
 
 # This is an informal interface for objects. Consider using classes in the future but avoiding complexity for now
 
-#Dette må legges til på alle interactable objekter:
+# This must be added to all interactable objects:
 @onready var interaction_area = $InteractionArea
 
 
