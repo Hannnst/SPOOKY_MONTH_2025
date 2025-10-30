@@ -9,7 +9,7 @@ var scenes = {
 	"bedroom": "res://world/rooms/bedroom.tscn",
 	"master_bedroom": "res://world/rooms/master_bedroom.tscn",
 	"kitchen": "res://world/rooms/kitchen.tscn",
-	"music_room": "res://world/rooms/music_room.gd",
+	"music_room": "res://world/rooms/music_room.tscn",
 	"outside_house": "res://world/rooms/outside_house.tscn",
 	"testA": "res://world/test_scenes/test_room_A.tscn",
 	"testB": "res://world/test_scenes/test_room_B.tscn",
