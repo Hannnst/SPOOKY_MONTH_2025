@@ -29,7 +29,7 @@ func toggle_pause():
 			resume_button.grab_focus() # So player can immediately hit Enter/Confirm
 
 func _on_resume_pressed() -> void:
-	pass # Replace with function body.
+	toggle_pause()
 
 func _on_exit_pressed() -> void:
 	SceneManager.change_scene("main_menu")
