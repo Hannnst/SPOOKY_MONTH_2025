@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb50nl7xw7nnh"]
+[gd_scene load_steps=8 format=3 uid="uid://cb8myy4jukgpp"]
 
 [ext_resource type="Texture2D" uid="uid://dlttdgf3dwjjg" path="res://world/rooms/placeholder_room_art/house-bedroom-siblings.webp" id="1_itgtb"]
-[ext_resource type="Script" uid="uid://djk77es3nbxy2" path="res://world/rooms/bedroom.gd" id="1_pb2ka"]
+[ext_resource type="Script" path="res://world/rooms/bedroom.gd" id="1_pb2ka"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_to4bo"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_itgtb"]
+[ext_resource type="Script" path="res://world/rooms/forestA-path_blocker.gd" id="5_8odcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlsja"]
+size = Vector2(344.125, 182.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kth6x"]
+size = Vector2(2063.0625, 280.5)
 
 [node name="Bedroom" type="Node2D"]
 y_sort_enabled = true
@@ -16,8 +23,8 @@ color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(648, 152)
-scale = Vector2(2, 2)
+position = Vector2(562.3941, 311.94995)
+scale = Vector2(2.3872354, 2.4654686)
 texture = ExtResource("1_itgtb")
 
 [node name="Player" parent="." instance=ExtResource("1_to4bo")]
@@ -30,3 +37,30 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="PathBlocker" type="CharacterBody2D" parent="."]
+script = ExtResource("5_8odcw")
+
+[node name="Detector" type="Area2D" parent="PathBlocker"]
+position = Vector2(1680, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlocker/Detector"]
+position = Vector2(-840.9375, -0.875)
+shape = SubResource("RectangleShape2D_hlsja")
+debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlocker/Detector/CollisionShape2D"]
+position = Vector2(-628, 0)
+shape = SubResource("RectangleShape2D_hlsja")
+debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathBlocker/Detector"]
+position = Vector2(-410, 413)
+shape = SubResource("RectangleShape2D_hlsja")
+debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="PathBlocker"]
+position = Vector2(682, 172)
+shape = SubResource("RectangleShape2D_kth6x")
+
+[connection signal="body_entered" from="PathBlocker/Detector" to="PathBlocker" method="_on_detector_body_entered"]
