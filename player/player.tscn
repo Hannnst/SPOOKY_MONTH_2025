@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bmlck841yqy1p"]
+[gd_scene load_steps=56 format=3 uid="uid://bmlck841yqy1p"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_w6dt1"]
 [ext_resource type="Script" uid="uid://o7vvw8imkk6g" path="res://interaction/interaction_area.gd" id="6_u1o3n"]
@@ -2316,6 +2316,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q28gw"]
+points = PackedVector2Array(61.245, 182.55, -67.755, 183.55, -0.755, -58.45)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w6dt1")
 
@@ -2425,5 +2428,11 @@ unique_name_in_owner = true
 position = Vector2(1, -49)
 sprite_frames = SubResource("SpriteFrames_28i5r")
 animation = &"down"
+
+[node name="EnemySensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySensor"]
+position = Vector2(0.755, 0.45)
+shape = SubResource("ConvexPolygonShape2D_q28gw")
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

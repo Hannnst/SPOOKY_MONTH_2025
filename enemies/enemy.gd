@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var speed: float = 80.0
+@export var chase_speed: float = 100
 @export var change_dir_time: float = 1.5
 @export var trigger_time: float = 1.0
 @export var cooldown_time: float = 3.0
 @export var animation_frames: SpriteFrames
 
-var chase_speed: float = 100
 var direction := Vector2.ZERO
 var direction_timer := 0.0
 var triggered := false
@@ -22,7 +22,6 @@ func _ready():
 		animated_sprite.sprite_frames = animation_frames
 	randomize()
 	_pick_new_direction()
-	chase_speed = speed + (speed * 0.5)
 	# Reset timers
 	exposure_timer.wait_time = trigger_time
 	cooldown_timer.wait_time = cooldown_time
@@ -68,13 +67,14 @@ func _chase_player():
 
 
 func _on_trigger_area_area_entered(area: Area2D) -> void:
-	print("area entered")
-	if area.name == "InteractionSensor":
+	print("area entered by ", area.name)
+	if area.name == "EnemySensor":
 		exposure_timer.start()
+		print(exposure_timer)
 
 
 func _on_trigger_area_area_exited(area: Area2D) -> void:
-	print("area exited")
-	if area.name == "InteractionSensor":
+	print("area exited by ", area.name)
+	if area.name == "EnemySensor":
 		exposure_timer.stop()
 		cooldown_timer.start()

@@ -1,8 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dujn2srpc7go4"]
+[gd_scene load_steps=8 format=3 uid="uid://dujn2srpc7go4"]
 
 [ext_resource type="Script" uid="uid://cq3ybdecf0lec" path="res://enemies/enemy.gd" id="1_h7cod"]
 [ext_resource type="Texture2D" uid="uid://dpg6lhquv3dow" path="res://enemies/nakedratto2.png" id="1_hs1ht"]
 [ext_resource type="Texture2D" uid="uid://bbjpo3hr6weay" path="res://enemies/nakedratto2behind.png" id="2_h7cod"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7cod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hs1ht")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4dtsg"]
 animations = [{
@@ -35,6 +46,7 @@ speed = null
 change_dir_time = null
 trigger_time = null
 cooldown_time = null
+animation_frames = SubResource("SpriteFrames_h7cod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -29)

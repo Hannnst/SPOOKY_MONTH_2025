@@ -6,6 +6,7 @@ extends CharacterBody2D
 var speed = 200 # pixels per second
 var last_direction = "down"
 
+
 func _ready():
 	animation_player.play("idle_down")
 	%AnimatedLeg_back.play()
@@ -15,6 +16,7 @@ func _ready():
 	%AnimatedBody.play()
 	%AnimatedArm_front.play()
 	%AnimatedHead.play()
+
 
 func _physics_process(delta):
 	var direction := Vector2.ZERO
@@ -47,15 +49,21 @@ func _physics_process(delta):
 	move_and_slide()
 	rotate_flashlight()
 
-func set_sprite_direction(dir_string : String):
+
+func set_sprite_direction(dir_string: String):
 	if dir_string in ["up", "down", "left", "right"]:
 		last_direction = dir_string
 	else:
 		print("Warning: tried to set unknown direction")
 
+
 func rotate_flashlight():
+	var rotation_speed := 1.0 # Higher = faster rotation
+	var delta = 0.1
 	if velocity != Vector2.ZERO:
-		%Node2DFlashlight.rotation = velocity.angle() - PI/2
+		var target_rotation = velocity.angle() - PI / 2
+		%Node2DFlashlight.rotation = lerp_angle(%Node2DFlashlight.rotation, target_rotation, rotation_speed * delta)
+		$EnemySensor/CollisionShape2D.rotation = lerp_angle($EnemySensor/CollisionShape2D.rotation, target_rotation, rotation_speed * delta)
 
 
 func die():
