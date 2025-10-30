@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://bts0kxi4h8ens"]
+
+[ext_resource type="FontVariation" uid="uid://dkiaa00hcfi1a" path="res://fonts&styles/menu_button_font.tres" id="1_ejwgg"]
+[ext_resource type="Script" uid="uid://dfbb4ii2sqrsg" path="res://ui/pause_menu.gd" id="1_j3kxr"]
+[ext_resource type="StyleBox" uid="uid://yke3dophgu2s" path="res://fonts&styles/invisible_button.tres" id="2_fob5h"]
+[ext_resource type="Texture2D" uid="uid://cw6f6cl0hgrwc" path="res://ui/flashlight_icon1.png" id="3_6ap7o"]
+[ext_resource type="Texture2D" uid="uid://s4ewwmomjyqt" path="res://ui/flashlight_icon2.png" id="4_j3kxr"]
+[ext_resource type="Texture2D" uid="uid://vonwinitmaoh" path="res://ui/flashlight_icon3.png" id="5_vovkw"]
+[ext_resource type="Texture2D" uid="uid://bgyvg2j40ncc8" path="res://player/flashlight.png" id="6_jyvtb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fijdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6ap7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j3kxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vovkw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j3kxr"]
+blend_mode = 1
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 12
+script = ExtResource("1_j3kxr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -97.49994
+offset_right = 117.0
+offset_bottom = 97.49994
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ejwgg")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("2_fob5h")
+theme_override_styles/pressed = ExtResource("2_fob5h")
+theme_override_styles/hover = ExtResource("2_fob5h")
+theme_override_styles/disabled = ExtResource("2_fob5h")
+theme_override_styles/focus = ExtResource("2_fob5h")
+text = "Resume"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ejwgg")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("2_fob5h")
+theme_override_styles/pressed = ExtResource("2_fob5h")
+theme_override_styles/hover = ExtResource("2_fob5h")
+theme_override_styles/disabled = ExtResource("2_fob5h")
+theme_override_styles/focus = ExtResource("2_fob5h")
+text = "Exit to Title"
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(854, 325)
+scale = Vector2(0.52941173, 0.5294118)
+sprite_frames = SubResource("SpriteFrames_fijdv")
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Icon"]
+material = SubResource("CanvasItemMaterial_j3kxr")
+position = Vector2(-32.111084, -0.9444275)
+rotation = 1.5707964
+scale = Vector2(0.5560039, 1.6910864)
+texture = ExtResource("6_jyvtb")
+
+[connection signal="focus_entered" from="VBoxContainer/Resume" to="." method="_on_resume_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Resume" to="." method="_on_resume_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Exit" to="." method="_on_exit_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
