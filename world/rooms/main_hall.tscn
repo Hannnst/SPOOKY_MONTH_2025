@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=19 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
@@ -9,11 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bddnhblii5n0q" path="res://assets/textures/gulvpanel.webp" id="5_w0loa"]
 [ext_resource type="Texture2D" uid="uid://bodivanoma163" path="res://assets/textures/trapp.webp" id="6_37hhm"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="9_il2tj"]
-[ext_resource type="Script" uid="uid://bhjk4h2m43sef" path="res://world/doors/door_bathroom.gd" id="10_w0loa"]
-[ext_resource type="Script" uid="uid://bkua261acktht" path="res://world/doors/door_masters.gd" id="11_prhw4"]
-[ext_resource type="Script" uid="uid://cjitfmqj5tw2f" path="res://world/doors/door_kitchen.gd" id="12_vifcg"]
-[ext_resource type="Script" uid="uid://dcp0ss4erv7q3" path="res://world/doors/door_music.gd" id="13_nvnim"]
-[ext_resource type="Script" uid="uid://c2t7lhh0qt82i" path="res://world/doors/door_bedroom.gd" id="14_h8ipj"]
+[ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="10_w0loa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prhw4"]
 size = Vector2(2901, 2278)
@@ -155,9 +151,10 @@ scale = Vector2(1.7249999, 0.766)
 texture = ExtResource("4_il2tj")
 
 [node name="Player" parent="." instance=ExtResource("3_62s85")]
-position = Vector2(-980, 798)
+position = Vector2(1136, 2400)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 limit_left = -3000
 limit_top = -2500
 limit_right = 4500
@@ -231,29 +228,35 @@ position = Vector2(350.5, -167.5)
 shape = SubResource("RectangleShape2D_qnujj")
 
 [node name="Doors" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(6, 226)
 
 [node name="DoorBathroom" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
 position = Vector2(857.9999, -1253)
 script = ExtResource("10_w0loa")
+target_scene_name = "bathroom"
 
 [node name="DoorMasters" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
 position = Vector2(2775, -1253)
-script = ExtResource("11_prhw4")
+script = ExtResource("10_w0loa")
+target_scene_name = "master_bedroom"
 
 [node name="DoorKitchen" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
 position = Vector2(690.0001, -476.00006)
-script = ExtResource("12_vifcg")
+script = ExtResource("10_w0loa")
+target_scene_name = "kitchen"
 
 [node name="DoorMusic" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
 position = Vector2(-1263, 557.9998)
-script = ExtResource("13_nvnim")
+script = ExtResource("10_w0loa")
+target_scene_name = "music_room"
 
 [node name="DoorBedroom" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
 position = Vector2(3488, 585)
-script = ExtResource("14_h8ipj")
+script = ExtResource("10_w0loa")
+target_scene_name = "bedroom"

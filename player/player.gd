@@ -47,6 +47,11 @@ func _physics_process(delta):
 	move_and_slide()
 	rotate_flashlight()
 
+func set_sprite_direction(dir_string : String):
+	if dir_string in ["up", "down", "left", "right"]:
+		last_direction = dir_string
+	else:
+		print("Warning: tried to set unknown direction")
 
 func rotate_flashlight():
 	if velocity != Vector2.ZERO:

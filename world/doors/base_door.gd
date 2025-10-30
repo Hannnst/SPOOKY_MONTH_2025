@@ -4,6 +4,7 @@ extends Node2D
 
 # This must be added to all interactable objects:
 @onready var interaction_area = $InteractionArea
+@export var target_scene_name = "main_hall"
 
 
 func _ready():
@@ -11,4 +12,4 @@ func _ready():
 
 
 func _on_interact():
-	SceneManager.change_scene("kitchen")
+	SceneManager.change_scene(target_scene_name)

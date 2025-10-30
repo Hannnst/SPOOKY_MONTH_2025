@@ -31,6 +31,8 @@ func _set_player_spawn():
 			spawn_position = door_music.global_position + player_spawn_offset
 		"outside_house":
 			print("Entered from outside")
+			player.set_sprite_direction("up")
 		_:
 			print("Warning: Player entered house from unknown area")
+			player.set_sprite_direction("up")
 	player.position = spawn_position
