@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://ypj5m2642br1"]
+[gd_scene load_steps=11 format=3 uid="uid://gfnekvg1s77h"]
 
-[ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
+[ext_resource type="Script" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_a2gve"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_h8x43"]
+[ext_resource type="Texture2D" uid="uid://ccckycpvuowey" path="res://assets/furniture/gate-sprite.webp" id="5_xr8pc"]
+[ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="6_vl5rv"]
+[ext_resource type="Script" uid="uid://m5m217d121vk" path="res://world/objects/outside/gate.gd" id="7_ry108"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="8_k3ycv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_if25p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xr8pc")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vl5rv")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4npg2"]
+size = Vector2(742.5, 214)
 
 [node name="Outside" type="Node2D"]
 y_sort_enabled = true
@@ -30,3 +56,19 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="Gate" type="Node2D" parent="."]
+position = Vector2(96, 504.895)
+script = ExtResource("7_ry108")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Gate"]
+position = Vector2(0, -204)
+sprite_frames = SubResource("SpriteFrames_if25p")
+animation = &"close"
+
+[node name="InteractionArea" parent="Gate" instance=ExtResource("8_k3ycv")]
+position = Vector2(18, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/InteractionArea"]
+position = Vector2(0, -248)
+shape = SubResource("RectangleShape2D_4npg2")
