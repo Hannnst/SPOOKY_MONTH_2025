@@ -70,7 +70,6 @@ func _on_trigger_area_area_entered(area: Area2D) -> void:
 	print("area entered by ", area.name)
 	if area.name == "EnemySensor":
 		exposure_timer.start()
-		print(exposure_timer)
 
 
 func _on_trigger_area_area_exited(area: Area2D) -> void:
