@@ -36,7 +36,6 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
-
 func _on_play_focus_entered() -> void:
 	focus_button(play_button)
 
