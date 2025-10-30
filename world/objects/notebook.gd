@@ -15,10 +15,10 @@ func _ready():
 func _on_interact():
 	#Unik kode for hva som skjer når en spiller interacter
 	# for consideration: await sprite.play("test")
-	DialogueManager.show_dialogue_balloon(dialogue, "notebook_collected")
+	DialogueManager.show_dialogue_balloon(dialogue, "notebook_collect")
 	var ended_dialogue = await DialogueManager.dialogue_ended
 	if (dialogue == ended_dialogue):
-		InventoryManager.collect_item("skull")
+		InventoryManager.collect_item("notebook")
 		queue_free() # remove self from scene when collected
 
 #The notebook is special: No activate function.
