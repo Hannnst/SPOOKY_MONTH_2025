@@ -41,3 +41,6 @@ func change_scene(scene_name: String):
 		Globals.move_enabled = true
 		DialogueManager.can_show_dialogue = true
 		InteractionManager.icon_enabled = true
+		
+		print("previous scene: ", prev_scene)
+		print("current scene: ", current_scene)

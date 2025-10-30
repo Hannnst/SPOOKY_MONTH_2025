@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xpa1qfbplb4"]
+
+[ext_resource type="Texture2D" uid="uid://dv460j7ka8ap7" path="res://assets/placeholder/door_temp.png" id="1_ry4um"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="2_3ap1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kc2fo"]
+size = Vector2(172, 116)
+
+[node name="BaseDoor" type="Node2D"]
+modulate = Color(0.6068801, 0.5511027, 0.49238515, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -112)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ry4um")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_3ap1u")]
+position = Vector2(2, 36.06)
+scale = Vector2(0.7868217, 0.7868218)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(1.2709359, -128.44078)
+shape = SubResource("RectangleShape2D_kc2fo")
+debug_color = Color(0.69313484, 0.49670464, 0, 0.41960785)
