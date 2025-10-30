@@ -10,6 +10,7 @@ extends CharacterBody2D
 var direction := Vector2.ZERO
 var direction_timer := 0.0
 var triggered := false
+var base_sprite_position := Vector2(0, -29)
 
 @onready var exposure_timer := $ExposureTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
@@ -61,20 +62,22 @@ func _on_cooldown_timer_timeout():
 
 func _chase_player():
 	var direction_to_player = (player.global_position - global_position).normalized()
-	# TODO: Make and change sprite to agitated animation during chase
+	var shake_strength := 4.0 # pixels
 	animated_sprite.play("down")
 	velocity = direction_to_player * chase_speed
+	animated_sprite.position = base_sprite_position + Vector2(
+		randf_range(-shake_strength, shake_strength),
+		randf_range(-shake_strength, shake_strength),
+	)
 
 
 func _on_trigger_area_area_entered(area: Area2D) -> void:
-	print("area entered by ", area.name)
 	if area.name == "EnemySensor":
 		exposure_timer.start()
 		print(exposure_timer)
 
 
 func _on_trigger_area_area_exited(area: Area2D) -> void:
-	print("area exited by ", area.name)
 	if area.name == "EnemySensor":
 		exposure_timer.stop()
 		cooldown_timer.start()
