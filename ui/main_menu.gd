@@ -10,6 +10,7 @@ var icon_offset_short = Vector2(150, 0)
 
 func _ready():
 	play_button.grab_focus()
+	icon.play()
 
 
 func _on_play_pressed() -> void:
