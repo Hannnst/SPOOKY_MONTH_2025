@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 
-# This is an informal interfrace for objects. Consider using classes in the future but avoiding complexity for now
+# This is an informal interface for objects. Consider using classes in the future but avoiding complexity for now
 #Dette må legges til på alle interactable objekter:
 @onready var interaction_area = $InteractionArea
 @onready var dialogue = load("res://dialogues/music_room.dialogue")

@@ -27,7 +27,7 @@ func trigger_finite_event(event_name) -> bool:
 			finite_events[event_name] -= 1
 		return true
 	else:
-		print("Warning: Tried to trigger unknown event in Globale: ", event_name)
+		print("Warning: Tried to trigger unknown event in Globals: ", event_name)
 		return false
 
 func get_remaining(event_name):
