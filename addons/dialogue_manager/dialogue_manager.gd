@@ -1523,7 +1523,10 @@ func _resolve_thing_method(thing, method: String, args: Array):
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	can_show_dialogue = true
 	Globals.move_enabled = true
+	await get_tree().process_frame	#Quick fix for bug where the icon displays briefly after interactionarea disappears
+	await get_tree().process_frame
 	InteractionManager.icon_enabled = true
+	InventoryManager.emit_signal("focus_returned")
 
 
 func cancel_dialogue() -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=21 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
+[ext_resource type="PackedScene" uid="uid://bts0kxi4h8ens" path="res://ui/pause_menu.tscn" id="2_y73jk"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_62s85"]
 [ext_resource type="Texture2D" uid="uid://dpmojep22sjfx" path="res://assets/textures/exit_fade.webp" id="3_yomqm"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_bsegt"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bodivanoma163" path="res://assets/textures/trapp.webp" id="6_37hhm"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="9_il2tj"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="10_w0loa"]
+[ext_resource type="PackedScene" uid="uid://cbb1bxhnsg5q1" path="res://world/objects/notebook.tscn" id="11_37hhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prhw4"]
 size = Vector2(2901, 2278)
@@ -39,8 +41,11 @@ size = Vector2(177, 23)
 y_sort_enabled = true
 script = ExtResource("1_llw6l")
 
+[node name="PauseMenu" parent="." instance=ExtResource("2_y73jk")]
+
+[node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -161,9 +166,6 @@ limit_right = 4500
 limit_bottom = 3500
 position_smoothing_enabled = true
 
-[node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
-visible = false
-
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
 
@@ -260,3 +262,6 @@ unique_name_in_owner = true
 position = Vector2(3488, 585)
 script = ExtResource("10_w0loa")
 target_scene_name = "bedroom"
+
+[node name="Notebook" parent="." instance=ExtResource("11_37hhm")]
+position = Vector2(1175, 2008)
