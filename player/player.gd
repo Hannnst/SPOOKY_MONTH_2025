@@ -47,7 +47,7 @@ func _physics_process(delta):
 		animation_player.play("idle_" + last_direction)
 	velocity = direction.normalized() * speed
 	move_and_slide()
-	rotate_flashlight(direction)
+	rotate_flashlight(direction, delta)
 
 
 func set_sprite_direction(dir_string: String):
@@ -57,9 +57,8 @@ func set_sprite_direction(dir_string: String):
 		print("Warning: tried to set unknown direction")
 
 
-func rotate_flashlight(direction):
-	var rotation_speed := 1.0 # Higher = faster rotation
-	var delta = 0.1
+func rotate_flashlight(direction, delta):
+	var rotation_speed := 5.0 # Higher = faster rotation
 
 	if direction != Vector2.ZERO:
 		var target_rotation = direction.angle() - PI / 2
