@@ -15,8 +15,3 @@ func _on_interact():
 	
 	var dialogue = load("res://dialogues/music_room.dialogue")
 	DialogueManager.show_dialogue_balloon(dialogue, "vindu")
-
-
-func activate():
-	# TODO: piano test activate function
-	print(self.name, " says pling plong :-)")

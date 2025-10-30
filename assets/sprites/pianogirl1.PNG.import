@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw6f6cl0hgrwc"
-path="res://.godot/imported/flashlight_icon1.png-361c53985c33eb1f6da2b52e9405810e.ctex"
+uid="uid://4qsthde76wwt"
+path="res://.godot/imported/pianogirl1.PNG-6221b322b78aa7a10aeb7d9f785535a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/flashlight_icon1.png"
-dest_files=["res://.godot/imported/flashlight_icon1.png-361c53985c33eb1f6da2b52e9405810e.ctex"]
+source_file="res://assets/sprites/pianogirl1.PNG"
+dest_files=["res://.godot/imported/pianogirl1.PNG-6221b322b78aa7a10aeb7d9f785535a2.ctex"]
 
 [params]
 

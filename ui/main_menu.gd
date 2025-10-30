@@ -1,38 +1,11 @@
-extends Node2D
-
-@onready var play_button = %Play
-@onready var credits_button = %Credits
-@onready var quit_button = %Quit
-@onready var icon = $Icon
-
-var icon_offset = Vector2(300, 0)
-var icon_offset_short = Vector2(150, 0)
-
-func _ready():
-	play_button.grab_focus()
+extends Control
 
 
-func _on_play_pressed() -> void:
-	if not SceneManager.prev_scene:
-		SceneManager.change_scene("forest_pathA")
-	else:
-		SceneManager.change_scene(SceneManager.prev_scene)
+func _on_check_box_start_game_pressed() -> void:
+	SceneManager.change_scene("testB")
 
 
-func _on_credits_pressed() -> void:
-	%CreditsPanel.show()
-	%Back.grab_focus()
-	await get_tree().process_frame
-	await get_tree().process_frame
-	icon.position = %Back.get_global_transform_with_canvas().origin + Vector2(0, (%Back.size.y / 2))
-	icon.position += icon_offset_short
-	
-
-func _on_back_pressed() -> void:
-	%CreditsPanel.hide()
-	credits_button.grab_focus()
-
-func _on_quit_pressed() -> void:
+func _on_check_button_exit_game_pressed() -> void:
 	get_tree().quit()
 
 
