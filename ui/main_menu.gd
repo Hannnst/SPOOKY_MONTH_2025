@@ -57,7 +57,7 @@ func _on_quit_focus_exited() -> void:
 
 func focus_button(button):
 	button.add_theme_font_size_override("font_size", 64)
-	#Scuffed solution but godot needs time to think lmao
+	# Defer icon positioning to ensure button size has been updated after font size change
 	await get_tree().process_frame
 	await get_tree().process_frame
 	icon.position = button.get_global_transform_with_canvas().origin + Vector2(0, (button.size.y / 2))
