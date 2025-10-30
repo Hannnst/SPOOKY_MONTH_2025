@@ -15,7 +15,7 @@ func _ready():
 func _on_interact():
 	#Unik kode for hva som skjer når en spiller interacter
 	# for consideration: await sprite.play("test")
-	DialogueManager.show_dialogue_balloon(dialogue, "skull_use")
+	DialogueManager.show_dialogue_balloon(dialogue, "skull_collect")
 	var ended_dialogue = await DialogueManager.dialogue_ended
 	if (dialogue == ended_dialogue):
 		InventoryManager.collect_item("skull")
