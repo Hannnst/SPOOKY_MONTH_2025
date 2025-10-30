@@ -111,7 +111,7 @@ func _try_use_item():
 		return
 
 func toggle_notebook():
-	if %Note.visible == true:
+	if %Note.visible:
 		%Note.hide()
 		%PanelContainer.show()
 		_grab_current_focus()
