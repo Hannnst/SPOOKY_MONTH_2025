@@ -65,11 +65,13 @@ func _on_slot_focus(i: int):
 	else:
 		use_item_icon.hide()
 
-
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("ui_cancel"): #esc
 		if %Note.visible:
 			toggle_notebook()
+			get_viewport().set_input_as_handled()
+		
+func _unhandled_input(event):
 	if event.is_action_pressed("use_item"):
 		_try_use_item()
 	if event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_focus_next"):
@@ -113,9 +115,11 @@ func toggle_notebook():
 		%Note.hide()
 		%PanelContainer.show()
 		_grab_current_focus()
+		Globals.can_pause = true
 	else:
 		%Note.show()
 		%PanelContainer.hide()
+		Globals.can_pause = false
 		
 
 func _grab_current_focus():

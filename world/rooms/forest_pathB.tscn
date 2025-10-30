@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6sdt0gx4riff"]
+[gd_scene load_steps=6 format=3 uid="uid://c6sdt0gx4riff"]
 
 [ext_resource type="Script" uid="uid://bpyq78rcqec3s" path="res://world/rooms/forest_path_b.gd" id="1_88crq"]
 [ext_resource type="Texture2D" uid="uid://c7mo3t0j5wnym" path="res://world/rooms/placeholder_room_art/forest-path-2.webp" id="1_l8d2b"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="2_gho3y"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="3_88crq"]
+[ext_resource type="PackedScene" uid="uid://bts0kxi4h8ens" path="res://ui/pause_menu.tscn" id="5_b2fhl"]
 
 [node name="ForestPathB" type="Node2D"]
 y_sort_enabled = true
@@ -30,3 +31,5 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_b2fhl")]
