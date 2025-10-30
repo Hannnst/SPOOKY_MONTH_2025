@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var speed = 200 # pixels per second
 var last_direction = "down"
-
+var dead = false
 
 func _ready():
 	animation_player.play("idle_down")
@@ -48,6 +48,11 @@ func _physics_process(delta):
 	velocity = direction.normalized() * speed
 	move_and_slide()
 	rotate_flashlight(direction, delta)
+	
+	for body in $HurtBox.get_overlapping_bodies():
+		if body.is_in_group("enemies") and body.triggered:
+			if not dead:
+				die()
 
 
 func set_sprite_direction(dir_string: String):
@@ -70,20 +75,16 @@ func rotate_flashlight(direction, delta):
 
 func die():
 	# TODO: randomly show one of many end-screen strings
+	dead = true
 	print("You'll never get your happy ending")
 
 	# Stop movement
-	velocity = Vector2.ZERO
-	set_physics_process(false)
+	Globals.move_enabled = false
+	Globals.can_pause = false
 
 	# Freeze enemy damage while game over
 	collision_layer = 0
 	collision_mask = 0
 
 	# Show Game Over or reload scene
-	get_tree().reload_current_scene()
-
-
-func _on_hurt_box_body_entered(body: Node2D):
-	if body.is_in_group("enemies") and body.triggered:
-		die()
+	SceneManager.player_death()

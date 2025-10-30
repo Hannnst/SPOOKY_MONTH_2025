@@ -45,7 +45,7 @@ height = 63.999996
 size = Vector2(81, 77)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvpcs"]
-radius = 56.008926
+radius = 44.011364
 
 [sub_resource type="Animation" id="Animation_stwjg"]
 length = 0.001
@@ -2307,7 +2307,7 @@ animations = [{
 }]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q28gw"]
-points = PackedVector2Array(61.245, 228.55, -68.755, 230.55, -0.755, -58.45)
+points = PackedVector2Array(62.245, 292.55, -74.755, 292.55, -0.755, -58.45)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w6dt1")
@@ -2338,7 +2338,7 @@ texture = ExtResource("3_ge24q")
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(2, -34)
+position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_qvpcs")
 debug_color = Color(0.84040403, 0.36529857, 0.51111734, 0.41960785)
 
