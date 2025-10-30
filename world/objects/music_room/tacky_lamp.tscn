@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6aofj5ccr4v4"]
+
+[ext_resource type="Texture2D" uid="uid://bbyoqp1wwqsvm" path="res://assets/furniture/tacky_lamp.webp" id="1_3pe4e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rhcc"]
+radius = 24.0
+height = 60.0
+
+[node name="TackyLamp" type="StaticBody2D"]
+
+[node name="TackyLamp" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, -79)
+scale = Vector2(0.45172414, 0.45172414)
+texture = ExtResource("1_3pe4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3rhcc")
