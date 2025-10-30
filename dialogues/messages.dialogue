@@ -1,3 +1,13 @@
 ~ stay_on_the_path
 Stay on the path.
 => END
+
+~ forgot_something
+You forgot something.
+=> END
+
+~ no_going_back
+% There's no going back.
+% Where are you going?
+
+=> END
