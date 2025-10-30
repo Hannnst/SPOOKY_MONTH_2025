@@ -57,6 +57,7 @@ func _on_quit_focus_exited() -> void:
 	unfocus_button(quit_button)
 
 func focus_button(button):
+	SoundManager.playSFX("menu_select")
 	button.add_theme_font_size_override("font_size", 64)
 	# Defer icon positioning to ensure button size has been updated after font size change
 	await get_tree().process_frame

@@ -38,6 +38,7 @@ func _on_exit_pressed() -> void:
 
 
 func focus_button(button):
+	SoundManager.playSFX("menu_select")
 	button.add_theme_font_size_override("font_size", 60)
 
 func unfocus_button(button):
