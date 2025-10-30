@@ -39,7 +39,6 @@ func _on_exit_pressed() -> void:
 
 func focus_button(button):
 	button.add_theme_font_size_override("font_size", 60)
-	# Defer icon positioning to ensure button size has been updated after font size change
 
 func unfocus_button(button):
 	button.add_theme_font_size_override("font_size", 48)
