@@ -94,7 +94,7 @@ func _try_use_item():
 	#Notebook is special unique item, and always belongs in inventory slot 0.
 	if inventory_item.name == "notebook":
 		toggle_notebook()
-	
+		return
 	if not inventory_item.has("target_name"):
 		print("item has no target_name, therefore should print flavortext")
 		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
