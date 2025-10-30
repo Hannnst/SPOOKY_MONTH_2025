@@ -47,7 +47,7 @@ func _physics_process(delta):
 		animation_player.play("idle_" + last_direction)
 	velocity = direction.normalized() * speed
 	move_and_slide()
-	rotate_flashlight()
+	rotate_flashlight(direction)
 
 
 func set_sprite_direction(dir_string: String):
@@ -57,11 +57,12 @@ func set_sprite_direction(dir_string: String):
 		print("Warning: tried to set unknown direction")
 
 
-func rotate_flashlight():
+func rotate_flashlight(direction):
 	var rotation_speed := 1.0 # Higher = faster rotation
 	var delta = 0.1
-	if velocity != Vector2.ZERO:
-		var target_rotation = velocity.angle() - PI / 2
+
+	if direction != Vector2.ZERO:
+		var target_rotation = direction.angle() - PI / 2
 		%Node2DFlashlight.rotation = lerp_angle(%Node2DFlashlight.rotation, target_rotation, rotation_speed * delta)
 		$EnemySensor/CollisionShape2D.rotation = lerp_angle($EnemySensor/CollisionShape2D.rotation, target_rotation, rotation_speed * delta)
 

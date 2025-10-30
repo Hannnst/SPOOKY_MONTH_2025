@@ -1,6 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://bmlck841yqy1p"]
+[gd_scene load_steps=55 format=3 uid="uid://bmlck841yqy1p"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_w6dt1"]
+[ext_resource type="Texture2D" uid="uid://bgyvg2j40ncc8" path="res://player/flashlight.png" id="3_ge24q"]
 [ext_resource type="Script" uid="uid://o7vvw8imkk6g" path="res://interaction/interaction_area.gd" id="6_u1o3n"]
 [ext_resource type="Texture2D" uid="uid://1jvrecsjoxfm" path="res://assets/player/puppet/leg1.png" id="7_201cp"]
 [ext_resource type="Texture2D" uid="uid://bm3v1ji38e7rd" path="res://assets/player/puppet/leg2.png" id="8_uh7q8"]
@@ -42,17 +43,6 @@ height = 63.999996
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpcs"]
 size = Vector2(81, 77)
-
-[sub_resource type="Gradient" id="Gradient_qvpcs"]
-offsets = PackedFloat32Array(0, 0.63666666)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tr6w4"]
-gradient = SubResource("Gradient_qvpcs")
-width = 500
-height = 1000
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvpcs"]
 radius = 56.008926
@@ -2317,7 +2307,7 @@ animations = [{
 }]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q28gw"]
-points = PackedVector2Array(61.245, 182.55, -67.755, 183.55, -0.755, -58.45)
+points = PackedVector2Array(61.245, 228.55, -68.755, 230.55, -0.755, -58.45)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w6dt1")
@@ -2340,11 +2330,10 @@ debug_color = Color(3.898591e-06, 0.7908046, 0.38159195, 0.41960785)
 
 [node name="Node2DFlashlight" type="Node2D" parent="."]
 unique_name_in_owner = true
-rotation = 2.9286625
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]
-position = Vector2(0, 250)
-texture = SubResource("GradientTexture2D_tr6w4")
+energy = 0.5
+texture = ExtResource("3_ge24q")
 
 [node name="HurtBox" type="Area2D" parent="."]
 
