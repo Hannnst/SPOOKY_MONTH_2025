@@ -6,7 +6,7 @@ extends Node2D
 @onready var icon = $Icon
 
 var icon_offset = Vector2(300, 0)
-var icon_offset_short = Vector2(150, 0)
+var icon_offset_short = Vector2(250, 0)
 
 func _ready():
 	play_button.grab_focus()
