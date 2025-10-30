@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var change_dir_time: float = 1.5
 @export var trigger_time: float = 1.0
 @export var cooldown_time: float = 3.0
+@export var animation_frames: SpriteFrames
 
 var chase_speed: float = 100
 var direction := Vector2.ZERO
@@ -17,6 +18,8 @@ var triggered := false
 
 
 func _ready():
+	if animation_frames:
+		animated_sprite.sprite_frames = animation_frames
 	randomize()
 	_pick_new_direction()
 	chase_speed = speed + (speed * 0.5)
