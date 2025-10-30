@@ -44,7 +44,7 @@ fill_from = Vector2(0.5, 0.5)
 size = Vector2(400, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jyv4"]
-size = Vector2(196.07848, 115.686325)
+size = Vector2(282.35303, 137.2549)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6ulu"]
 radius = 39.0
@@ -54,14 +54,14 @@ height = 146.0
 size = Vector2(376, 229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkvfs"]
-size = Vector2(132, 54)
+size = Vector2(131, 86.00001)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rhcc"]
 radius = 24.0
 height = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7w64"]
-size = Vector2(74.10257, 60)
+size = Vector2(80.64103, 77.43588)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7w64"]
 animations = [{
@@ -81,7 +81,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asa16"]
-size = Vector2(257.5003, 217.50006)
+size = Vector2(257.5003, 238.7501)
 
 [node name="MusicRoom" type="Node2D"]
 y_sort_enabled = true
@@ -187,7 +187,7 @@ shape = SubResource("RectangleShape2D_q48sb")
 [node name="InteractionArea" parent="Bookshelf" instance=ExtResource("14_a5atw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/InteractionArea"]
-position = Vector2(-50.980408, -151.96075)
+position = Vector2(-21.568604, -141.17645)
 shape = SubResource("RectangleShape2D_2jyv4")
 debug_color = Color(0.59038526, 0.37406772, 3.85046e-07, 0.41960785)
 
@@ -218,7 +218,7 @@ shape = SubResource("RectangleShape2D_o6ulu")
 scale = Vector2(1.6393442, 1.6393442)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piano/InteractionArea"]
-position = Vector2(-7, 48)
+position = Vector2(-6.5, 64.00003)
 shape = SubResource("RectangleShape2D_mkvfs")
 debug_color = Color(0.69860953, 0.4934768, 0, 0.41960785)
 
@@ -240,7 +240,7 @@ shape = SubResource("CapsuleShape2D_3rhcc")
 [node name="InteractionArea" parent="TackyLamp" instance=ExtResource("14_a5atw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TackyLamp/InteractionArea"]
-position = Vector2(-3.8461533, -47.43589)
+position = Vector2(-0.57691956, -38.717957)
 shape = SubResource("RectangleShape2D_u7w64")
 debug_color = Color(0.7621254, 0.45137608, 0, 0.41960785)
 
@@ -259,8 +259,8 @@ script = ExtResource("13_ws51x")
 [node name="InteractionArea" parent="Vindu" instance=ExtResource("14_a5atw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vindu/InteractionArea"]
-position = Vector2(-3.75, 150)
-scale = Vector2(0.9999997, 0.9999997)
+position = Vector2(-3.75, 160.625)
+scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_asa16")
 debug_color = Color(0.69879955, 0.4875852, 0.21138498, 0.41960785)
 
