@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_box = %InteractionBox
 @onready var animation_player = $AnimationPlayer
 
