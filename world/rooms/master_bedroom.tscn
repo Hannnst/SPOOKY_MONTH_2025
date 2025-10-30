@@ -43,6 +43,7 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+# The rotation value 0.1680401 aligns WorldBorders with the room geometry as designed in the editor.
 rotation = 0.1680401
 
 [node name="Enemy" parent="." instance=ExtResource("5_qduph")]
