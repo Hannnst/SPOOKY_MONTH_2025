@@ -4,7 +4,7 @@ extends CanvasLayer
 
 @onready var icon = %Icon
 
-#Hardcoding this shit cause control nodes give me kidney stones
+# Hardcoded positions - dynamic layout calculation with control nodes was problematic
 var position_A = Vector2(860.0, 325.0)
 var position_B = Vector2(860.0, 400.0)
 
