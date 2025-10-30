@@ -5,7 +5,7 @@ extends Node
 
 var move_enabled = true
 
-#Global tracker for events you want to only occour a limited amount of times.
+#Global tracker for events you want to only occur a limited amount of times.
 #First two entries are just examples.
 var finite_events = {
 	"piano_girl" : 1, 
