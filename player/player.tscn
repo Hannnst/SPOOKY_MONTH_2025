@@ -41,7 +41,7 @@ radius = 31.999998
 height = 63.999996
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpcs"]
-size = Vector2(142.75, 118)
+size = Vector2(81, 77)
 
 [sub_resource type="Gradient" id="Gradient_qvpcs"]
 offsets = PackedFloat32Array(0, 0.63666666)
@@ -2331,6 +2331,7 @@ metadata/_custom_type_script = "uid://o7vvw8imkk6g"
 
 [node name="InteractionBox" type="CollisionShape2D" parent="InteractionSensor"]
 unique_name_in_owner = true
+position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_qvpcs")
 debug_color = Color(3.898591e-06, 0.7908046, 0.38159195, 0.41960785)
 
