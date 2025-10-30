@@ -1,13 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6sdt0gx4riff"]
+[gd_scene load_steps=10 format=3 uid="uid://c6sdt0gx4riff"]
 
 [ext_resource type="Script" uid="uid://bpyq78rcqec3s" path="res://world/rooms/forest_path_b.gd" id="1_88crq"]
 [ext_resource type="Texture2D" uid="uid://c7mo3t0j5wnym" path="res://world/rooms/placeholder_room_art/forest-path-2.webp" id="1_l8d2b"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="2_gho3y"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="3_88crq"]
-[ext_resource type="PackedScene" uid="uid://bts0kxi4h8ens" path="res://ui/pause_menu.tscn" id="5_b2fhl"]
+[ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="5_rw2sn"]
+[ext_resource type="Script" uid="uid://cqtinjphh0r6k" path="res://world/rooms/utilities/forestB-path_blocker.gd" id="6_rw2sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h27r"]
+size = Vector2(246, 279.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw2sn"]
+size = Vector2(388.75, 1901)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1u4v"]
+size = Vector2(364.125, 2645)
 
 [node name="ForestPathB" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(12, 1193)
 script = ExtResource("1_88crq")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -17,19 +28,64 @@ color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(588, -268)
-scale = Vector2(2, 2)
+position = Vector2(657, -98)
+scale = Vector2(2, 2.3080041)
 texture = ExtResource("1_l8d2b")
 
 [node name="Player" parent="." instance=ExtResource("2_gho3y")]
-position = Vector2(562, 658)
+position = Vector2(596, 423)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 1400
+limit_bottom = 2000
 position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("3_88crq")]
 
-[node name="WorldBorders" type="StaticBody2D" parent="."]
-position = Vector2(6, 226)
+[node name="ExitToOutside" type="Area2D" parent="."]
+script = ExtResource("5_rw2sn")
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_b2fhl")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOutside"]
+position = Vector2(595, -1332)
+shape = SubResource("RectangleShape2D_8h27r")
+debug_color = Color(0.8023216, 0.41933587, 0, 0.41960785)
+
+[node name="ExitToPathA" type="Area2D" parent="."]
+script = ExtResource("5_rw2sn")
+target_scene_name = "forest_pathA"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPathA"]
+position = Vector2(596, 956)
+shape = SubResource("RectangleShape2D_8h27r")
+debug_color = Color(0.8023216, 0.41933587, 0, 0.41960785)
+
+[node name="SlidingPathBlocker" type="CharacterBody2D" parent="."]
+script = ExtResource("6_rw2sn")
+move_distance = 30.0
+
+[node name="Detector" type="Area2D" parent="SlidingPathBlocker"]
+position = Vector2(546, 387)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
+position = Vector2(-292, -613)
+shape = SubResource("RectangleShape2D_rw2sn")
+debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
+position = Vector2(425, -601)
+shape = SubResource("RectangleShape2D_rw2sn")
+debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="SlidingPathBlocker"]
+position = Vector2(251, -310)
+shape = SubResource("RectangleShape2D_o1u4v")
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="SlidingPathBlocker"]
+position = Vector2(968, -117)
+shape = SubResource("RectangleShape2D_o1u4v")
+
+[connection signal="body_entered" from="ExitToOutside" to="ExitToOutside" method="_on_body_entered"]
+[connection signal="body_entered" from="ExitToPathA" to="ExitToPathA" method="_on_body_entered"]
+[connection signal="body_entered" from="SlidingPathBlocker/Detector" to="SlidingPathBlocker" method="_on_detector_body_entered"]

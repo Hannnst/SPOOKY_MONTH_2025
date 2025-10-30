@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://sbfdkgeb7vvq" path="res://assets/textures/veggtekstur_vib.webp" id="4_jon1b"]
 [ext_resource type="AudioStream" uid="uid://bsmipljcv3oy2" path="res://sounds/music/lighthouse3.mp3" id="5_kfo5h"]
 [ext_resource type="Texture2D" uid="uid://bhvuv2jde4733" path="res://assets/textures/list.webp" id="5_xv37x"]
-[ext_resource type="Script" uid="uid://d30yewp27g8i5" path="res://world/objects/music_room/bookshelf.gd" id="9_2jyv4"]
+[ext_resource type="Script" path="res://world/objects/music_room/bookshelf.gd" id="9_2jyv4"]
 [ext_resource type="Texture2D" uid="uid://d4e2f13goskth" path="res://assets/furniture/bookshelf_vib.webp" id="9_u7w64"]
 [ext_resource type="Texture2D" uid="uid://4qsthde76wwt" path="res://assets/sprites/pianogirl1.PNG" id="12_iyx8o"]
 [ext_resource type="Texture2D" uid="uid://qq7mkwu34q1i" path="res://assets/furniture/piano.webp" id="12_mkvfs"]
@@ -16,12 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://detpimhncchsa" path="res://assets/furniture/piano_closed.png" id="12_u7w64"]
 [ext_resource type="Texture2D" uid="uid://b2g85mb0062ji" path="res://assets/furniture/vindu_vibB.webp" id="13_jxd1m"]
 [ext_resource type="Texture2D" uid="uid://bdu0k3gd2w0cv" path="res://assets/sprites/pianogirl2.PNG" id="13_wflst"]
-[ext_resource type="Script" uid="uid://bj1dk238woskr" path="res://world/objects/music_room/vindu.gd" id="13_ws51x"]
-[ext_resource type="Script" uid="uid://dyvopchsbabi6" path="res://world/objects/music_room/tacky_lamp.gd" id="14_2jyv4"]
+[ext_resource type="Script" path="res://world/objects/music_room/vindu.gd" id="13_ws51x"]
+[ext_resource type="Script" path="res://world/objects/music_room/tacky_lamp.gd" id="14_2jyv4"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="14_a5atw"]
 [ext_resource type="Texture2D" uid="uid://dtkur8cghk6j" path="res://assets/sprites/pianogirl3.PNG" id="14_mkvfs"]
 [ext_resource type="Texture2D" uid="uid://bbyoqp1wwqsvm" path="res://assets/furniture/tacky_lamp.webp" id="15_31idr"]
-[ext_resource type="Script" uid="uid://cnukciqyq7na3" path="res://world/objects/music_room/piano.gd" id="15_wflst"]
+[ext_resource type="Script" path="res://world/objects/music_room/piano.gd" id="15_wflst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jon1b"]
 size = Vector2(1511.25, 116)
@@ -54,7 +54,7 @@ height = 146.0
 size = Vector2(376, 229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkvfs"]
-size = Vector2(131, 86.00001)
+size = Vector2(114, 86.00001)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rhcc"]
 radius = 24.0
@@ -197,7 +197,8 @@ scale = Vector2(0.61, 0.61)
 script = ExtResource("15_wflst")
 
 [node name="Piano" type="Sprite2D" parent="Piano"]
-position = Vector2(-1, -46)
+position = Vector2(-1, -43.09836)
+scale = Vector2(1, 0.97082204)
 texture = ExtResource("12_mkvfs")
 
 [node name="PianoClosed" type="Sprite2D" parent="Piano/Piano"]
@@ -218,7 +219,7 @@ shape = SubResource("RectangleShape2D_o6ulu")
 scale = Vector2(1.6393442, 1.6393442)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piano/InteractionArea"]
-position = Vector2(-6.5, 64.00003)
+position = Vector2(-10, 64.00003)
 shape = SubResource("RectangleShape2D_mkvfs")
 debug_color = Color(0.69860953, 0.4934768, 0, 0.41960785)
 
@@ -246,8 +247,8 @@ debug_color = Color(0.7621254, 0.45137608, 0, 0.41960785)
 
 [node name="PianoGirl" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(232, 367)
-scale = Vector2(0.5, 0.5)
+position = Vector2(233, 369.00003)
+scale = Vector2(0.43, 0.43)
 sprite_frames = SubResource("SpriteFrames_u7w64")
 
 [node name="Vindu" type="Sprite2D" parent="."]
