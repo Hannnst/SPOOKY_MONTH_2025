@@ -6,6 +6,7 @@ extends CharacterBody2D
 var speed = 200 # pixels per second
 var last_direction = "down"
 var dead = false
+var is_outdoor = false
 
 
 func _ready():
@@ -17,6 +18,9 @@ func _ready():
 	%AnimatedBody.play()
 	%AnimatedArm_front.play()
 	%AnimatedHead.play()
+	
+	# Cache outdoor status to avoid repeated string checks
+	is_outdoor = SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_")
 
 
 func _physics_process(delta):
@@ -102,7 +106,7 @@ func die():
 
 
 func play_step_sound():
-	if SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_"):
+	if is_outdoor:
 		SoundManager.play_random_pitch("step_sound_outside", -0.3, 0.1)
 	else:
 		SoundManager.play_random_pitch("step_sound", -0.3, 0.1)
