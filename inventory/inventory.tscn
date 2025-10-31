@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvnvwpr81xkbb"]
+[gd_scene load_steps=6 format=3 uid="uid://bvnvwpr81xkbb"]
 
 [ext_resource type="Script" uid="uid://cpq0q47whysj6" path="res://inventory/inventory.gd" id="1_62wf1"]
 [ext_resource type="Texture2D" uid="uid://cp110hg043wkp" path="res://assets/buttons/e2.png" id="2_f8i2h"]
 [ext_resource type="PackedScene" uid="uid://br8mquhhciege" path="res://inventory/inventory_slot.tscn" id="2_qse2j"]
 [ext_resource type="Texture2D" uid="uid://vlcitcl24cpb" path="res://assets/items/lapp.webp" id="4_lhcfm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhcfm"]
+bg_color = Color(0, 0, 0, 0.6666667)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_62wf1")
@@ -30,13 +37,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -344.0
+offset_left = -260.0
 offset_top = -100.0
-offset_right = 344.0
+offset_right = 260.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhcfm")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -68,14 +76,9 @@ layout_mode = 2
 [node name="InventorySlot6" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="InventorySlot7" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
-layout_mode = 2
-
-[node name="InventorySlot8" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
-layout_mode = 2
-
 [node name="Note" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(623.00006, 368.00003)
 scale = Vector2(0.5418006, 0.5418006)
 texture = ExtResource("4_lhcfm")

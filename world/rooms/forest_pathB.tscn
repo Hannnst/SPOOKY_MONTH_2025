@@ -33,14 +33,13 @@ scale = Vector2(2, 2.3080041)
 texture = ExtResource("1_l8d2b")
 
 [node name="Player" parent="." instance=ExtResource("2_gho3y")]
-position = Vector2(596, 423)
+position = Vector2(604, -935)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
 limit_top = 0
 limit_right = 1400
 limit_bottom = 2000
-position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("3_88crq")]
 

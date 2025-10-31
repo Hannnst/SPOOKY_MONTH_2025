@@ -95,6 +95,7 @@ func _try_use_item():
 	if inventory_item.name == "notebook":
 		toggle_notebook()
 		return
+		
 	if not inventory_item.has("target_name"):
 		print("item has no target_name, therefore should print flavortext")
 		DialogueManager.show_dialogue_balloon(dialogue, inventory_item.name + "_use")
@@ -102,6 +103,7 @@ func _try_use_item():
 
 	var target_object = InteractionManager._get_closest_object()
 	if (target_object and inventory_item):
+		print("Tried to use item on, ", target_object.name)
 		if inventory_item.target_name == target_object.name:
 			target_object.activate() # activates a node's attached script
 	else:

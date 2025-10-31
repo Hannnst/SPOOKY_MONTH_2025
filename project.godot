@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SPOOKYMONTH_2025"
-run/main_scene="uid://dl3cm8tp0gdqh"
+run/main_scene="uid://cg0jg1cg0rq08"
 config/features=PackedStringArray("4.5", "Mobile")
 
 [autoload]

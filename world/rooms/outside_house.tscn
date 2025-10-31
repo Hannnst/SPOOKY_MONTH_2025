@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=20 format=3 uid="uid://gfnekvg1s77h"]
 
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="6_vl5rv"]
 [ext_resource type="Script" uid="uid://m5m217d121vk" path="res://world/objects/outside/gate.gd" id="7_ry108"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="8_k3ycv"]
+[ext_resource type="Texture2D" uid="uid://d26r33awxfdbb" path="res://assets/furniture/rail.webp" id="9_ry108"]
+[ext_resource type="Texture2D" uid="uid://b8t5dop7lx3kn" path="res://assets/furniture/statue.webp" id="10_k3ycv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8pc"]
 size = Vector2(28.5, 1.4099998)
@@ -35,7 +37,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4npg2"]
-size = Vector2(742.5, 214)
+size = Vector2(546, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if25p"]
+size = Vector2(262.1289, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry108"]
+size = Vector2(357.8789, 28.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3ycv"]
+size = Vector2(1380.2578, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0scq"]
+size = Vector2(490, 52.052505)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ry108"]
+load_path = "res://.godot/imported/statue.webp-198eb4d6045545347748e9fc4d7cf777.ctex"
 
 [node name="Outside" type="Node2D"]
 y_sort_enabled = true
@@ -97,11 +114,64 @@ script = ExtResource("7_ry108")
 [node name="Sprite" type="AnimatedSprite2D" parent="Gate"]
 position = Vector2(0, -204)
 sprite_frames = SubResource("SpriteFrames_if25p")
-animation = &"close"
+animation = &"open"
 
 [node name="InteractionArea" parent="Gate" instance=ExtResource("8_k3ycv")]
 position = Vector2(18, 166)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/InteractionArea"]
-position = Vector2(0, -248)
+position = Vector2(-10, -183.89502)
 shape = SubResource("RectangleShape2D_4npg2")
+
+[node name="Blocker" type="StaticBody2D" parent="Gate"]
+
+[node name="Lock" type="CollisionShape2D" parent="Gate/Blocker"]
+unique_name_in_owner = true
+position = Vector2(58, -17.894989)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_if25p")
+
+[node name="GateBlock" type="CollisionShape2D" parent="Gate/Blocker"]
+position = Vector2(-237, -17.894989)
+shape = SubResource("RectangleShape2D_ry108")
+
+[node name="GateBlock2" type="CollisionShape2D" parent="Gate/Blocker"]
+position = Vector2(755.8711, -17.894989)
+shape = SubResource("RectangleShape2D_k3ycv")
+
+[node name="CloseTrigger" type="Area2D" parent="Gate"]
+position = Vector2(-12, 0.10501099)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/CloseTrigger"]
+position = Vector2(30, -279)
+shape = SubResource("RectangleShape2D_t0scq")
+
+[node name="Rail" type="Sprite2D" parent="Gate"]
+position = Vector2(-600, -114.89499)
+scale = Vector2(1.3704103, 1)
+texture = ExtResource("9_ry108")
+
+[node name="Rail3" type="Sprite2D" parent="Gate/Rail"]
+position = Vector2(1541.1442, 12)
+scale = Vector2(1.537242, 0.9754099)
+texture = ExtResource("9_ry108")
+
+[node name="Rail2" type="Sprite2D" parent="Gate/Rail"]
+position = Vector2(942.0536, 12)
+scale = Vector2(1.2054868, 0.9754098)
+texture = ExtResource("9_ry108")
+
+[node name="Statue" type="Sprite2D" parent="."]
+modulate = Color(1.4683453, 1.4683453, 1.4683453, 1)
+position = Vector2(489, 204.00002)
+rotation = 0.017453292
+scale = Vector2(1.0341614, 1)
+texture = SubResource("CompressedTexture2D_ry108")
+flip_h = true
+
+[node name="Statue2" type="Sprite2D" parent="."]
+modulate = Color(1.3167266, 1.3167266, 1.3167266, 1)
+position = Vector2(-196, 198)
+texture = ExtResource("10_k3ycv")
+
+[connection signal="body_entered" from="Gate/CloseTrigger" to="Gate" method="_on_close_trigger_body_entered"]

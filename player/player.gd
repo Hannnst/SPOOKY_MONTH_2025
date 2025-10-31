@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 var speed = 200 # pixels per second
 var last_direction = "down"
+var dead = false
+var is_outdoor = false
 
 
 func _ready():
@@ -16,6 +18,9 @@ func _ready():
 	%AnimatedBody.play()
 	%AnimatedArm_front.play()
 	%AnimatedHead.play()
+	
+	# Cache outdoor status to avoid repeated string checks
+	is_outdoor = SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_")
 
 
 func _physics_process(delta):
@@ -49,18 +54,33 @@ func _physics_process(delta):
 	move_and_slide()
 	rotate_flashlight(direction, delta)
 
+	for body in $HurtBox.get_overlapping_bodies():
+		if body.is_in_group("enemies") and body.triggered:
+			if not dead:
+				die()
+
 
 func set_sprite_direction(dir_string: String):
 	if dir_string in ["up", "down", "left", "right"]:
 		last_direction = dir_string
-		if dir_string == "up":
-			%Node2DFlashlight.rotation = -180
+		match dir_string:
+			"right":
+				%Node2DFlashlight.rotation = -90
+			"left":
+				%Node2DFlashlight.rotation = 90
+			"up":
+				%Node2DFlashlight.rotation = -180
+			"down":
+				%Node2DFlashlight.rotation = 0
 	else:
 		print("Warning: tried to set unknown direction")
 
 
 func rotate_flashlight(direction, delta):
 	var rotation_speed := 5.0 # Higher = faster rotation
+
+	if direction == Vector2.ZERO:
+		return # do nothing if not moving
 
 	if direction != Vector2.ZERO:
 		var target_rotation = direction.angle() - PI / 2
@@ -70,20 +90,23 @@ func rotate_flashlight(direction, delta):
 
 func die():
 	# TODO: randomly show one of many end-screen strings
+	dead = true
 	print("You'll never get your happy ending")
 
 	# Stop movement
-	velocity = Vector2.ZERO
-	set_physics_process(false)
+	Globals.move_enabled = false
+	Globals.can_pause = false
 
 	# Freeze enemy damage while game over
 	collision_layer = 0
 	collision_mask = 0
 
 	# Show Game Over or reload scene
-	get_tree().reload_current_scene()
+	SceneManager.player_death()
 
 
-func _on_hurt_box_body_entered(body: Node2D):
-	if body.is_in_group("enemies") and body.triggered:
-		die()
+func play_step_sound():
+	if is_outdoor:
+		SoundManager.play_random_pitch("step_sound_outside", -0.3, 0.1)
+	else:
+		SoundManager.play_random_pitch("step_sound", -0.3, 0.1)

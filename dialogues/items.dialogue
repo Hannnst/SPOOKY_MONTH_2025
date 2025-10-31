@@ -19,7 +19,69 @@ After all, there's no place like home.
 => END
 
 ~ notebook_collect
-So that's where that was. [wait=1.5]There's so many things left unfinished...
+I knew i forgot something. [wait=1.5] So many things left unfinished...
+=> END
 
+~ key_collect
+% Slippery key: Please, just take me home.
+% Slippery key: I'm cold. [wait=1.5] I just want to go home...
+% Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
+=> END
 
+~ key_activate
+% If i follow the path i might find its home.
+% At the end of the path, there might be someplace safe for this key.
+% Maybe this little fellow belongs to a gate?
+=> END
 
+~ key_use
+I knew i forgot something. [wait=1.5] So many things left unfinished...
+=> END
+
+~ gum_collect
+% Upon unlocking the gate, a delicious gum detached from it.
+% A delicious piece of gum was stuck on the key.
+% Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
+=> END
+
+~ gum_activate
+% Some gum.
+% Just some gum.
+% Mmm. Gum.
+~ toy_collect
+The thing used to never stop crying. Yet you kept it alive through thick and thin.
+=> END
+
+~ toy_activate
+It's soul passed away years ago. It should probably be laid to rest.
+=> END
+
+~ gate_reject
+% Haven't you forgotten something?
+% There are still things left for you to do.
+% Not yet.
+=> END
+
+~ vinyl_collect
+It's very fragile. Be careful not to break it.
+=> END
+
+~ vinyl_use
+The ridges are smooth as you drag your hands across them. It feels expensive, somehow.
+=> END
+
+~ vinyl_player_interact
+A vintage record player for playing music, old and new. You wonder why they wouldn't just use CDs.
+=> END
+
+~ vinyl_player_activate
+Back where it belongs. The song reminds you of sitting very still.
+=> END
+
+~ cd_collect
+That's so much better.
+=> END
+
+~ cd_use
+The pretty material shines in all the colors you can think of. Modern technology is truly something.
+=> END

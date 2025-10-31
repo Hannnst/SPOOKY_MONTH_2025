@@ -14,9 +14,6 @@ func _ready():
 
 func _on_interact():
 	#Unik kode for hva som skjer når en spiller interacter
-	print("Interacting with:", self)
-	print("Sprite is:", sprite)
-	sprite.flip_v = !sprite.flip_v
 	DialogueManager.show_dialogue_balloon(dialogue, "grave_interact")
 
 
