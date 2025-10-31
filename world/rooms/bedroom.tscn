@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb8myy4jukgpp"]
+[gd_scene load_steps=20 format=3 uid="uid://cb8myy4jukgpp"]
 
 [ext_resource type="Texture2D" uid="uid://dlttdgf3dwjjg" path="res://world/rooms/placeholder_room_art/house-bedroom-siblings.webp" id="1_itgtb"]
 [ext_resource type="Script" uid="uid://djk77es3nbxy2" path="res://world/rooms/bedroom.gd" id="1_pb2ka"]
@@ -6,14 +6,46 @@
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_itgtb"]
 [ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="4_ke24p"]
 [ext_resource type="Texture2D" uid="uid://wkluv5ck6fph" path="res://assets/furniture/framedArt/castle.webp" id="4_kth6x"]
-[ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="5_8odcw"]
 [ext_resource type="Texture2D" uid="uid://bgjm8geil687f" path="res://assets/furniture/framedArt/looking_weird.webp" id="5_l21ss"]
+[ext_resource type="Script" uid="uid://d01fwbefdeffc" path="res://world/rooms/bedroom_window.gd" id="9_0eq22"]
+[ext_resource type="Texture2D" uid="uid://dpnkvx3hy1l3l" path="res://assets/furniture/vindu_vibA.webp" id="9_nm1ci"]
+[ext_resource type="Texture2D" uid="uid://ceji68137j73t" path="res://assets/furniture/vindu_open.webp" id="10_5kucm"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="11_5kucm"]
+[ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="13_4evk8"]
+[ext_resource type="PackedScene" uid="uid://doiq2umif2su4" path="res://world/doors/exit_to_hall.tscn" id="13_26qwc"]
+[ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="14_tbunh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kth6x"]
 size = Vector2(2063.0625, 280.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlsja"]
-size = Vector2(163.41235, 2309.3481)
+size = Vector2(163.41235, 2477.9263)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq22"]
+radius = 145.0
+height = 334.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26qwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nm1ci")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5kucm")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eq22"]
+size = Vector2(346.1537, 405.5255)
 
 [node name="Bedroom" type="Node2D"]
 y_sort_enabled = true
@@ -41,7 +73,7 @@ scale = Vector2(0.8739038, 0.6803161)
 texture = ExtResource("4_kth6x")
 
 [node name="Player" parent="." instance=ExtResource("1_to4bo")]
-position = Vector2(286, 658)
+position = Vector2(525, 1020)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -62,7 +94,13 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_hlsja")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(535.7948, 918.4121)
+position = Vector2(-666.71564, 945.8827)
+rotation = 1.5812683
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_hlsja")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1777.9999, 960)
 rotation = 1.5812683
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_hlsja")
@@ -79,9 +117,15 @@ rotation = -0.00349075
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_hlsja")
 
-[node name="Skull" parent="." instance=ExtResource("5_8odcw")]
-position = Vector2(829.00006, 510)
-scale = Vector2(0.9999998, 0.9999998)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(188, 95)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0eq22")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(794, 112)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0eq22")
 
 [node name="PictureFrame" type="Sprite2D" parent="."]
 position = Vector2(182.75, -31.375)
@@ -92,3 +136,29 @@ texture = ExtResource("4_ke24p")
 position = Vector2(186.8125, -33.624996)
 scale = Vector2(0.58505505, 0.71609044)
 texture = ExtResource("5_l21ss")
+
+[node name="BedroomWindow" type="Node2D" parent="."]
+position = Vector2(186.8125, -33.624996)
+scale = Vector2(0.58505505, 0.71609044)
+script = ExtResource("9_0eq22")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="BedroomWindow"]
+position = Vector2(1550.6019, 200.56824)
+sprite_frames = SubResource("SpriteFrames_26qwc")
+animation = &"open"
+
+[node name="InteractionArea" parent="BedroomWindow" instance=ExtResource("11_5kucm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BedroomWindow/InteractionArea"]
+position = Vector2(1545.0305, 295.8026)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_0eq22")
+debug_color = Color(0.7403795, 0.46683186, 3.85046e-07, 0.41960785)
+
+[node name="Exit_to_hall" parent="." instance=ExtResource("13_26qwc")]
+visible = false
+position = Vector2(516, 1088)
+
+[node name="BaseDoor" parent="." instance=ExtResource("13_4evk8")]
+position = Vector2(525, 1145)
+script = ExtResource("14_tbunh")

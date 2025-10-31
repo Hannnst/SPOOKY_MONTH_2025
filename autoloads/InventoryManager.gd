@@ -18,8 +18,13 @@ var current_slot_index: int = 0 #Keeps track of which item the player last selec
 var upgraded_items = {
 	"cd": { "name": "cd", "is_owned": true, "texture": preload("res://assets/items/cd.png") },
 	"gum": { "name": "gum", "is_owned": true, "texture": preload("res://world/objects/gum.webp") },
+<<<<<<< HEAD
 	"keyring": { "name": "keyring", "is_owned": true, "texture": preload("res://assets/items/keyring.webp") },
 	"lighter": { "name": "lighter", "candy": true, "texture": preload("res://assets/items/lighter.webp") },
+=======
+	"keyring": { "name": "keyring", "is_owned": true, "texture": preload("res://assets/items/keyring.webp")},
+	"lighter": { "name": "lighter", "candy": true, "texture": preload("res://assets/items/lighter.webp")},
+>>>>>>> d504bde5a6dcfc567559fc88efe03b0ffc514e25
 }
 
 

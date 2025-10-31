@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bk6sa4lucpd2g"]
+[gd_scene load_steps=49 format=3 uid="uid://bk6sa4lucpd2g"]
 
 [ext_resource type="Script" uid="uid://bjlk6nyyd44r8" path="res://world/rooms/music_room.gd" id="1_dioti"]
 [ext_resource type="PackedScene" uid="uid://55wmhdckb1an" path="res://world/objects/music_room/music_room_enemy.tscn" id="2_31idr"]
@@ -11,8 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://sbfdkgeb7vvq" path="res://assets/textures/veggtekstur_vib.webp" id="4_jon1b"]
 [ext_resource type="AudioStream" uid="uid://bsmipljcv3oy2" path="res://sounds/music/lighthouse3.mp3" id="5_kfo5h"]
 [ext_resource type="Texture2D" uid="uid://bhvuv2jde4733" path="res://assets/textures/list.webp" id="5_xv37x"]
+[ext_resource type="Texture2D" uid="uid://b31l2fv2xrfbg" path="res://assets/furniture/carpet transparent.png" id="8_jsgqc"]
 [ext_resource type="Script" path="res://world/objects/music_room/bookshelf.gd" id="9_2jyv4"]
+[ext_resource type="Texture2D" uid="uid://bgjm8geil687f" path="res://assets/furniture/framedArt/looking_weird.webp" id="9_qi2vc"]
 [ext_resource type="Texture2D" uid="uid://d4e2f13goskth" path="res://assets/furniture/bookshelf_vib.webp" id="9_u7w64"]
+[ext_resource type="Texture2D" uid="uid://wkluv5ck6fph" path="res://assets/furniture/framedArt/castle.webp" id="10_uymwm"]
+[ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="11_b7mxb"]
 [ext_resource type="Texture2D" uid="uid://4qsthde76wwt" path="res://assets/sprites/pianogirl1.PNG" id="12_iyx8o"]
 [ext_resource type="Texture2D" uid="uid://qq7mkwu34q1i" path="res://assets/furniture/piano.webp" id="12_mkvfs"]
 [ext_resource type="Texture2D" uid="uid://dpnkvx3hy1l3l" path="res://assets/furniture/vindu_vibA.webp" id="12_mry3s"]
@@ -25,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dtkur8cghk6j" path="res://assets/sprites/pianogirl3.PNG" id="14_mkvfs"]
 [ext_resource type="Texture2D" uid="uid://bbyoqp1wwqsvm" path="res://assets/furniture/tacky_lamp.webp" id="15_31idr"]
 [ext_resource type="Script" uid="uid://cnukciqyq7na3" path="res://world/objects/music_room/piano.gd" id="15_wflst"]
+[ext_resource type="Texture2D" uid="uid://c8tuioc5r6wwy" path="res://assets/furniture/sofa transparent.png" id="30_3e2rl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jon1b"]
 size = Vector2(1511.25, 116)
@@ -98,6 +103,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asa16"]
 size = Vector2(257.5003, 238.7501)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj86d"]
+size = Vector2(568.37585, 151.70932)
+
 [node name="MusicRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_dioti")
@@ -111,20 +119,6 @@ color = Color(0.3478062, 0.26956576, 0.2283377, 1)
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-offset_left = -785.0
-offset_top = -678.0
-offset_right = 3018.0
-offset_bottom = 1727.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Background"]
-offset_left = -785.0
-offset_top = -678.0
-offset_right = 3018.0
-offset_bottom = 1727.0
-color = Color(0, 0, 0, 1)
 
 [node name="Exit_to_hall" parent="Background" instance=ExtResource("3_43k7k")]
 position = Vector2(1383, 664.00006)
@@ -145,6 +139,31 @@ texture = ExtResource("4_jon1b")
 position = Vector2(1465, 663.5)
 scale = Vector2(0.2765408, 0.23499995)
 texture = ExtResource("3_hitsm")
+
+[node name="CarpetTransparent" type="Sprite2D" parent="Background"]
+modulate = Color(0.69163376, 0.6493546, 0.8892685, 1)
+position = Vector2(290, 747)
+texture = ExtResource("8_jsgqc")
+
+[node name="LookingWeird" type="Sprite2D" parent="Background"]
+position = Vector2(277.875, 144.6529)
+scale = Vector2(0.3588154, 0.32631442)
+texture = ExtResource("9_qi2vc")
+
+[node name="Castle" type="Sprite2D" parent="Background"]
+position = Vector2(686, 159.5)
+scale = Vector2(0.43859646, 0.3477012)
+texture = ExtResource("10_uymwm")
+
+[node name="PictureFrame" type="Sprite2D" parent="Background"]
+position = Vector2(683.99994, 155.99997)
+scale = Vector2(0.25725585, 0.25725585)
+texture = ExtResource("11_b7mxb")
+
+[node name="PictureFrame2" type="Sprite2D" parent="Background"]
+position = Vector2(280.84503, 144)
+scale = Vector2(0.33560455, 0.25725585)
+texture = ExtResource("11_b7mxb")
 
 [node name="List" type="Sprite2D" parent="Background"]
 position = Vector2(1377.1158, 663.579)
@@ -355,6 +374,21 @@ debug_color = Color(0.6777251, 0.49898243, 0.22850087, 0.41960785)
 position = Vector2(111.00012, 145.00002)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_mry3s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(305.00006, 662.99994)
+scale = Vector2(0.468, 0.468)
+
+[node name="SofaTransparent" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.6949435, 0.70013803, 0.7511579, 1)
+position = Vector2(-326.92322, 4.2736435)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("30_3e2rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-322.64975, 121.79506)
+scale = Vector2(1.0000006, 1.0000006)
+shape = SubResource("RectangleShape2D_gj86d")
 
 [connection signal="body_entered" from="ScaryEvent" to="." method="_on_scary_event_body_entered"]
 [connection signal="body_entered" from="ClearEvent" to="." method="_on_clear_event_body_entered"]
