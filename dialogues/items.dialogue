@@ -22,6 +22,34 @@ After all, there's no place like home.
 I knew i forgot something. [wait=1.5] So many things left unfinished...
 => END
 
+~ key_collect
+% Slippery key: Please, just take me home.
+% Slippery key: I'm cold. [wait=1.5] I just want to go home...
+% Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
+=> END
+
+~ key_activate
+% If i follow the path i might find its home.
+% At the end of the path, there might be someplace safe for this key.
+% Maybe this little fellow belongs to a gate?
+=> END
+
+~ key_use
+I knew i forgot something. [wait=1.5] So many things left unfinished...
+=> END
+
+~ gum_collect
+% Upon unlocking the gate, a delicious gum detached from it.
+% A delicious piece of gum was stuck on the key.
+% Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
+=> END
+
+~ gum_activate
+% Some gum.
+% Just some gum.
+% Mmm. Gum.
+=> END
+
 ~ gate_reject
 % Haven't you forgotten something?
 % There's still things left for you to do.
