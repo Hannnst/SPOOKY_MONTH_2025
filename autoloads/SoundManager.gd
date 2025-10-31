@@ -38,7 +38,7 @@ var sound_effects = {
 
 var music = {
 	"test_music": preload("res://sounds/music/test-beach_ambience.mp3"),
-	"spooky_piano": preload("res://sounds/music/pianobraak.mp3")
+	"spooky_piano": preload("res://sounds/music/pianobraak.mp3"),
 	"ambience_house": preload("res://sounds/sound_effects/ambience/house-ambience.mp3"),
 	"ambience_forest": preload("res://sounds/sound_effects/ambience/night.mp3"),
 	"ambience_horror": preload("res://sounds/sound_effects/ambience/horror-ambience.mp3"),
