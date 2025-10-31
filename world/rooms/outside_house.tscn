@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=17 format=3 uid="uid://gfnekvg1s77h"]
 
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
@@ -35,13 +35,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4npg2"]
-size = Vector2(742.5, 214)
+size = Vector2(546, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if25p"]
+size = Vector2(262.1289, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry108"]
+size = Vector2(357.8789, 28.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3ycv"]
+size = Vector2(1380.2578, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0scq"]
+size = Vector2(490, 52.052505)
 
 [node name="Outside" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_n8cr0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -97,11 +110,36 @@ script = ExtResource("7_ry108")
 [node name="Sprite" type="AnimatedSprite2D" parent="Gate"]
 position = Vector2(0, -204)
 sprite_frames = SubResource("SpriteFrames_if25p")
-animation = &"close"
+animation = &"open"
 
 [node name="InteractionArea" parent="Gate" instance=ExtResource("8_k3ycv")]
 position = Vector2(18, 166)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/InteractionArea"]
-position = Vector2(0, -248)
+position = Vector2(-10, -183.89502)
 shape = SubResource("RectangleShape2D_4npg2")
+
+[node name="Blocker" type="StaticBody2D" parent="Gate"]
+
+[node name="Lock" type="CollisionShape2D" parent="Gate/Blocker"]
+unique_name_in_owner = true
+position = Vector2(58, -17.894989)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_if25p")
+
+[node name="GateBlock" type="CollisionShape2D" parent="Gate/Blocker"]
+position = Vector2(-237, -17.894989)
+shape = SubResource("RectangleShape2D_ry108")
+
+[node name="GateBlock2" type="CollisionShape2D" parent="Gate/Blocker"]
+position = Vector2(755.8711, -17.894989)
+shape = SubResource("RectangleShape2D_k3ycv")
+
+[node name="CloseTrigger" type="Area2D" parent="Gate"]
+position = Vector2(-12, 0.10501099)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/CloseTrigger"]
+position = Vector2(30, -279)
+shape = SubResource("RectangleShape2D_t0scq")
+
+[connection signal="body_entered" from="Gate/CloseTrigger" to="Gate" method="_on_close_trigger_body_entered"]

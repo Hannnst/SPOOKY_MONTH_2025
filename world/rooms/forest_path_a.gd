@@ -7,8 +7,10 @@ var spawn_from_outside = Vector2(2134, 602)
 
 
 func _ready():
+	SoundManager.play_music("ambience_forest")
 	_set_player_spawn()
-	
+
+
 func _set_player_spawn():
 	match SceneManager.prev_scene:
 		"forest_pathB":
@@ -23,4 +25,3 @@ func _on_if_game_complete_body_entered(body: Node2D) -> void:
 	#TODO: Check if the game is complete to play the ending!
 	if body.is_in_group("player"):
 		DialogueManager.show_dialogue_balloon(dialogue, "no_going_back")
-	
