@@ -88,3 +88,6 @@ func die():
 
 	# Show Game Over or reload scene
 	SceneManager.player_death()
+
+func play_step_sound():
+	SoundManager.play_random_pitch("step_sound", 0.0, 0.04)

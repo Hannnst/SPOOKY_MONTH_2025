@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bmlck841yqy1p"]
+[gd_scene load_steps=58 format=3 uid="uid://bmlck841yqy1p"]
 
 [ext_resource type="Script" uid="uid://hxnkthumm4a4" path="res://player/player.gd" id="1_w6dt1"]
 [ext_resource type="Texture2D" uid="uid://bgyvg2j40ncc8" path="res://player/flashlight.png" id="3_ge24q"]
@@ -1424,6 +1424,23 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 4.02), Vector2(0, 0), Vector2(0, 4.02)]
 }
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("..")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4l6kx"]
 resource_name = "walk_left"
@@ -1646,6 +1663,23 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 4.775), Vector2(0, 0), Vector2(0, 4.775)]
 }
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("..")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vu6h4"]
 resource_name = "walk_right"
@@ -1867,6 +1901,23 @@ tracks/17/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 4.775), Vector2(0, 0), Vector2(0, 4.775)]
+}
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("..")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_gmbnv"]
@@ -2126,6 +2177,23 @@ tracks/20/keys = {
 "update": 0,
 "values": [0.3403392]
 }
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("..")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4l6kx"]
 _data = {
@@ -2306,6 +2374,19 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ge24q"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ge24q"]
+offsets = PackedFloat32Array(0.074742265, 0.63659793, 1)
+colors = PackedColorArray(0.2330417, 0.23336402, 0.24014163, 1, 0.11445475, 0.11461613, 0.118012615, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pnw6m"]
+gradient = SubResource("Gradient_ge24q")
+fill = 1
+fill_from = Vector2(0.4957265, 0.491453)
+fill_to = Vector2(0.9017094, 0.16666667)
+
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q28gw"]
 points = PackedVector2Array(62.245, 292.55, -74.755, 292.55, -0.755, -58.45)
 
@@ -2332,7 +2413,9 @@ debug_color = Color(3.898591e-06, 0.7908046, 0.38159195, 0.41960785)
 unique_name_in_owner = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2DFlashlight"]
-energy = 0.5
+position = Vector2(0, -8.208)
+scale = Vector2(1.1842104, 1.1842107)
+energy = 1.2
 texture = ExtResource("3_ge24q")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -2417,6 +2500,14 @@ unique_name_in_owner = true
 position = Vector2(1, -49)
 sprite_frames = SubResource("SpriteFrames_28i5r")
 animation = &"down"
+
+[node name="AuraLight2D" type="PointLight2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_ge24q")
+position = Vector2(0.49999523, -65.000015)
+scale = Vector2(3.140625, 3.3124998)
+texture = SubResource("GradientTexture2D_pnw6m")
 
 [node name="EnemySensor" type="Area2D" parent="."]
 

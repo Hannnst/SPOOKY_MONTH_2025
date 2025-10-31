@@ -28,7 +28,8 @@ var sound_effects = {
 	"8bit_hit2" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
 	"menu_select" : preload("res://sounds/sound_effects/menu_select.mp3"),
 	"menu_confirm" : preload("res://sounds/sound_effects/menu_confirm.wav"),
-	"paper_rustle" : preload("res://sounds/sound_effects/paper_rustle.mp3")
+	"paper_rustle" : preload("res://sounds/sound_effects/paper_rustle.mp3"),
+	"step_sound" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav")
 }
 
 var music = {
