@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 # This is an informal interface for objects. Consider using classes in the future but avoiding complexity for now
 @onready var sprite = $Sprite2D
@@ -20,7 +20,3 @@ func _on_interact():
 	if (dialogue == ended_dialogue):
 		InventoryManager.collect_item("key")
 		queue_free() # remove self from scene when collected
-
-
-func activate():
-	DialogueManager.show_dialogue_balloon(dialogue, "key_activate")

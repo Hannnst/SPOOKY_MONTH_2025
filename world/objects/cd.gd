@@ -13,6 +13,7 @@ func _ready():
 	if Globals.get_remaining("cd_collected") <= 0:
 		queue_free()
 
+
 func _on_interact():
 	#Unik kode for hva som skjer når en spiller interacter
 	# for consideration: await sprite.play("test")
@@ -22,4 +23,3 @@ func _on_interact():
 		InventoryManager.upgrade_item("vinyl", "cd")
 		Globals.trigger_finite_event("cd_collected")
 		queue_free() # remove self from scene when collected
-

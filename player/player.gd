@@ -18,7 +18,7 @@ func _ready():
 	%AnimatedBody.play()
 	%AnimatedArm_front.play()
 	%AnimatedHead.play()
-	
+
 	# Cache outdoor status to avoid repeated string checks
 	is_outdoor = SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_")
 
