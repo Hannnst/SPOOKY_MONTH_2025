@@ -45,8 +45,8 @@ func upgrade_item(from : String, to : String):
 				return
 			else:
 				print("Warning: Tried to upgrade item to non existant entry")
-		print("Warning: Tried to upgrade item that doesn't exist")
-
+				return
+	print("Warning: Tried to upgrade item that doesn't exist")
 func get_held_item():
 	if current_slot_index > inventory.size() or current_slot_index < 0:
 		print("Tried to get item at unknown index")
