@@ -63,7 +63,7 @@ It's soul passed away years ago. It should probably be laid to rest.
 => END
 
 ~ vinyl_collect
-It's very fragile. Be careful not to break it.
+You had left your dads favorite record in his bookshelf, for some reason. Now you can finally hide the evidence of your mischief.
 => END
 
 ~ vinyl_use
@@ -84,4 +84,28 @@ That's so much better.
 
 ~ cd_use
 The pretty material shines in all the colors you can think of. Modern technology is truly something.
+=> END
+
+
+~ parents_bookscase_interact
+No one has to know.
+=> END
+
+~ bedroom_window_interact
+You feel cool air enter the room from outside. It's nice.
+Close the window?
+- Yes
+	do Globals.window_closed = true
+	Your mother would be proud.
+- No
+	do Globals.window_closed = false
+	Don't forget.
+=> END
+
+~ matches_collect
+You found some matches in the windowsill. Better clean those up.
+=> END
+
+~ matches_use
+As if you would ever play with fire.
 => END

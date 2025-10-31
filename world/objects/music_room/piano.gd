@@ -23,18 +23,20 @@ func _on_interact():
 	elif Globals.piano_closed == false:
 		DialogueManager.show_dialogue_balloon(dialogue, "piano")
 		await DialogueManager.dialogue_ended
-		
-		#Player can update this value in dialogue, hence the second check:
+		await get_tree().process_frame
+		print("Current piano state (closed is): ", Globals.piano_closed)
+			#Player can update this value in dialogue, hence the second check:
 		if Globals.piano_closed == true:
 			%ForgetfulTrigger/CollisionShape2D.disabled = true
 			%Gate.disabled = true
 			%PianoClosed.show()
 			print("Spooky loud noise??")
-			if Globals.get_remaining("spooky_event_cleared") > 0:
+			print("remaining spooky event cleared: ", Globals.get_remaining("spooky_piano_cleared"))
+			if Globals.get_remaining("spooky_piano_cleared") > 0:
 				%ScaryEvent/CollisionShape2D.disabled = false
 				%ClearEvent/CollisionShape2D.disabled = false
-		else:
-			%ForgetfulTrigger/CollisionShape2D.disabled = false
-			%Gate.disabled = false
+			else:
+				%ForgetfulTrigger/CollisionShape2D.disabled = false
+				%Gate.disabled = false
 	else:
 		DialogueManager.show_dialogue_balloon(dialogue, "piano_closed")

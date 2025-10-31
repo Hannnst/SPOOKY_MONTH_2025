@@ -15,9 +15,11 @@ var finite_events = {
 	"vinyl_collected" : 1,
 	"cd_collected" : 1,
 	"vinyl_played" : 1,
+	"matches_collected" : 1,
 }
 
 var piano_closed = false
+var window_closed = false
 
 #This function checks if the event exists in the finite_events dictionary:
 #If the event exists, reduce the event by 1 and return true.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=45 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
@@ -9,18 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://sbfdkgeb7vvq" path="res://assets/textures/veggtekstur_vib.webp" id="4_il2tj"]
 [ext_resource type="Texture2D" uid="uid://bddnhblii5n0q" path="res://assets/textures/gulvpanel.webp" id="5_w0loa"]
 [ext_resource type="Texture2D" uid="uid://bodivanoma163" path="res://assets/textures/trapp.webp" id="6_37hhm"]
+[ext_resource type="Texture2D" uid="uid://b31l2fv2xrfbg" path="res://assets/furniture/carpet transparent.png" id="9_8xagt"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="9_il2tj"]
 [ext_resource type="Texture2D" uid="uid://yxo5kmxakpj5" path="res://assets/furniture/vinyl_player.png" id="9_vifcg"]
+[ext_resource type="Texture2D" uid="uid://4majs3na3qyw" path="res://assets/furniture/framedArt/eyes_light.webp" id="10_nrsej"]
 [ext_resource type="Texture2D" uid="uid://b8t5dop7lx3kn" path="res://assets/furniture/statue.webp" id="10_nvnim"]
 [ext_resource type="PackedScene" uid="uid://c7wxhv1nmf8it" path="res://world/objects/cd.tscn" id="10_ta6ww"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="10_w0loa"]
 [ext_resource type="PackedScene" uid="uid://cbb1bxhnsg5q1" path="res://world/objects/notebook.tscn" id="11_37hhm"]
 [ext_resource type="Texture2D" uid="uid://6siq8oja83nq" path="res://assets/furniture/spisebord.webp" id="11_nvnim"]
+[ext_resource type="Texture2D" uid="uid://bpww6kdhpum6x" path="res://assets/furniture/framedArt/looking.webp" id="11_wp7bx"]
+[ext_resource type="Texture2D" uid="uid://deom5bnniiyta" path="res://assets/furniture/framedArt/Shibuya.webp" id="12_nj77g"]
 [ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="12_ntexs"]
+[ext_resource type="Texture2D" uid="uid://dgnpj4ctpgxl0" path="res://assets/furniture/framedArt/Bleeding Clouds (1).webp" id="13_lhqqr"]
+[ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="14_083ga"]
 [ext_resource type="Script" uid="uid://ineuktjwfkwb" path="res://world/objects/vinyl_player.gd" id="15_js8q6"]
 [ext_resource type="AudioStream" uid="uid://x208fnd83x2e" path="res://sounds/music/piano_garbified.mp3" id="16_h8ipj"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="18_ta6ww"]
-[ext_resource type="PackedScene" uid="uid://cc5y5wl2a3wwu" path="res://world/objects/vinyl.tscn" id="21_qnujj"]
+[ext_resource type="Texture2D" uid="uid://b3yc7jh27wv2i" path="res://assets/furniture/dead plant transparent.png" id="27_bxhrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xagt"]
 size = Vector2(111, 457)
@@ -42,6 +48,9 @@ size = Vector2(2923, 364.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqvpf"]
 size = Vector2(255.875, 1378)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3vn2"]
+radius = 82.46211
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqs82"]
 size = Vector2(736.9375, 306)
@@ -80,25 +89,10 @@ script = ExtResource("1_llw6l")
 [node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.021434635, 0.021434637, 0.021434627, 1)
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-offset_left = -4534.0
-offset_top = -1814.0
-offset_right = 6172.0
-offset_bottom = 4052.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Background"]
-offset_left = -3469.0
-offset_top = -3472.0
-offset_right = 6703.0
-offset_bottom = 3434.0
-color = Color(0, 0, 0, 1)
 
 [node name="GulvteksturMain" type="Sprite2D" parent="Background"]
 position = Vector2(1119.0001, 693)
@@ -170,6 +164,11 @@ position = Vector2(-1055.7075, -1163.8768)
 scale = Vector2(0.8794018, 0.8085943)
 texture = ExtResource("5_w0loa")
 
+[node name="CarpetTransparent" type="Sprite2D" parent="Background/GulvteksturMain"]
+position = Vector2(2072.8755, 626.2873)
+scale = Vector2(1.9491016, 1)
+texture = ExtResource("9_8xagt")
+
 [node name="VeggteksturVib" type="Sprite2D" parent="Background"]
 position = Vector2(1581.0001, -1237.5)
 scale = Vector2(3.1599998, 0.8220001)
@@ -206,8 +205,50 @@ position = Vector2(2260, 1497)
 scale = Vector2(0.038999695, 0.766)
 texture = ExtResource("4_il2tj")
 
+[node name="EyesLight" type="Sprite2D" parent="Background"]
+position = Vector2(-888.25, 584)
+scale = Vector2(1.2795275, 0.94392526)
+texture = ExtResource("10_nrsej")
+
+[node name="Looking" type="Sprite2D" parent="Background"]
+position = Vector2(-421, 589.5)
+scale = Vector2(0.5793651, 0.4905148)
+texture = ExtResource("11_wp7bx")
+
+[node name="Shibuya" type="Sprite2D" parent="Background"]
+position = Vector2(1688.5, -441)
+scale = Vector2(0.3465909, 0.29411766)
+texture = ExtResource("12_nj77g")
+
+[node name="BleedingClouds(1)" type="Sprite2D" parent="Background"]
+position = Vector2(1087, -443.5)
+scale = Vector2(0.5314289, 0.43714297)
+texture = ExtResource("13_lhqqr")
+
+[node name="PictureFrame" type="Sprite2D" parent="Background"]
+position = Vector2(-884.25, 585.6018)
+scale = Vector2(0.41511637, 0.41511634)
+texture = ExtResource("14_083ga")
+
+[node name="PictureFrame2" type="Sprite2D" parent="Background"]
+position = Vector2(-421.99997, 589.99994)
+scale = Vector2(0.38720933, 0.3872093)
+texture = ExtResource("14_083ga")
+
+[node name="PictureFrame3" type="Sprite2D" parent="Background"]
+position = Vector2(1085.0001, -442.99997)
+rotation = 1.5707964
+scale = Vector2(0.409302, 0.40930197)
+texture = ExtResource("14_083ga")
+
+[node name="PictureFrame4" type="Sprite2D" parent="Background"]
+position = Vector2(1688.0001, -443)
+rotation = 1.5707964
+scale = Vector2(0.409302, 0.40930197)
+texture = ExtResource("14_083ga")
+
 [node name="Player" parent="." instance=ExtResource("3_62s85")]
-position = Vector2(2389, 1194)
+position = Vector2(1124, 1525)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
@@ -281,6 +322,14 @@ shape = SubResource("RectangleShape2D_hqvpf")
 position = Vector2(-2762, 846)
 shape = SubResource("RectangleShape2D_hqvpf")
 
+[node name="CollisionShapeV7" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(-2565, 530)
+shape = SubResource("CircleShape2D_v3vn2")
+
+[node name="CollisionShapeV8" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(-122, 522)
+shape = SubResource("CircleShape2D_v3vn2")
+
 [node name="CollisionShapeV4" type="CollisionShape2D" parent="WorldBorders"]
 position = Vector2(4977, 882)
 shape = SubResource("RectangleShape2D_hqvpf")
@@ -311,7 +360,7 @@ shape = SubResource("RectangleShape2D_jrs6y")
 debug_color = Color(0.62003666, 0.44253916, 0, 0.41960785)
 
 [node name="Notebook" parent="." instance=ExtResource("11_37hhm")]
-position = Vector2(1175, 2008)
+position = Vector2(1119, 1423)
 
 [node name="Doors" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -402,7 +451,20 @@ shape = SubResource("CapsuleShape2D_8xagt")
 [node name="CD" parent="." instance=ExtResource("10_ta6ww")]
 position = Vector2(4690, 1532)
 
-[node name="Vinyl" parent="." instance=ExtResource("21_qnujj")]
-position = Vector2(2213, 1135)
+[node name="Big v" type="Node2D" parent="."]
+position = Vector2(-1112, 720.8136)
+scale = Vector2(0.5034487, 0.5034487)
+
+[node name="DeadPlantTransparent" type="Sprite2D" parent="."]
+modulate = Color(0.518933, 0.5301646, 0.65759945, 1)
+position = Vector2(-123.000015, 713)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("27_bxhrj")
+
+[node name="DeadPlantTransparent2" type="Sprite2D" parent="."]
+modulate = Color(0.518933, 0.5301646, 0.65759945, 1)
+position = Vector2(-2558, 719)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("27_bxhrj")
 
 [connection signal="body_entered" from="ExitToOutdoors" to="ExitToOutdoors" method="_on_body_entered"]
