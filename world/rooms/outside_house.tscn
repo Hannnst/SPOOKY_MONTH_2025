@@ -95,7 +95,7 @@ texture = ExtResource("2_n8cr0")
 position = Vector2(435, 1175.28)
 scale = Vector2(10, 1)
 script = ExtResource("3_lu8yp")
-target_scene_name = "ending_scene"
+target_scene_name = "ending"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/WinCheck"]
 position = Vector2(2.9, -59.28003)
