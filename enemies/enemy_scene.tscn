@@ -68,6 +68,7 @@ one_shot = true
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_g5lfw")
+pitch_scale = 2.0
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
