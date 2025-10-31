@@ -22,26 +22,25 @@ extends Node
 var voices := 15
 
 var sound_effects = {
-	"explosion" : preload("res://sounds/sound_effects/test-Explosion7.wav"),
-	"8bit_hit" : preload("res://sounds/sound_effects/Hit 1 - Sound effects Pack 2.wav"),
-	"8bit_hit2" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
-	"menu_select" : preload("res://sounds/sound_effects/menu_select.mp3"),
-	"menu_confirm" : preload("res://sounds/sound_effects/menu_confirm.wav"),
-	"paper_rustle" : preload("res://sounds/sound_effects/paper_rustle.mp3"),
-	"step_sound" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
 	"explosion": preload("res://sounds/sound_effects/test-Explosion7.wav"),
 	"8bit_hit": preload("res://sounds/sound_effects/Hit 1 - Sound effects Pack 2.wav"),
 	"8bit_hit2": preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
 	"menu_select": preload("res://sounds/sound_effects/menu_select.mp3"),
 	"menu_confirm": preload("res://sounds/sound_effects/menu_confirm.wav"),
 	"paper_rustle": preload("res://sounds/sound_effects/paper_rustle.mp3"),
+	"step_sound": preload("res://sounds/sound_effects/walking/walking_inside.mp3"),
+	"step_sound_outside": preload("res://sounds/sound_effects/walking/walking_outside.mp3"),
 	"heartbeat": preload("res://sounds/sound_effects/actions/heartbeat-thudding.mp3"),
 	"heartbeat_fast": preload("res://sounds/sound_effects/actions/heartbeat-tense.mp3"),
 	"heartbeat_single": preload("res://sounds/sound_effects/actions/heartbeat-single.mp3"),
+	"gate_latch": preload("res://sounds/sound_effects/actions/gate-latch.mp3"),
 }
 
 var music = {
 	"test_music": preload("res://sounds/music/test-beach_ambience.mp3"),
+	"ambience_house": preload("res://sounds/sound_effects/ambience/house-ambience.mp3"),
+	"ambience_forest": preload("res://sounds/sound_effects/ambience/night.mp3"),
+	"ambience_horror": preload("res://sounds/sound_effects/ambience/horror-ambience.mp3"),
 }
 
 var sfx_players = []

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbonxtj35mhdm"]
+[gd_scene load_steps=4 format=3 uid="uid://2osmderhw64m"]
 
 [ext_resource type="Script" uid="uid://cbeiqrxrsg7c2" path="res://world/rooms/kitchen.gd" id="1_mpg0p"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_wx5kk"]

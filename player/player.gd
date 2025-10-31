@@ -7,6 +7,7 @@ var speed = 200 # pixels per second
 var last_direction = "down"
 var dead = false
 
+
 func _ready():
 	animation_player.play("idle_down")
 	%AnimatedLeg_back.play()
@@ -48,7 +49,7 @@ func _physics_process(delta):
 	velocity = direction.normalized() * speed
 	move_and_slide()
 	rotate_flashlight(direction, delta)
-	
+
 	for body in $HurtBox.get_overlapping_bodies():
 		if body.is_in_group("enemies") and body.triggered:
 			if not dead:
@@ -76,7 +77,7 @@ func rotate_flashlight(direction, delta):
 
 	if direction == Vector2.ZERO:
 		return # do nothing if not moving
-		
+
 	if direction != Vector2.ZERO:
 		var target_rotation = direction.angle() - PI / 2
 		%Node2DFlashlight.rotation = lerp_angle(%Node2DFlashlight.rotation, target_rotation, rotation_speed * delta)
@@ -99,5 +100,9 @@ func die():
 	# Show Game Over or reload scene
 	SceneManager.player_death()
 
+
 func play_step_sound():
-	SoundManager.play_random_pitch("step_sound", 0.0, 0.04)
+	if SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_"):
+		SoundManager.play_random_pitch("step_sound_outside", -0.3, 0.1)
+	else:
+		SoundManager.play_random_pitch("step_sound", -0.3, 0.1)

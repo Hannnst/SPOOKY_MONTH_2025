@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ct8ccvkll2ce3"]
+[gd_scene load_steps=15 format=3 uid="uid://cg0jg1cg0rq08"]
 
 [ext_resource type="Script" uid="uid://d17kq2heuu6do" path="res://ui/main_menu.gd" id="1_wk0pr"]
 [ext_resource type="Texture2D" uid="uid://cw6f6cl0hgrwc" path="res://ui/flashlight_icon1.png" id="2_p8ri8"]
