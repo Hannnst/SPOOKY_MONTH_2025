@@ -1,13 +1,25 @@
+~ no_can_do
+% Can't use that here.
+% There's a time and place for everything.
+% That doesn't work.
+% Perhaps another item would fit here.
+=> END
+
 ~ skull_collect
 A long lost friend reappears in your embrace. It's been so long, what to even talk about? 
 => END
 
 ~ skull_use
-It's looking at you with loving eyes.
+% It's looking at you with loving eyes.
+% Fluffy: AAAAAAAAAAAAAAAAAAAAAA!!!
+% Fluffy: :3
+% I should get them to their forever home.
 => END
 
 ~ grave_interact
-It appears to be a hole big enough to fit a good friend.
+% It appears to be a hole big enough to fit a good friend.
+% Fluffy...
+% They died too soon. I should help them get to their forever home.
 => END
 
 ~ grave_activate
@@ -28,14 +40,45 @@ I knew i forgot something. [wait=1.5] So many things left unfinished...
 % Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
 => END
 
-~ key_activate
-% If i follow the path i might find its home.
-% At the end of the path, there might be someplace safe for this key.
-% Maybe this little fellow belongs to a gate?
-=> END
 
 ~ key_use
-I knew i forgot something. [wait=1.5] So many things left unfinished...
+if Globals.is_home:
+	% Slippery key: It's so nice to be home again.
+	% Slippery key: Do you ever get lonely?
+	% Slippery key: Do you remember what happened here?
+	% Slippery key: Despite everything that happened, it feels nice to be home again.
+	% Slippery key: Borte bra, hjemme best!
+	% Slippery key: I wonder how they are. Maybe you get to see them, soon.
+	% Slippery key: Whatever you do, do NOT look at those rats. Just a friendly tip, you're welcome.
+	% Slippery key: Whatever you do, do NOT look at those scary heads. Just a friendly tip, you're welcome.
+	% Slippery key: Whatever you do, do NOT look at those records. [wait=1.5] No wait, do look at those. But hide them after, else mom is going to go insane, got it?
+	% Slippery key: Your sister's dumb game-egg never stops crying at night.
+	% Slippery key: You should've turned the oven off, that one time.
+	% Slippery key: You should've closed the piano, that one time.
+	% Slippery key: You should've closed the window, that one time.
+	% Slippery key: You should've cleaned the drain, that one time.
+	% Slippery key: You should've remembered your note-book, that one time.
+	% Slippery key: How's fluffy doing, by the way?
+	% Slippery key: Do NOT go into the kitchen.
+	% Slippery key: Don't even think about it.
+	% Slippery key: Don't forget.
+	% Slippery key: They'll never forgive you. [wait=1.5] But i do!
+	% Slippery key: The smell is still stuck in these walls. Ew.
+=> END
+else:
+	% If i follow the path i might find its home.
+	% At the end of the path, there might be someplace safe for this key.
+	% Maybe this little fellow belongs to a gate?
+=> END
+
+~ key_use_after_gate
+
+=> END
+
+~ key_activate
+% Slippery key: YES!!!! YEEEEEEEEEEEEES!!!
+% Slippery key: Thank you!
+% Slippery key: Finally! Thank you!
 => END
 
 ~ gum_collect
