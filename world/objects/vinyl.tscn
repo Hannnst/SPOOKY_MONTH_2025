@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="3_d3ax1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kky7"]
-size = Vector2(54.5, 55.5)
+size = Vector2(54.5, 126.75)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q5g7m"]
 blend_mode = 1
@@ -31,7 +31,7 @@ texture = ExtResource("2_iv6wj")
 [node name="InteractionArea" parent="." instance=ExtResource("3_d3ax1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-1, -9)
+position = Vector2(-1, 26.625)
 shape = SubResource("RectangleShape2D_8kky7")
 debug_color = Color(0.7182344, 0.3965155, 0, 0.41960785)
 

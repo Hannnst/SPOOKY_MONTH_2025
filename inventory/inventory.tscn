@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvnvwpr81xkbb"]
+[gd_scene load_steps=8 format=3 uid="uid://bvnvwpr81xkbb"]
 
 [ext_resource type="Script" uid="uid://cpq0q47whysj6" path="res://inventory/inventory.gd" id="1_62wf1"]
 [ext_resource type="Texture2D" uid="uid://cp110hg043wkp" path="res://assets/buttons/e2.png" id="2_f8i2h"]
 [ext_resource type="PackedScene" uid="uid://br8mquhhciege" path="res://inventory/inventory_slot.tscn" id="2_qse2j"]
 [ext_resource type="Texture2D" uid="uid://vlcitcl24cpb" path="res://assets/items/lapp.webp" id="4_lhcfm"]
+[ext_resource type="FontFile" uid="uid://bgriorxst4m6r" path="res://fonts&styles/SpecialElite-Regular.ttf" id="5_wbsyq"]
+[ext_resource type="FontFile" uid="uid://ussgttqk1jda" path="res://fonts&styles/SilentNight-BLjEl.ttf" id="6_rsmrt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhcfm"]
 bg_color = Color(0, 0, 0, 0.6666667)
@@ -76,9 +78,64 @@ layout_mode = 2
 [node name="InventorySlot6" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_qse2j")]
 layout_mode = 2
 
-[node name="Note" type="Sprite2D" parent="."]
+[node name="Note" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(623.00006, 368.00003)
-scale = Vector2(0.5418006, 0.5418006)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 608.0
+offset_top = 368.00003
+offset_right = 648.0
+offset_bottom = 408.00003
+
+[node name="PaperTexture" type="Sprite2D" parent="Note"]
+scale = Vector2(0.6345123, 0.5418006)
 texture = ExtResource("4_lhcfm")
+
+[node name="InstructionLabel" type="RichTextLabel" parent="Note"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
+offset_left = -191.0
+offset_top = -190.00003
+offset_right = 671.0
+offset_bottom = 406.99997
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_wbsyq")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "First find the key, 
+or you won't be going anywhere.
+
+Close the piano lid, 
+or your mom will be angry.
+
+Remove the record from the bookshelf, 
+or your dad will be upset.
+
+Reunite with your old friend, 
+or he will be all alone.
+
+Always close the windows to your room, 
+or your whole family will die.
+
+
+[color=#78071a]        And, if you see someone, 
+     don't look."
+
+[node name="Run" type="Label" parent="Note"]
+visible = false
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
+offset_left = -61.999996
+offset_top = -240.00006
+offset_right = 800.0
+offset_bottom = 356.99994
+rotation = 0.17453292
+theme_override_colors/font_color = Color(0.64705884, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_rsmrt")
+theme_override_font_sizes/font_size = 100
+text = "Now, 
+RUN"

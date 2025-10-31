@@ -1,7 +1,5 @@
-extends Node2D
-
+extends StaticBody2D
 # This is an informal interface for objects. Consider using classes in the future but avoiding complexity for now
-@onready var sprite = $Sprite2D
 
 #Dette må legges til på alle interactable objekter:
 @onready var interaction_area = $InteractionArea
@@ -11,15 +9,11 @@ extends Node2D
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	if Globals.get_remaining("vinyl_collected") <= 0:
-		queue_free()
-
+			%BookShelfArea.disabled = false
+	else:
+		%BookShelfArea.disabled = true
 func _on_interact():
 	#Unik kode for hva som skjer når en spiller interacter
-	# for consideration: await sprite.play("test")
-	DialogueManager.show_dialogue_balloon(dialogue, "vinyl_collect")
-	await DialogueManager.dialogue_ended
-	InventoryManager.collect_item("vinyl")
-	Globals.trigger_finite_event("vinyl_collected")
-	if %BookShelfArea:
-		%BookShelfArea.disabled = false
-	queue_free() # remove self from scene when collected
+	print("Interacting with:", self)
+	
+	DialogueManager.show_dialogue_balloon(dialogue, "parents_bookscase_interact")
