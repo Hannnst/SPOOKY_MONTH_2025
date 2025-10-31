@@ -10,11 +10,14 @@ var inventory = [
 	{ "name": "toy", "is_owned": false, "texture": preload("res://assets/items/tamagotchi.webp")},
 	{ "name": "godot_guy", "is_owned": true, "texture": preload("res://icon.svg") },
 	{ "name": "skull", "is_owned": false, "texture": preload("res://assets/items/skull_front.webp"), "target_name": "Grave" },
-	{ "name": "placeholder2", "is_owned": false, "texture": preload("res://icon.svg") },
+	{ "name": "vinyl", "is_owned": false, "texture": preload("res://assets/furniture/vinyl.webp"), "target_name": "VinylPlayer" },
 	{ "name": "placeholder3", "is_owned": true, "texture": preload("res://icon.svg") },
 ]
 var current_slot_index: int = 0 #Keeps track of which item the player last selected, across scene change.
 
+var upgraded_items = {
+	"cd" : { "name": "cd", "is_owned": true, "texture": preload("res://assets/items/cd.png")}
+}
 
 func collect_item(item_name: String):
 	for i in range(len(inventory)):
@@ -33,6 +36,16 @@ func remove_item(item_name: String):
 			return
 	print("Warning: Couldn't remove item: ", item_name)
 
+func upgrade_item(from : String, to : String):
+	for i in range(len(inventory)):
+		if inventory[i]["name"] == from:
+			if to in upgraded_items:
+				inventory[i] = upgraded_items[to]
+				inventory_updated.emit()
+				return
+			else:
+				print("Warning: Tried to upgrade item to non existant entry")
+		print("Warning: Tried to upgrade item that doesn't ecist")
 
 func get_held_item():
 	if current_slot_index > inventory.size() or current_slot_index < 0:
