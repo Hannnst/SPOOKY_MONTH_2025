@@ -19,7 +19,11 @@ After all, there's no place like home.
 => END
 
 ~ notebook_collect
-So that's where that was. [wait=1.5]There's so many things left unfinished...
+I knew i forgot something. [wait=1.5] So many things left unfinished...
+=> END
 
-
-
+~ gate_reject
+% Haven't you forgotten something?
+% There's still things left for you to do.
+% Not yet.
+=> END

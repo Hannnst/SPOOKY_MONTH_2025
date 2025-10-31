@@ -33,6 +33,7 @@ var sound_effects = {
 	"heartbeat": preload("res://sounds/sound_effects/actions/heartbeat-thudding.mp3"),
 	"heartbeat_fast": preload("res://sounds/sound_effects/actions/heartbeat-tense.mp3"),
 	"heartbeat_single": preload("res://sounds/sound_effects/actions/heartbeat-single.mp3"),
+	"gate_latch": preload("res://sounds/sound_effects/actions/gate-latch.mp3"),
 }
 
 var music = {
