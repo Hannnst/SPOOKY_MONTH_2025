@@ -1,30 +1,167 @@
-[gd_scene load_steps=4 format=3 uid="uid://2osmderhw64m"]
+[gd_scene load_steps=21 format=3 uid="uid://bbonxtj35mhdm"]
 
 [ext_resource type="Script" uid="uid://cbeiqrxrsg7c2" path="res://world/rooms/kitchen.gd" id="1_mpg0p"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_wx5kk"]
+[ext_resource type="Texture2D" uid="uid://chf1a326ofo11" path="res://assets/textures/gulvkjøkken.jpg" id="2_dsito"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_mpg0p"]
+[ext_resource type="Texture2D" uid="uid://hhnl0yl5a12i" path="res://assets/textures/kitchen tiles.PNG" id="3_lvgir"]
+[ext_resource type="Texture2D" uid="uid://b31l2fv2xrfbg" path="res://assets/furniture/carpet transparent.png" id="4_klvbd"]
+[ext_resource type="Texture2D" uid="uid://cm8orrwxuafom" path="res://assets/furniture/kitchen benchtops transparent stinky.png" id="7_x3e0j"]
+[ext_resource type="Texture2D" uid="uid://qpleu3ge0pnk" path="res://assets/furniture/kitchen benchtops transparent.png" id="8_x3e0j"]
+[ext_resource type="Texture2D" uid="uid://b14whtcd3vtji" path="res://assets/furniture/fridge.png" id="9_ctyt8"]
+[ext_resource type="Texture2D" uid="uid://cowvpwo43x2nc" path="res://assets/furniture/chair2.png" id="10_qh50f"]
+[ext_resource type="Texture2D" uid="uid://vgf0m286kyrk" path="res://assets/furniture/table.png" id="11_guvxs"]
+[ext_resource type="Texture2D" uid="uid://dgogkjlctidxn" path="res://assets/furniture/vase transparent.png" id="12_qh50f"]
+[ext_resource type="Texture2D" uid="uid://eiuiwtl8ac6u" path="res://assets/furniture/chair.png" id="12_uyo3t"]
+[ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="14_guvxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j74hg"]
+size = Vector2(1714, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv60f"]
+size = Vector2(476.25, 133.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0b6c"]
+size = Vector2(249.25, 190.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo2n2"]
+size = Vector2(131, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr38s"]
+size = Vector2(81.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twpff"]
+size = Vector2(348.5, 201)
 
 [node name="Kitchen" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mpg0p")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(652, 122)
-scale = Vector2(2, 2)
+position = Vector2(636.4999, 512.75)
+scale = Vector2(0.5584894, 0.41260028)
+texture = ExtResource("2_dsito")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(151, 173.50002)
+scale = Vector2(1.6634616, 1.3214285)
+texture = ExtResource("3_lvgir")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+position = Vector2(844.0002, 173.5)
+scale = Vector2(1.6634616, 1.3214285)
+texture = ExtResource("3_lvgir")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+position = Vector2(1125, 173.00002)
+scale = Vector2(1.6634616, 1.3214285)
+texture = ExtResource("3_lvgir")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+position = Vector2(957, 784)
+texture = ExtResource("4_klvbd")
 
 [node name="Player" parent="." instance=ExtResource("1_wx5kk")]
-position = Vector2(286, 658)
+position = Vector2(963, 1078)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("2_mpg0p")]
+visible = false
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(641, 94.5)
+shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(638, 988)
+shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="Kitchen benchtop" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Kitchen benchtop"]
+position = Vector2(1138.0001, 438.875)
+scale = Vector2(0.30550286, 0.3702661)
+texture = ExtResource("7_x3e0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kitchen benchtop"]
+position = Vector2(1068.125, 419.0625)
+shape = SubResource("RectangleShape2D_hv60f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Kitchen benchtop"]
+position = Vector2(1324.375, 467)
+shape = SubResource("RectangleShape2D_q0b6c")
+
+[node name="Kitchen benchtop2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Kitchen benchtop2"]
+position = Vector2(138.00003, 427)
+scale = Vector2(0.30550286, 0.3702661)
+texture = ExtResource("8_x3e0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kitchen benchtop2"]
+position = Vector2(76, 424)
+shape = SubResource("RectangleShape2D_hv60f")
+
+[node name="Fridge" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fridge"]
+position = Vector2(552, 388.00003)
+scale = Vector2(0.309, 0.29375)
+texture = ExtResource("9_ctyt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge"]
+position = Vector2(549.5, 397)
+shape = SubResource("RectangleShape2D_bo2n2")
+
+[node name="Chair2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair2"]
+position = Vector2(356, 722)
+scale = Vector2(0.2197509, 0.24)
+texture = ExtResource("10_qh50f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2"]
+position = Vector2(378, 747)
+shape = SubResource("RectangleShape2D_yr38s")
+
+[node name="Table" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Table"]
+position = Vector2(173, 722.00006)
+scale = Vector2(0.41548043, 0.42125005)
+texture = ExtResource("11_guvxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2(170.75, 741)
+shape = SubResource("RectangleShape2D_twpff")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Table"]
+position = Vector2(165.00002, 653)
+scale = Vector2(0.19500002, 0.16599996)
+texture = ExtResource("12_qh50f")
+
+[node name="Chair" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair"]
+position = Vector2(-99, 717.00006)
+scale = Vector2(0.2197509, 0.24)
+texture = ExtResource("12_uyo3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
+position = Vector2(-122.75, 741)
+shape = SubResource("RectangleShape2D_yr38s")
+
+[node name="Skull" parent="." instance=ExtResource("14_guvxs")]
+position = Vector2(-110, 752)

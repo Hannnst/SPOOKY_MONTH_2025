@@ -8,7 +8,7 @@
 size = Vector2(288.14883, 241.10422)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g41e0"]
-size = Vector2(165, 146.25)
+size = Vector2(137, 120)
 
 [node name="Grave" type="StaticBody2D"]
 script = ExtResource("1_epipt")
@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_jysx3")
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -16)
+position = Vector2(-0.5, -14)
 shape = SubResource("RectangleShape2D_g41e0")
 
 [editable path="InteractionArea"]

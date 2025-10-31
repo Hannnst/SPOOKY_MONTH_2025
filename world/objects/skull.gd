@@ -24,3 +24,7 @@ func _on_interact():
 
 func activate():
 	DialogueManager.show_dialogue_balloon(dialogue, "skull_activate")
+
+
+func use():
+	DialogueManager.show_dialogue_balloon(dialogue, "skull_use")

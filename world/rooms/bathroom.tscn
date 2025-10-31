@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://taxf1qsdjv5w"]
+[gd_scene load_steps=15 format=3 uid="uid://taxf1qsdjv5w"]
 
 [ext_resource type="Script" uid="uid://bfxn4ya5l4t4u" path="res://world/rooms/bathroom.gd" id="1_1yaby"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_61urm"]
-[ext_resource type="Texture2D" uid="uid://bwtgt0qcyfuo8" path="res://world/rooms/placeholder_room_art/house-bathroom.webp" id="1_u13v5"]
+[ext_resource type="Texture2D" uid="uid://dycew08xvoc7b" path="res://assets/textures/bathroom tiles.PNG" id="2_f3nbr"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_u13v5"]
+[ext_resource type="Texture2D" uid="uid://c4426xp8rmrrt" path="res://assets/textures/1bf3463c3ecd0911b891aecb7c11a91a.jpg" id="3_o1nac"]
+[ext_resource type="Texture2D" uid="uid://386mm86wfcv1" path="res://assets/furniture/bathtub transparent.png" id="6_qjmxs"]
+[ext_resource type="Texture2D" uid="uid://cqyotpdrhh0un" path="res://assets/furniture/sink and mirror transparent.png" id="7_70x8a"]
+[ext_resource type="Texture2D" uid="uid://m6awc4nbnse8" path="res://assets/furniture/toilet.png" id="8_je207"]
+[ext_resource type="Texture2D" uid="uid://68l6vpe7brlw" path="res://assets/furniture/washing machine transparent.png" id="9_dj8qo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3nbr"]
+size = Vector2(1421.5, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogh2p"]
+size = Vector2(160, 272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjbmp"]
+size = Vector2(438.5, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf32a"]
+size = Vector2(81, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jr5l"]
+size = Vector2(123, 141)
 
 [node name="Bathroom" type="Node2D"]
 y_sort_enabled = true
@@ -15,12 +35,28 @@ color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
 
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+position = Vector2(690.25, 248.75)
+scale = Vector2(3.240047, 2.1419213)
+texture = ExtResource("2_f3nbr")
+
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(574, 348)
-texture = ExtResource("1_u13v5")
+position = Vector2(253.5, 516)
+scale = Vector2(0.7859375, 0.64375)
+texture = ExtResource("3_o1nac")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+position = Vector2(1132.9999, 516)
+scale = Vector2(0.7859375, 0.64375)
+texture = ExtResource("3_o1nac")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(756.49994, 516)
+scale = Vector2(0.7859375, 0.64375)
+texture = ExtResource("3_o1nac")
 
 [node name="Player" parent="." instance=ExtResource("1_61urm")]
-position = Vector2(286, 658)
+position = Vector2(830, 670)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -29,3 +65,55 @@ position_smoothing_enabled = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(678, 590)
+shape = SubResource("RectangleShape2D_f3nbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(689, -84)
+shape = SubResource("RectangleShape2D_f3nbr")
+
+[node name="Bathtub" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Bathtub"]
+position = Vector2(84.5, 494.25)
+scale = Vector2(0.32999995, 0.34562507)
+texture = ExtResource("6_qjmxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bathtub"]
+position = Vector2(84, 488)
+shape = SubResource("RectangleShape2D_ogh2p")
+
+[node name="Sinkbench" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sinkbench"]
+position = Vector2(393, 276)
+scale = Vector2(0.45968124, 0.53449994)
+texture = ExtResource("7_70x8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sinkbench"]
+position = Vector2(386, 277)
+shape = SubResource("RectangleShape2D_jjbmp")
+
+[node name="Toilet" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Toilet"]
+position = Vector2(971.00006, 326.99997)
+scale = Vector2(0.39200014, 0.35450003)
+texture = ExtResource("8_je207")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
+position = Vector2(977, 336)
+shape = SubResource("RectangleShape2D_hf32a")
+
+[node name="Washing machine" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Washing machine"]
+position = Vector2(1141, 340.75)
+scale = Vector2(0.34, 0.27899998)
+texture = ExtResource("9_dj8qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Washing machine"]
+position = Vector2(1142.5, 344.5)
+shape = SubResource("RectangleShape2D_0jr5l")

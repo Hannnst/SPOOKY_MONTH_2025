@@ -17,13 +17,19 @@ func _ready():
 
 
 func _on_interact():
+	DialogueManager.show_dialogue_balloon(dialogue, "gate_reject")
+
+
+# Player has key and activates gate with key
+func activate():
 	if not gate_opened and exitable:
 		SoundManager.play_random_pitch("gate_latch", -2, 1.5)
 		sprite.play("open")
 		gate_opened = true
 		blocker.disabled = true
-	else:
-		DialogueManager.show_dialogue_balloon(dialogue, "gate_reject")
+		Globals.is_home = true
+		print("is home set to true")
+		DialogueManager.show_dialogue_balloon(dialogue, "key_activate")
 
 
 func _on_close_trigger_body_entered(body: Node2D) -> void:
