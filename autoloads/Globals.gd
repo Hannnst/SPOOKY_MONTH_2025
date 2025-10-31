@@ -10,7 +10,11 @@ var can_pause = true
 #First two entries are just examples.
 var finite_events = {
 	"piano_girl" : 1, 
-	"close_piano" : 1,
+	"spooky_piano_cleared": 1,
+	"toy_collected": 1,
+	"vinyl_collected" : 1,
+	"cd_collected" : 1,
+	"vinyl_played" : 1,
 }
 
 var piano_closed = false
