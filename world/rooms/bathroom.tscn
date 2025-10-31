@@ -11,16 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://68l6vpe7brlw" path="res://assets/furniture/washing machine transparent.png" id="9_dj8qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogh2p"]
-size = Vector2(199, 308.5)
+size = Vector2(160, 272)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjbmp"]
-size = Vector2(535.5, 326)
+size = Vector2(438.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf32a"]
-size = Vector2(97, 172)
+size = Vector2(81, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jr5l"]
-size = Vector2(156, 170)
+size = Vector2(123, 141)
 
 [node name="Bathroom" type="Node2D"]
 y_sort_enabled = true
@@ -66,43 +66,43 @@ position = Vector2(6, 226)
 [node name="Bathtub" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Bathtub"]
-position = Vector2(107.00001, 472.00003)
-scale = Vector2(0.42, 0.40125)
+position = Vector2(84.5, 494.25)
+scale = Vector2(0.32999995, 0.34562507)
 texture = ExtResource("6_qjmxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bathtub"]
-position = Vector2(103.5, 469.75)
+position = Vector2(84, 488)
 shape = SubResource("RectangleShape2D_ogh2p")
 
 [node name="Sinkbench" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sinkbench"]
-position = Vector2(482.00003, 241)
-scale = Vector2(0.5311608, 0.657)
+position = Vector2(444.43753, 271.625)
+scale = Vector2(0.45968124, 0.53449994)
 texture = ExtResource("7_70x8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sinkbench"]
-position = Vector2(493.25, 240)
+position = Vector2(444.75, 272.5)
 shape = SubResource("RectangleShape2D_jjbmp")
 
 [node name="Toilet" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Toilet"]
-position = Vector2(873.9999, 312)
-scale = Vector2(0.44800004, 0.425)
+position = Vector2(859.9999, 329.625)
+scale = Vector2(0.39200014, 0.35450003)
 texture = ExtResource("8_je207")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
-position = Vector2(881.5, 321)
+position = Vector2(873.5, 336)
 shape = SubResource("RectangleShape2D_hf32a")
 
 [node name="Washing machine" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Washing machine"]
-position = Vector2(1162, 317.25)
-scale = Vector2(0.4240001, 0.373)
+position = Vector2(1141, 340.75)
+scale = Vector2(0.34, 0.27899998)
 texture = ExtResource("9_dj8qo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Washing machine"]
-position = Vector2(1159, 330)
+position = Vector2(1142.5, 344.5)
 shape = SubResource("RectangleShape2D_0jr5l")
