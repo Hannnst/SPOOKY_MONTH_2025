@@ -74,3 +74,11 @@ func is_item_owned(item_name):
 		if item["name"] == item_name:
 			return item["is_owned"]
 	return false
+
+func get_owned_items_count():
+	var counter = 0
+	for i in range(len(inventory)):
+		if inventory[i]["is_owned"]:
+			counter += 1
+	return counter
+	
