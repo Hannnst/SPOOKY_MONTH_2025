@@ -25,7 +25,7 @@ size = Vector2(312, 292.28003)
 size = Vector2(28.5, 1.4099998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl5rv"]
-size = Vector2(6.8799996, 1.6500002)
+size = Vector2(6.8799996, 3.835)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_if25p"]
 animations = [{
@@ -80,7 +80,6 @@ y_sort_enabled = true
 script = ExtResource("1_n8cr0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -105,9 +104,10 @@ debug_color = Color(0.5616485, 0.39752123, 0.98240143, 0.41960785)
 [node name="BaseExit" parent="Background" instance=ExtResource("3_if25p")]
 position = Vector2(440, 1201)
 scale = Vector2(10, 1)
+target_scene_name = "forest_pathB"
 
 [node name="Player" parent="." instance=ExtResource("3_a2gve")]
-position = Vector2(474, 28)
+position = Vector2(487, 903)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -140,7 +140,7 @@ scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_xr8pc")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(694, -683)
+position = Vector2(694, -573.75)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_vl5rv")
 

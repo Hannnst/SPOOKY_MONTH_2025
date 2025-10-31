@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2osmderhw64m"]
+[gd_scene load_steps=26 format=3 uid="uid://2osmderhw64m"]
 
 [ext_resource type="Script" uid="uid://cbeiqrxrsg7c2" path="res://world/rooms/kitchen.gd" id="1_mpg0p"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_wx5kk"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://eiuiwtl8ac6u" path="res://assets/furniture/chair.png" id="12_uyo3t"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="14_guvxs"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="15_uyo3t"]
+[ext_resource type="PackedScene" uid="uid://doiq2umif2su4" path="res://world/doors/exit_to_hall.tscn" id="17_bo2n2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bo2n2"]
 animations = [{
@@ -30,6 +31,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j74hg"]
 size = Vector2(1714, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy4jx"]
+size = Vector2(1714, 1149.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv60f"]
 size = Vector2(476.25, 133.875)
@@ -51,7 +55,6 @@ y_sort_enabled = true
 script = ExtResource("1_mpg0p")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -89,7 +92,7 @@ chase_speed = 80.0
 animation_frames = SubResource("SpriteFrames_bo2n2")
 
 [node name="Player" parent="." instance=ExtResource("1_wx5kk")]
-position = Vector2(963, 1078)
+position = Vector2(742, 1067)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -105,8 +108,31 @@ position = Vector2(641, 94.5)
 shape = SubResource("RectangleShape2D_j74hg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(638, 988)
+position = Vector2(-258, 1001)
 shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(380, 1989)
+shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(2324, 1995)
+shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1686, 1007)
+shape = SubResource("RectangleShape2D_j74hg")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(2320, 537)
+shape = SubResource("RectangleShape2D_qy4jx")
+
+[node name="Exit_to_hall" parent="WorldBorders" instance=ExtResource("17_bo2n2")]
+position = Vector2(712, 869)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(-1060, 481)
+shape = SubResource("RectangleShape2D_qy4jx")
 
 [node name="Kitchen benchtop" type="StaticBody2D" parent="."]
 
