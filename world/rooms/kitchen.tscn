@@ -37,7 +37,6 @@ y_sort_enabled = true
 script = ExtResource("1_mpg0p")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -74,7 +73,6 @@ position = Vector2(963, 1078)
 position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("2_mpg0p")]
-visible = false
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
