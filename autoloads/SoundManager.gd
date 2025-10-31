@@ -28,7 +28,7 @@ var sound_effects = {
 	"menu_select" : preload("res://sounds/sound_effects/menu_select.mp3"),
 	"menu_confirm" : preload("res://sounds/sound_effects/menu_confirm.wav"),
 	"paper_rustle" : preload("res://sounds/sound_effects/paper_rustle.mp3"),
-	"step_sound" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav")
+	"step_sound" : preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
 	"explosion": preload("res://sounds/sound_effects/test-Explosion7.wav"),
 	"8bit_hit": preload("res://sounds/sound_effects/Hit 1 - Sound effects Pack 2.wav"),
 	"8bit_hit2": preload("res://sounds/sound_effects/Hit 2 - Sound effects Pack 2.wav"),
