@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://taxf1qsdjv5w"]
+[gd_scene load_steps=17 format=3 uid="uid://taxf1qsdjv5w"]
 
 [ext_resource type="Script" uid="uid://bfxn4ya5l4t4u" path="res://world/rooms/bathroom.gd" id="1_1yaby"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_61urm"]
@@ -9,9 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cqyotpdrhh0un" path="res://assets/furniture/sink and mirror transparent.png" id="7_70x8a"]
 [ext_resource type="Texture2D" uid="uid://m6awc4nbnse8" path="res://assets/furniture/toilet.png" id="8_je207"]
 [ext_resource type="Texture2D" uid="uid://68l6vpe7brlw" path="res://assets/furniture/washing machine transparent.png" id="9_dj8qo"]
+[ext_resource type="PackedScene" uid="uid://doiq2umif2su4" path="res://world/doors/exit_to_hall.tscn" id="10_o1nac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3nbr"]
 size = Vector2(1421.5, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjmxs"]
+size = Vector2(333, 802)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogh2p"]
 size = Vector2(160, 272)
@@ -45,6 +49,9 @@ position = Vector2(253.5, 516)
 scale = Vector2(0.7859375, 0.64375)
 texture = ExtResource("3_o1nac")
 
+[node name="Exit_to_hall" parent="Background" instance=ExtResource("10_o1nac")]
+position = Vector2(761, 718)
+
 [node name="Sprite2D3" type="Sprite2D" parent="Background"]
 position = Vector2(1132.9999, 516)
 scale = Vector2(0.7859375, 0.64375)
@@ -67,11 +74,23 @@ position_smoothing_enabled = true
 position = Vector2(6, 226)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(678, 590)
+position = Vector2(-71, 604)
+shape = SubResource("RectangleShape2D_f3nbr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(-185.5, 202)
+shape = SubResource("RectangleShape2D_qjmxs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1547, 152)
+shape = SubResource("RectangleShape2D_qjmxs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1579, 602)
 shape = SubResource("RectangleShape2D_f3nbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(689, -84)
+position = Vector2(670, -28)
 shape = SubResource("RectangleShape2D_f3nbr")
 
 [node name="Bathtub" type="StaticBody2D" parent="."]
