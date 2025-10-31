@@ -23,6 +23,8 @@ var base_sprite_position := Vector2(0, -29)
 func _ready():
 	if animation_frames:
 		animated_sprite.sprite_frames = animation_frames
+	else:
+		animation_frames = animated_sprite.sprite_frames
 	randomize()
 	_pick_new_direction()
 	# Reset timers
