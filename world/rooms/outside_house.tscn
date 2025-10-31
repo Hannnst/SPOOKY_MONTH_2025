@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=20 format=3 uid="uid://gfnekvg1s77h"]
 
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="6_vl5rv"]
 [ext_resource type="Script" uid="uid://m5m217d121vk" path="res://world/objects/outside/gate.gd" id="7_ry108"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="8_k3ycv"]
+[ext_resource type="Texture2D" uid="uid://d26r33awxfdbb" path="res://assets/furniture/rail.webp" id="9_ry108"]
+[ext_resource type="Texture2D" uid="uid://b8t5dop7lx3kn" path="res://assets/furniture/statue.webp" id="10_k3ycv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8pc"]
 size = Vector2(28.5, 1.4099998)
@@ -49,12 +51,14 @@ size = Vector2(1380.2578, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0scq"]
 size = Vector2(490, 52.052505)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ry108"]
+load_path = "res://.godot/imported/statue.webp-198eb4d6045545347748e9fc4d7cf777.ctex"
+
 [node name="Outside" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_n8cr0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -141,5 +145,33 @@ position = Vector2(-12, 0.10501099)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/CloseTrigger"]
 position = Vector2(30, -279)
 shape = SubResource("RectangleShape2D_t0scq")
+
+[node name="Rail" type="Sprite2D" parent="Gate"]
+position = Vector2(-600, -114.89499)
+scale = Vector2(1.3704103, 1)
+texture = ExtResource("9_ry108")
+
+[node name="Rail3" type="Sprite2D" parent="Gate/Rail"]
+position = Vector2(1541.1442, 12)
+scale = Vector2(1.537242, 0.9754099)
+texture = ExtResource("9_ry108")
+
+[node name="Rail2" type="Sprite2D" parent="Gate/Rail"]
+position = Vector2(942.0536, 12)
+scale = Vector2(1.2054868, 0.9754098)
+texture = ExtResource("9_ry108")
+
+[node name="Statue" type="Sprite2D" parent="."]
+modulate = Color(1.4683453, 1.4683453, 1.4683453, 1)
+position = Vector2(489, 204.00002)
+rotation = 0.017453292
+scale = Vector2(1.0341614, 1)
+texture = SubResource("CompressedTexture2D_ry108")
+flip_h = true
+
+[node name="Statue2" type="Sprite2D" parent="."]
+modulate = Color(1.3167266, 1.3167266, 1.3167266, 1)
+position = Vector2(-196, 198)
+texture = ExtResource("10_k3ycv")
 
 [connection signal="body_entered" from="Gate/CloseTrigger" to="Gate" method="_on_close_trigger_body_entered"]
