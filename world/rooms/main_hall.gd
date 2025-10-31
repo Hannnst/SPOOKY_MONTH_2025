@@ -9,13 +9,15 @@ extends Node2D
 @onready var door_bedroom = %DoorBedroom
 
 var player_spawn_offset = Vector2(0, 25)
-var default_player_position : Vector2
+var default_player_position: Vector2
+
 
 func _ready():
+	SoundManager.play_music("ambience_house")
 	default_player_position = player.position
 	_set_player_spawn()
-	
-	
+
+
 func _set_player_spawn():
 	var spawn_position = default_player_position
 	match SceneManager.prev_scene:

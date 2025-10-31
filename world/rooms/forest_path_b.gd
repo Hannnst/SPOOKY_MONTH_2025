@@ -5,10 +5,12 @@ extends Node2D
 var spawn_from_outside = Vector2(612.0, -1046.0)
 var spawn_from_A = Vector2(591.0, 704.0)
 
+
 func _ready():
+	SoundManager.play_music("ambience_forest")
 	_set_player_spawn()
-	
-	
+
+
 func _set_player_spawn():
 	match SceneManager.prev_scene:
 		"forest_pathA":
