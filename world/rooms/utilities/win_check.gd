@@ -3,7 +3,7 @@ extends Area2D
 @export var target_scene_name = "main_menu"
 var win_conditions_met = false
 
-func ready():
+func _ready():
 	_check_win_conditions()
 	
 func _on_body_entered(body: Node2D) -> void:
