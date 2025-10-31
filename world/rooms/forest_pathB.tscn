@@ -24,7 +24,6 @@ position = Vector2(12, 1193)
 script = ExtResource("1_88crq")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
