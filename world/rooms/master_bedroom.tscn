@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3ux42lnmram0"]
+[gd_scene load_steps=21 format=3 uid="uid://3ux42lnmram0"]
 
 [ext_resource type="Script" uid="uid://cqmhowow4pfkt" path="res://world/rooms/master_bedroom.gd" id="1_qga1o"]
 [ext_resource type="Texture2D" uid="uid://b65pvkyth4b13" path="res://world/rooms/placeholder_room_art/house-master-bedroom.webp" id="2_qduph"]
@@ -11,12 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://8qwh20he2jix" path="res://enemies/hanna_up.webp" id="9_y7ynl"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="10_y7ynl"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="11_hhwkq"]
+[ext_resource type="Script" uid="uid://blnyydq55ovww" path="res://world/rooms/parents_bookshelf.gd" id="12_5mrku"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="12_hhwkq"]
+[ext_resource type="PackedScene" uid="uid://cc5y5wl2a3wwu" path="res://world/objects/vinyl.tscn" id="14_mb506"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmj4k"]
 size = Vector2(2193.2722, 124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yedv6"]
-size = Vector2(2.6400003, 0.85249996)
+size = Vector2(2.83, 0.9162502)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qduph"]
 animations = [{
@@ -56,6 +59,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrku"]
+size = Vector2(170, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb506"]
+size = Vector2(174, 128)
+
 [node name="MasterBedroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qga1o")
@@ -72,7 +81,7 @@ scale = Vector2(0.9391448, 0.93914473)
 texture = ExtResource("2_qduph")
 
 [node name="Player" parent="." instance=ExtResource("2_qga1o")]
-position = Vector2(267, 722)
+position = Vector2(515, 1045)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -83,7 +92,7 @@ position_smoothing_enabled = true
 position = Vector2(6, 226)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(432, 238)
+position = Vector2(437, 314)
 shape = SubResource("RectangleShape2D_rmj4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
@@ -102,8 +111,8 @@ rotation = -1.5707963
 shape = SubResource("RectangleShape2D_rmj4k")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(-767, 897)
-rotation = -0.63180906
+position = Vector2(-796, 828)
+rotation = -0.5235988
 shape = SubResource("RectangleShape2D_rmj4k")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="WorldBorders"]
@@ -112,7 +121,7 @@ rotation = 0.45902178
 shape = SubResource("RectangleShape2D_rmj4k")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(431, 347.375)
+position = Vector2(436.49997, 411.1875)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_yedv6")
 
@@ -124,9 +133,28 @@ change_dir_time = 100.0
 animation_frames = SubResource("SpriteFrames_qduph")
 
 [node name="Enemy2" parent="." instance=ExtResource("5_qduph")]
-position = Vector2(64, 767)
+position = Vector2(-23, 777)
 animation_frames = SubResource("SpriteFrames_dnoac")
 
 [node name="BaseDoor" parent="." instance=ExtResource("10_y7ynl")]
 position = Vector2(525, 1156)
 script = ExtResource("11_hhwkq")
+
+[node name="Bookshelf" type="StaticBody2D" parent="."]
+position = Vector2(145.635, 573.85)
+script = ExtResource("12_5mrku")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bookshelf"]
+position = Vector2(1.3650055, 0.15002441)
+shape = SubResource("RectangleShape2D_5mrku")
+
+[node name="InteractionArea" parent="Bookshelf" instance=ExtResource("12_hhwkq")]
+
+[node name="BookShelfArea" type="CollisionShape2D" parent="Bookshelf/InteractionArea"]
+unique_name_in_owner = true
+position = Vector2(2.3650055, -11.849976)
+shape = SubResource("RectangleShape2D_mb506")
+debug_color = Color(0.6925734, 0.4970324, 7.70092e-07, 0.41960785)
+
+[node name="Vinyl" parent="." instance=ExtResource("14_mb506")]
+position = Vector2(197, 530)

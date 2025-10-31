@@ -10,6 +10,8 @@ extends Node2D
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
+	if Globals.get_remaining("notebook_collected") <= 0:
+		queue_free()
 
 
 func _on_interact():
@@ -19,6 +21,7 @@ func _on_interact():
 	var ended_dialogue = await DialogueManager.dialogue_ended
 	if (dialogue == ended_dialogue):
 		InventoryManager.collect_item("notebook")
+		Globals.trigger_finite_event("notebook_collected")
 		queue_free() # remove self from scene when collected
 
 #The notebook is special: No activate function.

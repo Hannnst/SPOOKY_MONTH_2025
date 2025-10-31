@@ -13,12 +13,15 @@ var finite_events = {
 	"piano_girl": 1,
 	"spooky_piano_cleared": 1,
 	"toy_collected": 1,
-	"vinyl_collected": 1,
-	"cd_collected": 1,
-	"vinyl_played": 1,
+	"vinyl_collected" : 1,
+	"cd_collected" : 1,
+	"vinyl_played" : 1,
+	"matches_collected" : 1,
+	"notebook_collected" : 1,
 }
 
 var piano_closed = false
+var window_closed = false
 
 
 #This function checks if the event exists in the finite_events dictionary:
