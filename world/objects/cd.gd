@@ -20,5 +20,6 @@ func _on_interact():
 	var ended_dialogue = await DialogueManager.dialogue_ended
 	if (dialogue == ended_dialogue):
 		InventoryManager.upgrade_item("vinyl", "cd")
+		Globals.trigger_finite_event("cd_collected")
 		queue_free() # remove self from scene when collected
 
