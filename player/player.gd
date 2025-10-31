@@ -58,8 +58,15 @@ func _physics_process(delta):
 func set_sprite_direction(dir_string: String):
 	if dir_string in ["up", "down", "left", "right"]:
 		last_direction = dir_string
-		if dir_string == "up":
-			%Node2DFlashlight.rotation = -180
+		match dir_string:
+			"right":
+				%Node2DFlashlight.rotation = -90
+			"left":
+				%Node2DFlashlight.rotation = 90
+			"up":
+				%Node2DFlashlight.rotation = -180
+			"down":
+				%Node2DFlashlight.rotation = 0
 	else:
 		print("Warning: tried to set unknown direction")
 
@@ -67,6 +74,9 @@ func set_sprite_direction(dir_string: String):
 func rotate_flashlight(direction, delta):
 	var rotation_speed := 5.0 # Higher = faster rotation
 
+	if direction == Vector2.ZERO:
+		return # do nothing if not moving
+		
 	if direction != Vector2.ZERO:
 		var target_rotation = direction.angle() - PI / 2
 		%Node2DFlashlight.rotation = lerp_angle(%Node2DFlashlight.rotation, target_rotation, rotation_speed * delta)
