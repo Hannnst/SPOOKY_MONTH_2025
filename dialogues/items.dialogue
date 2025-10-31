@@ -64,6 +64,7 @@ if Globals.is_home:
 	% Slippery key: Don't forget.
 	% Slippery key: They'll never forgive you. [wait=1.5] But i do!
 	% Slippery key: The smell is still stuck in these walls. Ew.
+=> END
 else:
 	% If i follow the path i might find its home.
 	% At the end of the path, there might be someplace safe for this key.
