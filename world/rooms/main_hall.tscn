@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=23 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="9_il2tj"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="10_w0loa"]
 [ext_resource type="PackedScene" uid="uid://cbb1bxhnsg5q1" path="res://world/objects/notebook.tscn" id="11_37hhm"]
+[ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="12_ntexs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prhw4"]
 size = Vector2(2901, 2278)
@@ -36,6 +37,9 @@ size = Vector2(19.5, 681)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnujj"]
 size = Vector2(177, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrs6y"]
+size = Vector2(312, 204)
 
 [node name="MainHall" type="Node2D"]
 y_sort_enabled = true
@@ -229,6 +233,15 @@ shape = SubResource("RectangleShape2D_ta6ww")
 position = Vector2(350.5, -167.5)
 shape = SubResource("RectangleShape2D_qnujj")
 
+[node name="ExitToOutdoors" type="Area2D" parent="."]
+position = Vector2(1142, 2662)
+script = ExtResource("12_ntexs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOutdoors"]
+position = Vector2(2, -55)
+shape = SubResource("RectangleShape2D_jrs6y")
+debug_color = Color(0.62003666, 0.44253916, 0, 0.41960785)
+
 [node name="Doors" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(6, 226)
@@ -265,3 +278,5 @@ target_scene_name = "bedroom"
 
 [node name="Notebook" parent="." instance=ExtResource("11_37hhm")]
 position = Vector2(1175, 2008)
+
+[connection signal="body_entered" from="ExitToOutdoors" to="ExitToOutdoors" method="_on_body_entered"]

@@ -17,8 +17,8 @@ var scenes = {
 }
 
 #Variables used for finding initial player position certain scenes
-var current_scene = ""
-var prev_scene = "main_menu"
+var current_scene = "main_menu"
+var prev_scene = "main_hall"
 
 func get_scene_path(scene_name):
 	if scene_name in scenes:
@@ -60,4 +60,5 @@ func reload_from_death(scene_name: String):
 		print("current scene: ", current_scene)
 
 func player_death():
+	SoundManager.stop_music()
 	TransitionScreen.player_death_animation()

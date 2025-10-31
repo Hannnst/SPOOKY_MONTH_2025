@@ -1,7 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://bk6sa4lucpd2g"]
+[gd_scene load_steps=43 format=3 uid="uid://bk6sa4lucpd2g"]
 
 [ext_resource type="Script" uid="uid://bjlk6nyyd44r8" path="res://world/rooms/music_room.gd" id="1_dioti"]
+[ext_resource type="PackedScene" uid="uid://55wmhdckb1an" path="res://world/objects/music_room/music_room_enemy.tscn" id="2_31idr"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="2_dioti"]
+[ext_resource type="PackedScene" uid="uid://bv3583plwd1jd" path="res://world/objects/toy.tscn" id="3_5ol0e"]
+[ext_resource type="PackedScene" uid="uid://doiq2umif2su4" path="res://world/doors/exit_to_hall.tscn" id="3_43k7k"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="3_74xam"]
 [ext_resource type="Texture2D" uid="uid://dpmojep22sjfx" path="res://assets/textures/exit_fade.webp" id="3_hitsm"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="3_kfo5h"]
@@ -39,6 +42,18 @@ width = 1000
 height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31idr"]
+size = Vector2(89.46246, 887.78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43k7k"]
+size = Vector2(128, 185.00002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ol0e"]
+size = Vector2(52.925, 204.89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as6yl"]
+size = Vector2(86, 185.00002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q48sb"]
 size = Vector2(400, 136)
@@ -86,10 +101,13 @@ size = Vector2(257.5003, 238.7501)
 [node name="MusicRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_dioti")
+enemy_scene = ExtResource("2_31idr")
+toy_scene = ExtResource("3_5ol0e")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
-color = Color(0.078431375, 0.07450981, 0.07450981, 1)
+position = Vector2(-1, 0)
+color = Color(0.3478062, 0.26956576, 0.2283377, 1)
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
@@ -100,6 +118,18 @@ offset_top = -678.0
 offset_right = 3018.0
 offset_bottom = 1727.0
 color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+offset_left = -785.0
+offset_top = -678.0
+offset_right = 3018.0
+offset_bottom = 1727.0
+color = Color(0, 0, 0, 1)
+
+[node name="Exit_to_hall" parent="Background" instance=ExtResource("3_43k7k")]
+position = Vector2(1383, 664.00006)
+rotation = -1.5707964
+scale = Vector2(0.6, 0.6)
 
 [node name="gulv" type="Sprite2D" parent="Background"]
 position = Vector2(685.65173, 512.00006)
@@ -112,14 +142,14 @@ scale = Vector2(2.6207657, 1.0558659)
 texture = ExtResource("4_jon1b")
 
 [node name="ExitFade" type="Sprite2D" parent="Background"]
-position = Vector2(1459.25, 663)
-scale = Vector2(0.2765408, 0.23999995)
+position = Vector2(1465, 663.5)
+scale = Vector2(0.2765408, 0.23499995)
 texture = ExtResource("3_hitsm")
 
-[node name="List" type="Sprite2D" parent="Background/ExitFade"]
-position = Vector2(-297.00537, 2.4122944)
+[node name="List" type="Sprite2D" parent="Background"]
+position = Vector2(1377.1158, 663.579)
 rotation = 1.5707964
-scale = Vector2(1.9378091, 2.0495567)
+scale = Vector2(0.4650741, 0.56678605)
 texture = ExtResource("5_xv37x")
 
 [node name="gulv2" type="Sprite2D" parent="Background"]
@@ -129,7 +159,7 @@ scale = Vector2(0.56128633, 0.5612864)
 texture = ExtResource("3_74xam")
 
 [node name="Player" parent="." instance=ExtResource("2_dioti")]
-position = Vector2(1307, 682)
+position = Vector2(1313, 671)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -311
@@ -153,6 +183,14 @@ shape = SubResource("RectangleShape2D_jon1b")
 position = Vector2(-35.5, 393)
 shape = SubResource("RectangleShape2D_hitsm")
 
+[node name="V_CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1392, -38)
+shape = SubResource("RectangleShape2D_hitsm")
+
+[node name="V_CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1386, 914)
+shape = SubResource("RectangleShape2D_hitsm")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
 
 [node name="Inventory" parent="." instance=ExtResource("3_kfo5h")]
@@ -164,6 +202,40 @@ scale = Vector2(0.964, 1.008)
 color = Color(0.9825861, 0.8927354, 0.66560364, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_tu6hh")
+
+[node name="ScaryEvent" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2.075, 129.22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaryEvent"]
+position = Vector2(982.92505, 466.78)
+shape = SubResource("RectangleShape2D_31idr")
+debug_color = Color(0.6258224, 0.27861342, 0.15046814, 0.41960785)
+
+[node name="ClearEvent" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2.075, 129.22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClearEvent"]
+position = Vector2(1346.925, 538.28)
+shape = SubResource("RectangleShape2D_43k7k")
+debug_color = Color(0.6258224, 0.27861342, 0.15046814, 0.41960785)
+
+[node name="ForgetfulBlocker" type="StaticBody2D" parent="."]
+position = Vector2(1500, 600)
+
+[node name="Gate" type="CollisionShape2D" parent="ForgetfulBlocker"]
+unique_name_in_owner = true
+position = Vector2(-123, 66.55499)
+shape = SubResource("RectangleShape2D_5ol0e")
+
+[node name="ForgetfulTrigger" type="Area2D" parent="ForgetfulBlocker"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForgetfulBlocker/ForgetfulTrigger"]
+position = Vector2(-143, 64)
+shape = SubResource("RectangleShape2D_as6yl")
+debug_color = Color(0.77293646, 0.320809, 0.50064105, 0.41960785)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -249,7 +321,7 @@ debug_color = Color(0.7621254, 0.45137608, 0, 0.41960785)
 [node name="PianoGirl" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(233, 369.00003)
-scale = Vector2(0.43, 0.43)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u7w64")
 
 [node name="Vindu" type="Sprite2D" parent="."]
@@ -283,3 +355,7 @@ debug_color = Color(0.6777251, 0.49898243, 0.22850087, 0.41960785)
 position = Vector2(111.00012, 145.00002)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_mry3s")
+
+[connection signal="body_entered" from="ScaryEvent" to="." method="_on_scary_event_body_entered"]
+[connection signal="body_entered" from="ClearEvent" to="." method="_on_clear_event_body_entered"]
+[connection signal="body_entered" from="ForgetfulBlocker/ForgetfulTrigger" to="." method="_on_forgetful_trigger_body_entered"]

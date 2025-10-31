@@ -36,6 +36,7 @@ var sound_effects = {
 
 var music = {
 	"test_music": preload("res://sounds/music/test-beach_ambience.mp3"),
+	"spooky_piano": preload("res://sounds/music/pianobraak.mp3")
 }
 
 var sfx_players = []

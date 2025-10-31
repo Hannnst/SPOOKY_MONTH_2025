@@ -18,14 +18,23 @@ func _on_interact():
 		%AudioStreamPlayer2D.stop()
 		%PianoGirl.queue_free()
 		%CanvasModulate.color = Color(0.078, 0.074, 0.074)
+		%ForgetfulTrigger/CollisionShape2D.disabled = false
+		%Gate.disabled = false
 	elif Globals.piano_closed == false:
-		InteractionManager.can_interact = false
 		DialogueManager.show_dialogue_balloon(dialogue, "piano")
 		await DialogueManager.dialogue_ended
-		InteractionManager.can_interact = true
+		
+		#Player can update this value in dialogue, hence the second check:
 		if Globals.piano_closed == true:
-			Globals.trigger_finite_event("close_piano")
+			%ForgetfulTrigger/CollisionShape2D.disabled = true
+			%Gate.disabled = true
 			%PianoClosed.show()
 			print("Spooky loud noise??")
+			if Globals.get_remaining("spooky_event_cleared"):
+				%ScaryEvent/CollisionShape2D.disabled = false
+				%ClearEvent/CollisionShape2D.disabled = false
+		else:
+			%ForgetfulTrigger/CollisionShape2D.disabled = false
+			%Gate.disabled = false
 	else:
 		DialogueManager.show_dialogue_balloon(dialogue, "piano_closed")
