@@ -22,4 +22,3 @@ func _on_interact():
 		InventoryManager.upgrade_item("vinyl", "cd")
 		queue_free() # remove self from scene when collected
 
-#The notebook is special: No activate function.
