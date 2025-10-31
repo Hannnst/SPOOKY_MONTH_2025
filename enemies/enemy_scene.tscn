@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dujn2srpc7go4"]
+[gd_scene load_steps=9 format=3 uid="uid://dujn2srpc7go4"]
 
 [ext_resource type="Script" uid="uid://cq3ybdecf0lec" path="res://enemies/enemy.gd" id="1_h7cod"]
 [ext_resource type="Texture2D" uid="uid://dpg6lhquv3dow" path="res://enemies/nakedratto2.png" id="1_hs1ht"]
 [ext_resource type="Texture2D" uid="uid://bbjpo3hr6weay" path="res://enemies/nakedratto2behind.png" id="2_h7cod"]
+[ext_resource type="AudioStream" uid="uid://c78v6y6a1sr8e" path="res://sounds/sound_effects/actions/heartbeat-single.mp3" id="4_g5lfw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h7cod"]
 animations = [{
@@ -64,6 +65,10 @@ shape = SubResource("CircleShape2D_oo6ua")
 one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g5lfw")
+pitch_scale = 2.0
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
