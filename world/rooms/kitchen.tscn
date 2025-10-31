@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbonxtj35mhdm"]
+[gd_scene load_steps=21 format=3 uid="uid://bbonxtj35mhdm"]
 
 [ext_resource type="Script" uid="uid://cbeiqrxrsg7c2" path="res://world/rooms/kitchen.gd" id="1_mpg0p"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_wx5kk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://vgf0m286kyrk" path="res://assets/furniture/table.png" id="11_guvxs"]
 [ext_resource type="Texture2D" uid="uid://dgogkjlctidxn" path="res://assets/furniture/vase transparent.png" id="12_qh50f"]
 [ext_resource type="Texture2D" uid="uid://eiuiwtl8ac6u" path="res://assets/furniture/chair.png" id="12_uyo3t"]
+[ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="14_guvxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j74hg"]
 size = Vector2(1714, 209)
@@ -27,7 +28,7 @@ size = Vector2(249.25, 190.5)
 size = Vector2(131, 218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr38s"]
-size = Vector2(101, 108)
+size = Vector2(81.5, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twpff"]
 size = Vector2(348.5, 201)
@@ -37,6 +38,7 @@ y_sort_enabled = true
 script = ExtResource("1_mpg0p")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -73,6 +75,7 @@ position = Vector2(963, 1078)
 position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("2_mpg0p")]
+visible = false
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
@@ -157,5 +160,8 @@ scale = Vector2(0.2197509, 0.24)
 texture = ExtResource("12_uyo3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
-position = Vector2(-113, 732)
+position = Vector2(-122.75, 741)
 shape = SubResource("RectangleShape2D_yr38s")
+
+[node name="Skull" parent="." instance=ExtResource("14_guvxs")]
+position = Vector2(-110, 752)
