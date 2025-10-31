@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbepuxwhuhp5v"]
+[gd_scene load_steps=15 format=3 uid="uid://bbepuxwhuhp5v"]
 
 [ext_resource type="Texture2D" uid="uid://mhfrns2ffguh" path="res://assets/placeholder/forest_pathA.png" id="1_3m1v5"]
 [ext_resource type="Script" uid="uid://b4bjfc3eeos3m" path="res://world/rooms/forest_path_a.gd" id="1_wt0ne"]
 [ext_resource type="Texture2D" uid="uid://ca5two6xcd6j" path="res://assets/placeholder/forest_pathA-trees.png" id="2_wfbcr"]
 [ext_resource type="Script" uid="uid://b0m3yocjyp18b" path="res://world/rooms/utilities/forestA-path_blocker.gd" id="3_wfbcr"]
+[ext_resource type="Texture2D" uid="uid://cmqm5rdips6ve" path="res://assets/nature/leaves.webp" id="5_jkyyv"]
 [ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="7_jkyyv"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="7_ser2u"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="8_jkyyv"]
@@ -21,7 +22,7 @@ size = Vector2(2508.5, 109)
 size = Vector2(2474.25, 244)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt0ne"]
-size = Vector2(152, 174.5)
+size = Vector2(152, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34whu"]
 size = Vector2(156.5, 238.5)
@@ -31,10 +32,8 @@ y_sort_enabled = true
 script = ExtResource("1_wt0ne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.051970966, 0.051970966, 0.051970936, 1)
-
-[node name="CanvasModulate2" type="CanvasModulate" parent="."]
-color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="ForestPathA" type="Sprite2D" parent="."]
 z_index = -1
@@ -69,22 +68,27 @@ script = ExtResource("3_wfbcr")
 position = Vector2(1680, 376)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
-position = Vector2(-430.25, 81.5)
+position = Vector2(-446, 27)
 shape = SubResource("RectangleShape2D_bradt")
 debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SlidingPathBlocker/Detector"]
-position = Vector2(-410, 413)
+position = Vector2(-410, 470)
 shape = SubResource("RectangleShape2D_bradt")
 debug_color = Color(0.57670575, 0.44367614, 0.2646125, 0.41960785)
 
 [node name="CollisionShapeTop" type="CollisionShape2D" parent="SlidingPathBlocker"]
-position = Vector2(1246, 379)
+position = Vector2(1234, 270)
 shape = SubResource("RectangleShape2D_jkyyv")
 
 [node name="CollisionShapeBottom" type="CollisionShape2D" parent="SlidingPathBlocker"]
-position = Vector2(1271, 868)
+position = Vector2(1270, 985)
 shape = SubResource("RectangleShape2D_jkyyv")
+
+[node name="Leaves" type="Sprite2D" parent="SlidingPathBlocker/CollisionShapeBottom"]
+position = Vector2(463.625, -267)
+scale = Vector2(0.68725044, 0.3923077)
+texture = ExtResource("5_jkyyv")
 
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
 
@@ -94,7 +98,7 @@ script = ExtResource("7_jkyyv")
 target_scene_name = "forest_pathB"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToPathB"]
-position = Vector2(-1625, 623)
+position = Vector2(-1625, 615)
 shape = SubResource("RectangleShape2D_wt0ne")
 debug_color = Color(0.8023216, 0.41933587, 0, 0.41960785)
 
@@ -115,6 +119,11 @@ limit_top = 0
 limit_right = 2300
 limit_bottom = 1200
 position_smoothing_enabled = true
+
+[node name="Leaves" type="Sprite2D" parent="."]
+position = Vector2(695.0001, 620)
+scale = Vector2(0.5838562, 0.3923077)
+texture = ExtResource("5_jkyyv")
 
 [connection signal="body_entered" from="SlidingPathBlocker/Detector" to="SlidingPathBlocker" method="_on_detector_body_entered"]
 [connection signal="body_entered" from="ExitToPathB" to="ExitToPathB" method="_on_body_entered"]
