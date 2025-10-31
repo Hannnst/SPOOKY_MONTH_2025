@@ -18,7 +18,7 @@ var scenes = {
 
 #Variables used for finding initial player position certain scenes
 var current_scene = "main_menu"
-var prev_scene = "main_hall"
+var prev_scene = "main_menu"
 
 func get_scene_path(scene_name):
 	if scene_name in scenes:
