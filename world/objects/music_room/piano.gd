@@ -30,7 +30,6 @@ func _on_interact():
 			%Gate.disabled = true
 			%PianoClosed.show()
 			print("Spooky loud noise??")
-			print("remaining spooky event cleared: ", Globals.get_remaining("spooky_piano_cleared"))
 			if Globals.get_remaining("spooky_piano_cleared") > 0:
 				%ScaryEvent/CollisionShape2D.disabled = false
 				%ClearEvent/CollisionShape2D.disabled = false
