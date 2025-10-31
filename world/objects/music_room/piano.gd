@@ -17,6 +17,7 @@ func _on_interact():
 		%LampLight.enabled = false
 		%AudioStreamPlayer2D.stop()
 		%PianoGirl.queue_free()
+		%CanvasModulate.color = Color(0.078, 0.074, 0.074)
 	elif Globals.piano_closed == false:
 		InteractionManager.can_interact = false
 		DialogueManager.show_dialogue_balloon(dialogue, "piano")
