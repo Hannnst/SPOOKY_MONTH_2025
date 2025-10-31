@@ -107,7 +107,7 @@ scale = Vector2(10, 1)
 target_scene_name = "forest_pathB"
 
 [node name="Player" parent="." instance=ExtResource("3_a2gve")]
-position = Vector2(487, 903)
+position = Vector2(84, 99)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
