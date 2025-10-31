@@ -28,6 +28,7 @@ func collect_item(item_name: String):
 		if item_name == inventory[i]["name"]:
 			inventory[i]["is_owned"] = true
 			inventory_updated.emit()
+			SoundManager.play_random_pitch("paper", -0.3, 0.3)
 			return
 	print("Warning: Couldn't add item: ", item_name)
 
@@ -75,10 +76,10 @@ func is_item_owned(item_name):
 			return item["is_owned"]
 	return false
 
+
 func get_owned_items_count():
 	var counter = 0
 	for i in range(len(inventory)):
 		if inventory[i]["is_owned"]:
 			counter += 1
 	return counter
-	
