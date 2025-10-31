@@ -16,6 +16,7 @@ var finite_events = {
 	"cd_collected" : 1,
 	"vinyl_played" : 1,
 	"matches_collected" : 1,
+	"notebook_collected" : 1,
 }
 
 var piano_closed = false
