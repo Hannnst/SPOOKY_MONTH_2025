@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh06vgs3wss15"]
+
+[ext_resource type="Script" uid="uid://bpnbkldjswtij" path="res://world/rooms/ending.gd" id="1_86anx"]
+[ext_resource type="Texture2D" uid="uid://cj872bvdrvaj5" path="res://world/rooms/placeholder_room_art/ending_scene_art.webp" id="2_hskwg"]
+[ext_resource type="Texture2D" uid="uid://ccckycpvuowey" path="res://assets/furniture/gate-sprite.webp" id="3_ai6qh"]
+[ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="4_ic1fv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcljq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ai6qh")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ic1fv")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_86anx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="EndingSceneArt" type="Sprite2D" parent="."]
+position = Vector2(359, 378)
+scale = Vector2(0.94675326, 0.95584416)
+texture = ExtResource("2_hskwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(354, 379)
+sprite_frames = SubResource("SpriteFrames_bcljq")
+animation = &"close"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(405, 386)
+scale = Vector2(-8.255, -8.255)

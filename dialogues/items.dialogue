@@ -82,15 +82,16 @@ else:
 => END
 
 ~ gum_collect
-% Upon unlocking the gate, a delicious gum detached from it.
-% A delicious piece of gum was stuck on the key.
-% Slippery key: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
+% A delicious piece of gum was stuck on Fluffy's skull.
+% Piece of gum, that was stuck to Fluffy's skull this whole time: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!
 => END
 
-~ gum_activate
+~ gum_use
 % Some gum.
 % Just some gum.
 % Mmm. Gum.
+=> END
+
 ~ toy_collect
 The thing used to never stop crying. Yet you kept it alive through thick and thin.
 => END

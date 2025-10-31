@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=28 format=3 uid="uid://gfnekvg1s77h"]
 
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="8_k3ycv"]
 [ext_resource type="Texture2D" uid="uid://d26r33awxfdbb" path="res://assets/furniture/rail.webp" id="9_ry108"]
 [ext_resource type="Texture2D" uid="uid://b8t5dop7lx3kn" path="res://assets/furniture/statue.webp" id="10_k3ycv"]
+[ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="11_lu8yp"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="13_4npg2"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="14_t0scq"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="15_0eu22"]
@@ -92,7 +93,7 @@ position = Vector2(435, 1175.28)
 scale = Vector2(10, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_a2gve")]
-position = Vector2(380, 908)
+position = Vector2(84, 99)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -182,6 +183,9 @@ texture = ExtResource("9_ry108")
 position = Vector2(942.0536, 12)
 scale = Vector2(1.2054868, 0.9754098)
 texture = ExtResource("9_ry108")
+
+[node name="Skull" parent="Gate" instance=ExtResource("11_lu8yp")]
+position = Vector2(-208, -533.895)
 
 [node name="Statue" type="Sprite2D" parent="."]
 modulate = Color(1.4683453, 1.4683453, 1.4683453, 1)

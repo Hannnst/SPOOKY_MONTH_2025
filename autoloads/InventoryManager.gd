@@ -17,6 +17,7 @@ var current_slot_index: int = 0 #Keeps track of which item the player last selec
 
 var upgraded_items = {
 	"cd": { "name": "cd", "is_owned": true, "texture": preload("res://assets/items/cd.png") },
+	"gum": { "name": "gum", "is_owned": true, "texture": preload("res://world/objects/gum.webp") },
 }
 
 

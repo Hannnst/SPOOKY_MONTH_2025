@@ -20,3 +20,6 @@ func _on_interact():
 # TODO: if player collides with grave, play dialogue for falling into game and reset/end game
 func activate():
 	DialogueManager.show_dialogue_balloon(dialogue, "grave_activate")
+	InventoryManager.upgrade_item("skull", "gum")
+	await DialogueManager.dialogue_ended
+	DialogueManager.show_dialogue_balloon(dialogue, "gum_collect")
