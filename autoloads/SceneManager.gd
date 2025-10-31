@@ -13,12 +13,14 @@ var scenes = {
 	"outside_house": "res://world/rooms/outside_house.tscn",
 	"testA": "res://world/test_scenes/test_room_A.tscn",
 	"testB": "res://world/test_scenes/test_room_B.tscn",
+	"ending": "res://world/rooms/ending.tscn",
 	#Kan også legge til cutscene scener her
 }
 
 #Variables used for finding initial player position certain scenes
 var current_scene = "main_menu"
 var prev_scene = "main_menu"
+
 
 func get_scene_path(scene_name):
 	if scene_name in scenes:
@@ -33,7 +35,7 @@ func change_scene(scene_name: String):
 		#Update records:
 		prev_scene = current_scene
 		current_scene = scene_name
-		
+
 		#transition:
 		TransitionScreen.transition()
 		await TransitionScreen.transition_finished
@@ -41,9 +43,10 @@ func change_scene(scene_name: String):
 		Globals.move_enabled = true
 		DialogueManager.can_show_dialogue = true
 		InteractionManager.icon_enabled = true
-		
+
 		print("previous scene: ", prev_scene)
 		print("current scene: ", current_scene)
+
 
 func reload_from_death(scene_name: String):
 	var scene_path = get_scene_path(scene_name)
@@ -55,9 +58,10 @@ func reload_from_death(scene_name: String):
 		Globals.move_enabled = true
 		DialogueManager.can_show_dialogue = true
 		InteractionManager.icon_enabled = true
-		
+
 		print("previous scene: ", prev_scene)
 		print("current scene: ", current_scene)
+
 
 func player_death():
 	SoundManager.stop_music()
