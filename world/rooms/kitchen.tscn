@@ -128,12 +128,12 @@ shape = SubResource("RectangleShape2D_bo2n2")
 [node name="Chair2" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Chair2"]
-position = Vector2(356, 722.00006)
+position = Vector2(356, 722)
 scale = Vector2(0.2197509, 0.24)
 texture = ExtResource("10_qh50f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2"]
-position = Vector2(340, 741)
+position = Vector2(378, 747)
 shape = SubResource("RectangleShape2D_yr38s")
 
 [node name="Table" type="StaticBody2D" parent="."]
