@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://gfnekvg1s77h"]
+[gd_scene load_steps=29 format=3 uid="uid://gfnekvg1s77h"]
 
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_a2gve"]
-[ext_resource type="PackedScene" path="res://world/doors/base_exit.tscn" id="3_if25p"]
+[ext_resource type="PackedScene" uid="uid://d23laq5ffag70" path="res://world/doors/base_exit.tscn" id="3_if25p"]
+[ext_resource type="Script" uid="uid://dtw0qgc7hd7y8" path="res://world/rooms/utilities/win_check.gd" id="3_lu8yp"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_h8x43"]
 [ext_resource type="Texture2D" uid="uid://ccckycpvuowey" path="res://assets/furniture/gate-sprite.webp" id="5_xr8pc"]
 [ext_resource type="Texture2D" uid="uid://7vga4teyw3rl" path="res://assets/furniture/gate-open-sprite.webp" id="6_vl5rv"]
@@ -16,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="15_0eu22"]
 [ext_resource type="PackedScene" uid="uid://fqo23kpu8ow3" path="res://world/objects/grave.tscn" id="15_ghjpb"]
 [ext_resource type="Texture2D" uid="uid://cujj0hp8h3ed7" path="res://enemies/spider.webp" id="16_0eu22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14kxo"]
+size = Vector2(312, 292.28003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8pc"]
 size = Vector2(28.5, 1.4099998)
@@ -55,7 +59,7 @@ size = Vector2(357.8789, 28.875)
 size = Vector2(1380.2578, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0scq"]
-size = Vector2(490, 52.052505)
+size = Vector2(887, 117.02625)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ry108"]
 load_path = "res://.godot/imported/statue.webp-198eb4d6045545347748e9fc4d7cf777.ctex"
@@ -87,12 +91,23 @@ position = Vector2(652, 122)
 scale = Vector2(2, 2)
 texture = ExtResource("2_n8cr0")
 
-[node name="BaseExit" parent="Background" instance=ExtResource("3_if25p")]
+[node name="WinCheck" type="Area2D" parent="Background"]
 position = Vector2(435, 1175.28)
+scale = Vector2(10, 1)
+script = ExtResource("3_lu8yp")
+target_scene_name = "ending_scene"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/WinCheck"]
+position = Vector2(2.9, -59.28003)
+shape = SubResource("RectangleShape2D_14kxo")
+debug_color = Color(0.5616485, 0.39752123, 0.98240143, 0.41960785)
+
+[node name="BaseExit" parent="Background" instance=ExtResource("3_if25p")]
+position = Vector2(440, 1201)
 scale = Vector2(10, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_a2gve")]
-position = Vector2(380, 908)
+position = Vector2(474, 28)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -165,7 +180,7 @@ shape = SubResource("RectangleShape2D_k3ycv")
 position = Vector2(-12, 0.10501099)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/CloseTrigger"]
-position = Vector2(30, -279)
+position = Vector2(171.5, -246.51312)
 shape = SubResource("RectangleShape2D_t0scq")
 
 [node name="Rail" type="Sprite2D" parent="Gate"]
@@ -217,4 +232,5 @@ speed = 10.0
 chase_speed = 80.0
 animation_frames = SubResource("SpriteFrames_ghjpb")
 
+[connection signal="body_entered" from="Background/WinCheck" to="Background/WinCheck" method="_on_body_entered"]
 [connection signal="body_entered" from="Gate/CloseTrigger" to="Gate" method="_on_close_trigger_body_entered"]
