@@ -102,7 +102,7 @@ func die():
 
 
 func play_step_sound():
-	if SceneManager.current_scene in ["forest_pathA", "forest_pathB", "outside_house"]:
+	if SceneManager.current_scene.begins_with("forest_") or SceneManager.current_scene.begins_with("outside_"):
 		SoundManager.play_random_pitch("step_sound_outside", -0.3, 0.1)
 	else:
 		SoundManager.play_random_pitch("step_sound", -0.3, 0.1)
