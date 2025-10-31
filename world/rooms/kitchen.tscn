@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbonxtj35mhdm"]
+[gd_scene load_steps=24 format=3 uid="uid://2osmderhw64m"]
 
 [ext_resource type="Script" uid="uid://cbeiqrxrsg7c2" path="res://world/rooms/kitchen.gd" id="1_mpg0p"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="1_wx5kk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="2_mpg0p"]
 [ext_resource type="Texture2D" uid="uid://hhnl0yl5a12i" path="res://assets/textures/kitchen tiles.PNG" id="3_lvgir"]
 [ext_resource type="Texture2D" uid="uid://b31l2fv2xrfbg" path="res://assets/furniture/carpet transparent.png" id="4_klvbd"]
+[ext_resource type="Texture2D" uid="uid://68l6vpe7brlw" path="res://assets/furniture/washing machine transparent.png" id="6_j74hg"]
 [ext_resource type="Texture2D" uid="uid://cm8orrwxuafom" path="res://assets/furniture/kitchen benchtops transparent stinky.png" id="7_x3e0j"]
 [ext_resource type="Texture2D" uid="uid://qpleu3ge0pnk" path="res://assets/furniture/kitchen benchtops transparent.png" id="8_x3e0j"]
 [ext_resource type="Texture2D" uid="uid://b14whtcd3vtji" path="res://assets/furniture/fridge.png" id="9_ctyt8"]
@@ -14,6 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://dgogkjlctidxn" path="res://assets/furniture/vase transparent.png" id="12_qh50f"]
 [ext_resource type="Texture2D" uid="uid://eiuiwtl8ac6u" path="res://assets/furniture/chair.png" id="12_uyo3t"]
 [ext_resource type="PackedScene" uid="uid://q1sfnajdrjjs" path="res://world/objects/skull.tscn" id="14_guvxs"]
+[ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="15_uyo3t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo2n2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_j74hg")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j74hg"]
 size = Vector2(1714, 209)
@@ -67,6 +80,13 @@ texture = ExtResource("3_lvgir")
 [node name="Sprite2D5" type="Sprite2D" parent="Background"]
 position = Vector2(957, 784)
 texture = ExtResource("4_klvbd")
+
+[node name="Enemy" parent="Background" instance=ExtResource("15_uyo3t")]
+position = Vector2(1282, 891)
+scale = Vector2(2.29, 2.29)
+speed = 50.0
+chase_speed = 80.0
+animation_frames = SubResource("SpriteFrames_bo2n2")
 
 [node name="Player" parent="." instance=ExtResource("1_wx5kk")]
 position = Vector2(963, 1078)
