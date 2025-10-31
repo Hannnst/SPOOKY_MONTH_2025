@@ -2432,7 +2432,7 @@ libraries = {
 }
 
 [node name="Puppet" type="Node2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 
 [node name="BackLeg" type="Node2D" parent="Puppet"]
 position = Vector2(-22, -99)

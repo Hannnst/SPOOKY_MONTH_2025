@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d23laq5ffag70"]
+
+[ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="1_4bdgn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrs6y"]
+size = Vector2(312, 204)
+
+[node name="BaseExit" type="Area2D"]
+script = ExtResource("1_4bdgn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -55)
+shape = SubResource("RectangleShape2D_jrs6y")
+debug_color = Color(0.62003666, 0.44253916, 0, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

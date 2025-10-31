@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=38 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
@@ -10,14 +10,29 @@
 [ext_resource type="Texture2D" uid="uid://bddnhblii5n0q" path="res://assets/textures/gulvpanel.webp" id="5_w0loa"]
 [ext_resource type="Texture2D" uid="uid://bodivanoma163" path="res://assets/textures/trapp.webp" id="6_37hhm"]
 [ext_resource type="PackedScene" uid="uid://d1xpa1qfbplb4" path="res://world/doors/base_door.tscn" id="9_il2tj"]
+[ext_resource type="Texture2D" uid="uid://yxo5kmxakpj5" path="res://assets/furniture/vinyl_player.png" id="9_vifcg"]
+[ext_resource type="Texture2D" uid="uid://b8t5dop7lx3kn" path="res://assets/furniture/statue.webp" id="10_nvnim"]
+[ext_resource type="PackedScene" uid="uid://c7wxhv1nmf8it" path="res://world/objects/cd.tscn" id="10_ta6ww"]
 [ext_resource type="Script" uid="uid://dmirwy2de1arn" path="res://world/doors/base_door.gd" id="10_w0loa"]
 [ext_resource type="PackedScene" uid="uid://cbb1bxhnsg5q1" path="res://world/objects/notebook.tscn" id="11_37hhm"]
+[ext_resource type="Texture2D" uid="uid://6siq8oja83nq" path="res://assets/furniture/spisebord.webp" id="11_nvnim"]
+[ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="12_ntexs"]
+[ext_resource type="Script" uid="uid://ineuktjwfkwb" path="res://world/objects/vinyl_player.gd" id="15_js8q6"]
+[ext_resource type="AudioStream" uid="uid://x208fnd83x2e" path="res://sounds/music/piano_garbified.mp3" id="16_h8ipj"]
+[ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="18_ta6ww"]
+[ext_resource type="PackedScene" uid="uid://cc5y5wl2a3wwu" path="res://world/objects/vinyl.tscn" id="21_qnujj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xagt"]
+size = Vector2(111, 457)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prhw4"]
 size = Vector2(2901, 2278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vifcg"]
-size = Vector2(3457.5, 1165)
+size = Vector2(3775.75, 1305.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1h47"]
+size = Vector2(26, 1412.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvnim"]
 size = Vector2(3457.5, 1035.5)
@@ -28,6 +43,9 @@ size = Vector2(2923, 364.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqvpf"]
 size = Vector2(255.875, 1378)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqs82"]
+size = Vector2(736.9375, 306)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js8q6"]
 size = Vector2(19, 732)
 
@@ -36,6 +54,22 @@ size = Vector2(19.5, 681)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnujj"]
 size = Vector2(177, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrs6y"]
+size = Vector2(312, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpqd1"]
+size = Vector2(164.28558, 163.92877)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrsej"]
+size = Vector2(117.14292, 186.42873)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_becoq"]
+size = Vector2(1790.0688, 290.82343)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xagt"]
+radius = 164.21497
+height = 2068.3564
 
 [node name="MainHall" type="Node2D"]
 y_sort_enabled = true
@@ -46,6 +80,7 @@ script = ExtResource("1_llw6l")
 [node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.021434635, 0.021434637, 0.021434627, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -88,8 +123,8 @@ scale = Vector2(1.0020189, 1)
 texture = ExtResource("2_ucueh")
 
 [node name="GulvteksturR" type="Sprite2D" parent="Background/GulvteksturMain"]
-position = Vector2(1925.1388, 471.50006)
-scale = Vector2(1.0780282, 0.42536408)
+position = Vector2(2842.6, 576.5632)
+scale = Vector2(1.1715816, 0.6192529)
 texture = ExtResource("2_ucueh")
 
 [node name="Trapp" type="Sprite2D" parent="Background/GulvteksturMain"]
@@ -151,20 +186,49 @@ scale = Vector2(1.6314998, 0.766)
 texture = ExtResource("4_il2tj")
 
 [node name="VeggteksturVib3" type="Sprite2D" parent="Background"]
-position = Vector2(3099.5002, 615.00006)
-scale = Vector2(1.7249999, 0.766)
+position = Vector2(3563.5, 710)
+scale = Vector2(2.5829997, 0.766)
+texture = ExtResource("4_il2tj")
+
+[node name="VeggteksturVib7" type="Sprite2D" parent="Background"]
+position = Vector2(2255.5, 821.25)
+scale = Vector2(0.036999896, 0.76500005)
+texture = ExtResource("4_il2tj")
+
+[node name="VeggteksturVib5" type="Sprite2D" parent="Background"]
+modulate = Color(0.72619754, 0.62048066, 0.58050555, 1)
+position = Vector2(2255, 566.5)
+scale = Vector2(0.038999695, 0.57400006)
+texture = ExtResource("4_il2tj")
+
+[node name="VeggteksturVib6" type="Sprite2D" parent="Background"]
+position = Vector2(2260, 1497)
+scale = Vector2(0.038999695, 0.766)
 texture = ExtResource("4_il2tj")
 
 [node name="Player" parent="." instance=ExtResource("3_62s85")]
-position = Vector2(1136, 2400)
+position = Vector2(2389, 1194)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
 limit_left = -3000
 limit_top = -2500
-limit_right = 4500
+limit_right = 5000
 limit_bottom = 3500
 position_smoothing_enabled = true
+
+[node name="StatueEnemy" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3555, 1220)
+
+[node name="Statue" type="Sprite2D" parent="StatueEnemy"]
+position = Vector2(3.9999447, -207.99995)
+scale = Vector2(1.1723595, 1.1723595)
+texture = ExtResource("10_nvnim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StatueEnemy"]
+position = Vector2(-1, -169)
+shape = SubResource("RectangleShape2D_8xagt")
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
@@ -174,8 +238,12 @@ position = Vector2(-1461.5, -599)
 shape = SubResource("RectangleShape2D_prhw4")
 
 [node name="CollisionShapeBox2" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(3965, -9.5)
+position = Vector2(4124.875, 15.25)
 shape = SubResource("RectangleShape2D_vifcg")
+
+[node name="CollisionShapeBox3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(2249, 68.75)
+shape = SubResource("RectangleShape2D_s1h47")
 
 [node name="CollisionShapeH2" type="CollisionShape2D" parent="WorldBorders"]
 position = Vector2(-954.75, 1684.25)
@@ -186,7 +254,7 @@ position = Vector2(1632, -1785)
 shape = SubResource("RectangleShape2D_nvnim")
 
 [node name="CollisionShapeH6" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(3252, 1678)
+position = Vector2(3248, 1906)
 shape = SubResource("RectangleShape2D_nvnim")
 
 [node name="CollisionShapeH7" type="CollisionShape2D" parent="WorldBorders"]
@@ -214,8 +282,12 @@ position = Vector2(-2762, 846)
 shape = SubResource("RectangleShape2D_hqvpf")
 
 [node name="CollisionShapeV4" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(4088, 867)
+position = Vector2(4977, 882)
 shape = SubResource("RectangleShape2D_hqvpf")
+
+[node name="CollisionShapeV5" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1887.5313, 1317)
+shape = SubResource("RectangleShape2D_wqs82")
 
 [node name="CollisionShapeThin" type="CollisionShape2D" parent="WorldBorders"]
 position = Vector2(269.5, 193)
@@ -229,6 +301,18 @@ shape = SubResource("RectangleShape2D_ta6ww")
 position = Vector2(350.5, -167.5)
 shape = SubResource("RectangleShape2D_qnujj")
 
+[node name="ExitToOutdoors" type="Area2D" parent="."]
+position = Vector2(1142, 2662)
+script = ExtResource("12_ntexs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToOutdoors"]
+position = Vector2(2, -55)
+shape = SubResource("RectangleShape2D_jrs6y")
+debug_color = Color(0.62003666, 0.44253916, 0, 0.41960785)
+
+[node name="Notebook" parent="." instance=ExtResource("11_37hhm")]
+position = Vector2(1175, 2008)
+
 [node name="Doors" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(6, 226)
@@ -241,7 +325,7 @@ target_scene_name = "bathroom"
 
 [node name="DoorMasters" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
-position = Vector2(2775, -1253)
+position = Vector2(1723, -1253)
 script = ExtResource("10_w0loa")
 target_scene_name = "master_bedroom"
 
@@ -259,9 +343,66 @@ target_scene_name = "music_room"
 
 [node name="DoorBedroom" parent="Doors" instance=ExtResource("9_il2tj")]
 unique_name_in_owner = true
-position = Vector2(3488, 585)
+position = Vector2(2730, -1231)
 script = ExtResource("10_w0loa")
 target_scene_name = "bedroom"
 
-[node name="Notebook" parent="." instance=ExtResource("11_37hhm")]
-position = Vector2(1175, 2008)
+[node name="Furniture" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2345, 991)
+scale = Vector2(0.7, 0.7)
+
+[node name="VinylPlayer" type="StaticBody2D" parent="Furniture"]
+position = Vector2(-45.71411, 78.57141)
+scale = Vector2(0.9999998, 0.9999998)
+script = ExtResource("15_js8q6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/VinylPlayer"]
+position = Vector2(-2.8572083, -115.71432)
+scale = Vector2(0.71753216, 0.72539186)
+texture = ExtResource("9_vifcg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/VinylPlayer"]
+position = Vector2(3.571289, -71.96448)
+shape = SubResource("RectangleShape2D_hpqd1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Furniture/VinylPlayer"]
+stream = ExtResource("16_h8ipj")
+volume_db = 2.0
+max_distance = 2500.0
+attenuation = 0.4506248
+
+[node name="InteractionArea" parent="Furniture/VinylPlayer" instance=ExtResource("18_ta6ww")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/VinylPlayer/InteractionArea"]
+position = Vector2(30, -87.50012)
+shape = SubResource("RectangleShape2D_nrsej")
+debug_color = Color(0.64586955, 0.51539755, 0.24168065, 0.41960785)
+
+[node name="Spisebord" type="StaticBody2D" parent="Furniture"]
+position = Vector2(1805.714, 763.198)
+scale = Vector2(1.1396209, 1.1396208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Spisebord"]
+position = Vector2(16.452534, -201.19444)
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("11_nvnim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Furniture/Spisebord"]
+position = Vector2(2.6634712, -0.62631226)
+scale = Vector2(1.0000004, 1)
+shape = SubResource("RectangleShape2D_becoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Spisebord"]
+position = Vector2(7.6775866, -129.74187)
+rotation = 1.5707964
+scale = Vector2(1.0000002, 1.0000001)
+shape = SubResource("CapsuleShape2D_8xagt")
+
+[node name="CD" parent="." instance=ExtResource("10_ta6ww")]
+position = Vector2(4690, 1532)
+
+[node name="Vinyl" parent="." instance=ExtResource("21_qnujj")]
+position = Vector2(2213, 1135)
+
+[connection signal="body_entered" from="ExitToOutdoors" to="ExitToOutdoors" method="_on_body_entered"]

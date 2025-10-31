@@ -103,6 +103,7 @@ func _try_use_item():
 
 	var target_object = InteractionManager._get_closest_object()
 	if (target_object and inventory_item):
+		print("Tried to use item on, ", target_object.name)
 		if inventory_item.target_name == target_object.name:
 			target_object.activate() # activates a node's attached script
 	else:

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://55wmhdckb1an"]
+
+[ext_resource type="Script" uid="uid://b80by5ym36nu2" path="res://world/objects/music_room/music_room_enemy.gd" id="1_24cc0"]
+[ext_resource type="Texture2D" uid="uid://8qwh20he2jix" path="res://enemies/hanna_up.webp" id="2_v3715"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3715"]
+radius = 79.22752
+
+[node name="MusicRoomEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_24cc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.9999962, -198)
+scale = Vector2(0.5564516, 1)
+texture = ExtResource("2_v3715")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -10)
+shape = SubResource("CircleShape2D_v3715")
