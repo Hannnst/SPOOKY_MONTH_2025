@@ -24,7 +24,6 @@ func _on_interact():
 		DialogueManager.show_dialogue_balloon(dialogue, "piano")
 		await DialogueManager.dialogue_ended
 		await get_tree().process_frame
-		print("Current piano state (closed is): ", Globals.piano_closed)
 			#Player can update this value in dialogue, hence the second check:
 		if Globals.piano_closed == true:
 			%ForgetfulTrigger/CollisionShape2D.disabled = true
