@@ -31,7 +31,10 @@ y_sort_enabled = true
 script = ExtResource("1_wt0ne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+color = Color(0.051970966, 0.051970966, 0.051970936, 1)
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="ForestPathA" type="Sprite2D" parent="."]
 z_index = -1

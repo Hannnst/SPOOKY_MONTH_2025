@@ -18,7 +18,7 @@ var scenes = {
 
 #Variables used for finding initial player position certain scenes
 var current_scene = ""
-var prev_scene = ""
+var prev_scene = "main_menu"
 
 func get_scene_path(scene_name):
 	if scene_name in scenes:
@@ -44,3 +44,20 @@ func change_scene(scene_name: String):
 		
 		print("previous scene: ", prev_scene)
 		print("current scene: ", current_scene)
+
+func reload_from_death(scene_name: String):
+	var scene_path = get_scene_path(scene_name)
+	if scene_path:
+		#Update records:
+		prev_scene = current_scene
+		current_scene = scene_name
+		get_tree().change_scene_to_file(scene_path)
+		Globals.move_enabled = true
+		DialogueManager.can_show_dialogue = true
+		InteractionManager.icon_enabled = true
+		
+		print("previous scene: ", prev_scene)
+		print("current scene: ", current_scene)
+
+func player_death():
+	TransitionScreen.player_death_animation()

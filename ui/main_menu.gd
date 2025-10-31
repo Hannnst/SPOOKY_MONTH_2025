@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_play_pressed() -> void:
-	if not SceneManager.prev_scene:
+	if SceneManager.prev_scene == "main_menu":
 		SceneManager.change_scene("forest_pathA")
 	else:
 		SceneManager.change_scene(SceneManager.prev_scene)
