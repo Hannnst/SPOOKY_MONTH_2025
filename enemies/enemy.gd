@@ -16,6 +16,8 @@ var base_sprite_position := Vector2(0, -29)
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+@onready var heartbeat = preload("res://sounds/sound_effects/actions/heartbeat-thudding.mp3")
+@onready var heartbeat_fast = preload("res://sounds/sound_effects/actions/heartbeat-tense.mp3")
 
 
 func _ready():
@@ -53,11 +55,13 @@ func _pick_new_direction():
 func _on_exposure_timer_timeout():
 	cooldown_timer.wait_time = cooldown_time # reset timer
 	triggered = true
+	_play_sound(heartbeat_fast, true)
 
 
 func _on_cooldown_timer_timeout():
 	exposure_timer.wait_time = trigger_time # reset timer
 	triggered = false
+	$Sound.stop()
 
 
 func _chase_player():
@@ -79,9 +83,20 @@ func _chase_player():
 func _on_trigger_area_area_entered(area: Area2D) -> void:
 	if area.name == "EnemySensor":
 		exposure_timer.start()
+		_play_sound(heartbeat)
 
 
 func _on_trigger_area_area_exited(area: Area2D) -> void:
 	if area.name == "EnemySensor":
 		exposure_timer.stop()
 		cooldown_timer.start()
+		if not triggered:
+			$Sound.stop()
+
+
+func _play_sound(sound, loop = false):
+	$Sound.stop()
+	$Sound.stream = sound
+	if loop:
+		$Sound.stream.loop = true
+	$Sound.play()
