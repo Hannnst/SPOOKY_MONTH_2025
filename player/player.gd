@@ -107,6 +107,6 @@ func die():
 
 func play_step_sound():
 	if is_outdoor:
-		SoundManager.play_random_pitch("step_sound_outside", -0.3, 0.1)
+		SoundManager.play_random_pitch("step_sound_outside", -0.3, 1)
 	else:
-		SoundManager.play_random_pitch("step_sound", -0.3, 0.1)
+		SoundManager.play_random_pitch("step_sound", -0.3, 1)
