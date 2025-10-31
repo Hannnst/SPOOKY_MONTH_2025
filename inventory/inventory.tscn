@@ -78,6 +78,7 @@ layout_mode = 2
 
 [node name="Note" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(623.00006, 368.00003)
 scale = Vector2(0.5418006, 0.5418006)
 texture = ExtResource("4_lhcfm")

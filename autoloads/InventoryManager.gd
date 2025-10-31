@@ -7,13 +7,11 @@ signal focus_returned
 
 var inventory = [
 	{ "name": "notebook", "is_owned": false, "texture": preload("res://assets/items/lapp-icon.png")},
-	{ "name": "spooky_guy", "is_owned": true, "texture": preload("res://player/p_down.png") },
+	{ "name": "toy", "is_owned": false, "texture": preload("res://assets/items/tamagotchi.webp")},
 	{ "name": "godot_guy", "is_owned": true, "texture": preload("res://icon.svg") },
 	{ "name": "skull", "is_owned": false, "texture": preload("res://assets/items/skull_front.webp"), "target_name": "Grave" },
 	{ "name": "placeholder2", "is_owned": false, "texture": preload("res://icon.svg") },
 	{ "name": "placeholder3", "is_owned": true, "texture": preload("res://icon.svg") },
-	{ "name": "placeholder4", "is_owned": false, "texture": preload("res://icon.svg") },
-	{ "name": "placeholder5", "is_owned": true, "texture": preload("res://icon.svg") },
 ]
 var current_slot_index: int = 0 #Keeps track of which item the player last selected, across scene change.
 
