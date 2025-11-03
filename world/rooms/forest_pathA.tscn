@@ -34,11 +34,24 @@ script = ExtResource("1_wt0ne")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.051970966, 0.051970966, 0.051970936, 1)
 
-[node name="ForestPathA" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="ForestPathA" type="Sprite2D" parent="Background"]
 z_index = -1
 position = Vector2(1161.0001, 610)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_3m1v5")
+
+[node name="Leaves" type="Sprite2D" parent="Background"]
+position = Vector2(695.0001, 620)
+scale = Vector2(0.5838562, 0.3923077)
+texture = ExtResource("5_jkyyv")
+
+[node name="Leaves2" type="Sprite2D" parent="Background"]
+position = Vector2(1733.625, 718)
+scale = Vector2(0.68725044, 0.3923077)
+texture = ExtResource("5_jkyyv")
 
 [node name="ForestPathATrees" type="Sprite2D" parent="."]
 position = Vector2(1150, 929)
@@ -84,11 +97,6 @@ shape = SubResource("RectangleShape2D_jkyyv")
 position = Vector2(1270, 985)
 shape = SubResource("RectangleShape2D_jkyyv")
 
-[node name="Leaves" type="Sprite2D" parent="SlidingPathBlocker/CollisionShapeBottom"]
-position = Vector2(463.625, -267)
-scale = Vector2(0.68725044, 0.3923077)
-texture = ExtResource("5_jkyyv")
-
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
 
 [node name="ExitToPathB" type="Area2D" parent="."]
@@ -118,11 +126,6 @@ limit_top = 0
 limit_right = 2300
 limit_bottom = 1200
 position_smoothing_enabled = true
-
-[node name="Leaves" type="Sprite2D" parent="."]
-position = Vector2(695.0001, 620)
-scale = Vector2(0.5838562, 0.3923077)
-texture = ExtResource("5_jkyyv")
 
 [connection signal="body_entered" from="SlidingPathBlocker/Detector" to="SlidingPathBlocker" method="_on_detector_body_entered"]
 [connection signal="body_entered" from="ExitToPathB" to="ExitToPathB" method="_on_body_entered"]

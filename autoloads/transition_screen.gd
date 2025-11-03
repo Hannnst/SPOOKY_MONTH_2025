@@ -14,13 +14,16 @@ func _ready():
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_to_black":
 		transition_finished.emit()
-		animation_player.play("fade_to_normal")
 	elif anim_name == "fade_to_normal":
 		color_rect.visible = false
 	elif anim_name == "player_death":
 		SceneManager.reload_from_death(SceneManager.prev_scene)
 		animation_player.play("fade_to_normal")
 		color_rect.visible = false
+
+func fade_in_animation():
+	animation_player.play("fade_to_normal")
+	
 
 func transition():
 	color_rect.visible = true
