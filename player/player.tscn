@@ -2388,7 +2388,7 @@ fill_from = Vector2(0.4957265, 0.491453)
 fill_to = Vector2(0.9017094, 0.16666667)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q28gw"]
-points = PackedVector2Array(62.245, 292.55, -74.755, 292.55, -0.755, -58.45)
+points = PackedVector2Array(135.245, 417.55, -133.755, 416.55, -0.755, -58.45)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w6dt1")
