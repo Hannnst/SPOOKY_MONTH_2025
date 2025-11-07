@@ -121,6 +121,7 @@ debug_color = Color(0.6548421, 0.4414268, 3.85046e-07, 0.41960785)
 position = Vector2(174, 640)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 2300

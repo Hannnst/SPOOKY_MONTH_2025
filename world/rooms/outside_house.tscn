@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dl03qf6hln52p" path="res://world/rooms/outside_house.gd" id="1_n8cr0"]
 [ext_resource type="Texture2D" uid="uid://tunpkb0e2jjk" path="res://world/rooms/placeholder_room_art/outside-house.webp" id="2_n8cr0"]
 [ext_resource type="PackedScene" uid="uid://bmlck841yqy1p" path="res://player/player.tscn" id="3_a2gve"]
-[ext_resource type="PackedScene" path="res://world/doors/base_exit.tscn" id="3_if25p"]
+[ext_resource type="PackedScene" uid="uid://d23laq5ffag70" path="res://world/doors/base_exit.tscn" id="3_if25p"]
 [ext_resource type="Script" uid="uid://dtw0qgc7hd7y8" path="res://world/rooms/utilities/win_check.gd" id="3_lu8yp"]
 [ext_resource type="PackedScene" uid="uid://bvnvwpr81xkbb" path="res://inventory/inventory.tscn" id="4_h8x43"]
 [ext_resource type="Texture2D" uid="uid://ccckycpvuowey" path="res://assets/furniture/gate-sprite.webp" id="5_xr8pc"]
@@ -110,6 +110,7 @@ target_scene_name = "forest_pathB"
 position = Vector2(84, 99)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
 position_smoothing_enabled = true
 
 [node name="Inventory" parent="." instance=ExtResource("4_h8x43")]
@@ -198,17 +199,21 @@ position = Vector2(942.0536, 12)
 scale = Vector2(1.2054868, 0.9754098)
 texture = ExtResource("9_ry108")
 
-[node name="Statue" type="Sprite2D" parent="."]
+[node name="Statues" type="Node2D" parent="."]
+position = Vector2(90.45, 389.415)
+rotation = 0.01745329
+
+[node name="Statue" type="Sprite2D" parent="Statues"]
 modulate = Color(1.4683453, 1.4683453, 1.4683453, 1)
-position = Vector2(489, 204.00002)
-rotation = 0.017453292
+position = Vector2(395.2534, -192.3424)
 scale = Vector2(1.0341614, 1)
 texture = SubResource("CompressedTexture2D_ry108")
 flip_h = true
 
-[node name="Statue2" type="Sprite2D" parent="."]
+[node name="Statue2" type="Sprite2D" parent="Statues"]
 modulate = Color(1.3167266, 1.3167266, 1.3167266, 1)
-position = Vector2(-196, 198)
+position = Vector2(-289.747, -186.38661)
+rotation = -0.01745329
 texture = ExtResource("10_k3ycv")
 
 [node name="BaseDoor" parent="." instance=ExtResource("13_4npg2")]

@@ -181,6 +181,7 @@ texture = ExtResource("3_74xam")
 position = Vector2(1313, 671)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
 limit_left = -311
 limit_top = -303
 limit_right = 1989

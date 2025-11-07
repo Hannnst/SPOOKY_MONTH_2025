@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b1awoub33tqwk"]
+[gd_scene load_steps=48 format=3 uid="uid://b1awoub33tqwk"]
 
 [ext_resource type="Script" uid="uid://crm725jr0u0e1" path="res://world/rooms/main_hall.gd" id="1_llw6l"]
 [ext_resource type="Texture2D" uid="uid://bf2l47no6xfwp" path="res://assets/textures/gulvtekstur-vib.webp" id="2_ucueh"]
@@ -24,12 +24,36 @@
 [ext_resource type="Texture2D" uid="uid://dgnpj4ctpgxl0" path="res://assets/furniture/framedArt/Bleeding Clouds (1).webp" id="13_lhqqr"]
 [ext_resource type="Texture2D" uid="uid://dbiru7wy2xgkj" path="res://assets/furniture/framedArt/picture_frame.webp" id="14_083ga"]
 [ext_resource type="Script" uid="uid://ineuktjwfkwb" path="res://world/objects/vinyl_player.gd" id="15_js8q6"]
+[ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="15_nrsej"]
 [ext_resource type="AudioStream" uid="uid://x208fnd83x2e" path="res://sounds/music/piano_garbified.mp3" id="16_h8ipj"]
 [ext_resource type="PackedScene" uid="uid://bkqrkbhd5x7s0" path="res://interaction/interaction_area.tscn" id="18_ta6ww"]
 [ext_resource type="Texture2D" uid="uid://b3yc7jh27wv2i" path="res://assets/furniture/dead plant transparent.png" id="27_bxhrj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xagt"]
-size = Vector2(111, 457)
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp7bx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nvnim")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nvnim")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrsej"]
+radius = 44.0
+height = 286.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj77g"]
+size = Vector2(101, 388)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prhw4"]
 size = Vector2(2901, 2278)
@@ -89,6 +113,7 @@ script = ExtResource("1_llw6l")
 [node name="Inventory" parent="." instance=ExtResource("4_bsegt")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.021434635, 0.021434637, 0.021434627, 1)
 
 [node name="Background" type="Node2D" parent="."]
@@ -247,29 +272,41 @@ rotation = 1.5707964
 scale = Vector2(0.409302, 0.40930197)
 texture = ExtResource("14_083ga")
 
+[node name="StatueEnemy" parent="." instance=ExtResource("15_nrsej")]
+unique_name_in_owner = true
+position = Vector2(3941, 1234)
+speed = 0.0
+chase_speed = 0.0
+animation_frames = SubResource("SpriteFrames_wp7bx")
+shake_strength = 1.0
+
+[node name="AnimatedSprite2D" parent="StatueEnemy" index="0"]
+position = Vector2(-7, -117)
+scale = Vector2(1, 1)
+
+[node name="TriggerShape" parent="StatueEnemy/TriggerArea" index="0"]
+position = Vector2(-1, -82)
+shape = SubResource("CapsuleShape2D_nrsej")
+debug_color = Color(0.7840244, 0.43453065, 7.70092e-07, 0.41960785)
+
+[node name="CollisionShape2D" parent="StatueEnemy" index="2"]
+position = Vector2(-1.5, 24.5)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StatueEnemy"]
+position = Vector2(-1.5, -142)
+shape = SubResource("RectangleShape2D_nj77g")
+
 [node name="Player" parent="." instance=ExtResource("3_62s85")]
-position = Vector2(1141, 2376)
+position = Vector2(3058, 998)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
+process_callback = 0
 limit_left = -3000
 limit_top = -2500
 limit_right = 5000
 limit_bottom = 3500
 position_smoothing_enabled = true
-
-[node name="StatueEnemy" type="CharacterBody2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(3555, 1220)
-
-[node name="Statue" type="Sprite2D" parent="StatueEnemy"]
-position = Vector2(3.9999447, -207.99995)
-scale = Vector2(1.1723595, 1.1723595)
-texture = ExtResource("10_nvnim")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StatueEnemy"]
-position = Vector2(-1, -169)
-shape = SubResource("RectangleShape2D_8xagt")
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 position = Vector2(6, 226)
@@ -468,3 +505,5 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("27_bxhrj")
 
 [connection signal="body_entered" from="ExitToOutdoors" to="ExitToOutdoors" method="_on_body_entered"]
+
+[editable path="StatueEnemy"]

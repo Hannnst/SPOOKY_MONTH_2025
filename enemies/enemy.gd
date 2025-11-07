@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var cooldown_time: float = 3.0
 @export var animation_frames: SpriteFrames
 
+@export var shake_strength : float = 4.0 # pixels
+@export var triggered_sound : String = "res://sounds/sound_effects/actions/heartbeat-tense.mp3"
+
 var direction := Vector2.ZERO
 var direction_timer := 0.0
 var triggered := false
@@ -21,6 +24,7 @@ var base_sprite_position := Vector2(0, -29)
 
 
 func _ready():
+	base_sprite_position = $AnimatedSprite2D.position
 	if animation_frames:
 		animated_sprite.sprite_frames = animation_frames
 	else:
@@ -68,7 +72,6 @@ func _on_cooldown_timer_timeout():
 
 func _chase_player():
 	var direction_to_player = (player.global_position - global_position).normalized()
-	var shake_strength := 4.0 # pixels
 	# TODO: check if it has animation called chase, play it, if not play "down"
 	if animated_sprite.sprite_frames and "chase" in animated_sprite.sprite_frames.get_animation_names():
 		animated_sprite.play("chase")

@@ -10,7 +10,8 @@ extends StaticBody2D
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	if Globals.get_remaining("vinyl_played") <= 0:
-		%StatueEnemy.position = Vector2(3556.0, 950)
+		%StatueEnemy.position = Vector2(3556.0, 935)
+		%StatueEnemy/CollisionShape.disabled = true
 
 
 func _on_interact():
@@ -26,4 +27,5 @@ func activate():
 	Globals.trigger_finite_event("vinyl_played")
 	await DialogueManager.dialogue_ended
 	InventoryManager.remove_item("vinyl")
-	%StatueEnemy.position = Vector2(3556.0, 950)
+	%StatueEnemy.position = Vector2(3556.0, 935)
+	%StatueEnemy/CollisionShape.disabled = true
