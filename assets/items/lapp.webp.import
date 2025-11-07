@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vlcitcl24cpb"
-path="res://.godot/imported/lapp.webp-a56df06ad3406b48bea59ca219715591.ctex"
+path.s3tc="res://.godot/imported/lapp.webp-a56df06ad3406b48bea59ca219715591.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/items/lapp.webp"
-dest_files=["res://.godot/imported/lapp.webp-a56df06ad3406b48bea59ca219715591.ctex"]
+dest_files=["res://.godot/imported/lapp.webp-a56df06ad3406b48bea59ca219715591.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

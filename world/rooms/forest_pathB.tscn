@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cthjsgmc0m7c4" path="res://world/objects/key.tscn" id="3_o1u4v"]
 [ext_resource type="PackedScene" uid="uid://dujn2srpc7go4" path="res://enemies/enemy_scene.tscn" id="4_8h27r"]
 [ext_resource type="Script" uid="uid://cluhfwyqermql" path="res://world/doors/base_exit.gd" id="5_rw2sn"]
-[ext_resource type="Script" path="res://world/rooms/utilities/forestB-path_blocker.gd" id="6_rw2sn"]
+[ext_resource type="Script" uid="uid://cqtinjphh0r6k" path="res://world/rooms/utilities/forestB-path_blocker.gd" id="6_rw2sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h27r"]
 size = Vector2(813, 279.5)
@@ -37,7 +37,7 @@ texture = ExtResource("2_rw2sn")
 [node name="Key" parent="Background" instance=ExtResource("3_o1u4v")]
 position = Vector2(739, 213)
 
-[node name="Enemy" parent="Background" instance=ExtResource("4_8h27r")]
+[node name="Enemy" parent="." instance=ExtResource("4_8h27r")]
 position = Vector2(846, 29)
 speed = 10.0
 
