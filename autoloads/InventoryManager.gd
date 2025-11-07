@@ -10,7 +10,7 @@ var inventory = [
 	{ "name": "key", "is_owned": false, "texture": preload("res://world/objects/outside/key.webp"), "target_name": "Gate" },
 	{ "name": "toy", "is_owned": false, "texture": preload("res://assets/items/tamagotchi.webp") },
 	{ "name": "skull", "is_owned": false, "texture": preload("res://assets/items/skull_front.webp"), "target_name": "Grave" },
-	{ "name": "vinyl", "is_owned": true, "texture": preload("res://assets/furniture/vinyl.webp"), "target_name": "VinylPlayer" },
+	{ "name": "vinyl", "is_owned": false, "texture": preload("res://assets/furniture/vinyl.webp"), "target_name": "VinylPlayer" },
 	{ "name": "matches", "is_owned": false, "texture": preload("res://assets/items/matches.webp") },
 ]
 var current_slot_index: int = 0 #Keeps track of which item the player last selected, across scene change.
