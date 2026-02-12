@@ -17,7 +17,7 @@ func _on_interact():
 		%LampLight.enabled = false
 		%AudioStreamPlayer2D.stop()
 		%PianoGirl.queue_free()
-		%CanvasModulate.color = Color(0.078, 0.074, 0.074)
+		%CanvasModulate.color = Color(0.166, 0.158, 0.158, 1.0)
 		%ForgetfulTrigger/CollisionShape2D.disabled = false
 		%Gate.disabled = false
 	elif Globals.piano_closed == false:
