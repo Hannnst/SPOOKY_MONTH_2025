@@ -60,6 +60,12 @@ shape = SubResource("RectangleShape2D_ser2u")
 position = Vector2(1227.625, 972.5)
 shape = SubResource("RectangleShape2D_ser2u")
 
+[node name="Leaves2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1733.625, 718)
+scale = Vector2(0.68725044, 0.3923077)
+texture = ExtResource("5_jkyyv")
+
 [node name="SlidingPathBlocker" type="CharacterBody2D" parent="."]
 script = ExtResource("3_wfbcr")
 
@@ -83,11 +89,6 @@ shape = SubResource("RectangleShape2D_jkyyv")
 [node name="CollisionShapeBottom" type="CollisionShape2D" parent="SlidingPathBlocker"]
 position = Vector2(1270, 985)
 shape = SubResource("RectangleShape2D_jkyyv")
-
-[node name="Leaves" type="Sprite2D" parent="SlidingPathBlocker/CollisionShapeBottom"]
-position = Vector2(463.625, -267)
-scale = Vector2(0.68725044, 0.3923077)
-texture = ExtResource("5_jkyyv")
 
 [node name="Inventory" parent="." instance=ExtResource("7_ser2u")]
 
